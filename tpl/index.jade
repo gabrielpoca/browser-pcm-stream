@@ -2,6 +2,9 @@ doctype
 html
     head
         title= "Stream to Wav"
+        script(src="http://cdn.binaryjs.com/0/binary.js")
     body
-        button Start Recording
-        button Stop Recording
+        button(onclick="startRecording()") Start Recording
+        button(onclick="stopRecording()") Stop Recording
+        script(src="sender.js")
+        script(src="recorder.js")
