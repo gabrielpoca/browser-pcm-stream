@@ -1,0 +1,12 @@
+{
+    "name": "StreamToWav",
+    "version": "0.0.0",
+    "description": "Stream From Microphone to wav in the server",
+    "dependencies": {
+        "binaryjs": "latest",
+        "express": "latest",
+        "jade": "latest"
+    },
+    "author": "gabrielpoca"
+}
+
