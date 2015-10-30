@@ -1,12 +1,15 @@
 {
-    "name": "MicStreamToWav",
-    "version": "0.0.0",
-    "description": "Stream microphone pcm data to server and save on wav file.",
-    "dependencies": {
-        "binaryjs": "latest",
-        "express": "latest",
-        "jade": "latest",
-        "wav": "latest"
-    },
-    "author": "gabrielpoca"
+  "name": "MicStreamToWav",
+  "version": "0.0.0",
+  "description": "Stream microphone pcm data to server and save on wav file.",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "binaryjs": "latest",
+    "express": "latest",
+    "jade": "latest",
+    "wav": "latest"
+  },
+  "author": "gabrielpoca"
 }
