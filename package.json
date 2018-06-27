@@ -8,7 +8,6 @@
   "dependencies": {
     "binaryjs": "latest",
     "express": "latest",
-    "jade": "latest",
     "wav": "latest"
   },
   "author": "gabrielpoca"
