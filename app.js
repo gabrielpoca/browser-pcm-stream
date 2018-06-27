@@ -3,7 +3,8 @@ var BinaryServer = require('binaryjs').BinaryServer;
 var fs = require('fs');
 var wav = require('wav');
 
-var port = 3700;
+var port = 8080;
+var binaryPort = 9001;
 var app = express();
 
 function guid() {
@@ -14,6 +15,8 @@ function guid() {
   }
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
+
+console.log('#start express#');
 
 
 app.use(express.static(__dirname + '/public'))
@@ -26,7 +29,7 @@ app.listen(port);
 
 console.log('recording server open on port ' + port);
 
-binaryServer = BinaryServer({port: 9001});
+binaryServer = BinaryServer({port: binaryPort});
 
 binaryServer.on('connection', function(client) {
   console.log('new connection');
