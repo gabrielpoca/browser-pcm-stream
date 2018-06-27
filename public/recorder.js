@@ -1,3 +1,4 @@
+// From https://github.com/gabrielpoca/browser-pcm-stream
 (function(window) {
   var client = new BinaryClient('ws://localhost:9001');
 

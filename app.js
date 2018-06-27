@@ -4,8 +4,16 @@ var fs = require('fs');
 var wav = require('wav');
 
 var port = 3700;
-var outFile = 'demo.wav';
 var app = express();
+
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
 
 app.set('views', __dirname + '/tpl');
 app.set('view engine', 'jade');
@@ -18,26 +26,29 @@ app.get('/', function(req, res){
 
 app.listen(port);
 
-console.log('server open on port ' + port);
+console.log('recording server open on port ' + port);
 
 binaryServer = BinaryServer({port: 9001});
 
 binaryServer.on('connection', function(client) {
   console.log('new connection');
 
-  var fileWriter = new wav.FileWriter(outFile, {
+  let filename = guid() + '_'+Date.now();
+  console.log('instanciate file ' + filename);
+
+  var fileWriter = new wav.FileWriter(filename, {
     channels: 1,
     sampleRate: 48000,
     bitDepth: 16
   });
 
   client.on('stream', function(stream, meta) {
-    console.log('new stream');
+    console.log('new stream at '+ Date.now());
     stream.pipe(fileWriter);
 
     stream.on('end', function() {
       fileWriter.end();
-      console.log('wrote to file ' + outFile);
+      console.log('wrote to file ' + filename);
     });
   });
 });
