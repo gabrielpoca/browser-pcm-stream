@@ -34,14 +34,16 @@ binaryServer = BinaryServer({port: binaryPort});
 binaryServer.on('connection', function(client) {
   console.log('new connection');
 
-  let filename = guid() + '_'+Date.now();
-  console.log('instanciate file ' + filename);
+  let filename = "wav/"+guid() + '_'+Date.now()+".wav";
+  
 
   var fileWriter = new wav.FileWriter(filename, {
     channels: 1,
     sampleRate: 48000,
     bitDepth: 16
   });
+
+  console.log('filewriter ready for :' + filename);
 
   client.on('stream', function(stream, meta) {
     console.log('new stream at '+ Date.now());
