@@ -3,12 +3,24 @@
   <head>
       <title>Browser streaming POC</title>
       <script src="binary.js"></script>
+
+      <script src="library.js"></script>
       <script src="recorder.js"></script>
   </head>
 
   <body bgcolor=white>
+
       <button onclick="startRecording()">Start Recording</button>
       <button onclick="stopRecording()">Stop Recording</button>
+      <button onclick="listenRecording()">Listen Recording</button>
+      <button onclick="saveRecording()">Save Recording</button>
+
+      <div id="waveform"></div>
   </body>
+
+  <footer>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
+      <script src="player.js"></script>
+  </footer>
 
 </html>
