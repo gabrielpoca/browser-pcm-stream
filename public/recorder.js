@@ -31,6 +31,7 @@
 
     window.startRecording = function() {
       setupNewStream();
+      //window.wavesurfer.load();
       recording = true;
     }
 

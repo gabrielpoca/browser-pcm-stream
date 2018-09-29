@@ -18,4 +18,9 @@
 	window.listenRecording = function() {
 		window.wavesurfer.playPause();
 	};
+
+	window.discardRecording = function() {
+		window.wavesurfer.load();
+	};
+	
 })(this);
