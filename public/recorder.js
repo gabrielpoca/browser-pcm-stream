@@ -12,12 +12,12 @@
 
   }
 
-
-  var client = new BinaryClient('ws://localhost:9001');
+//https://browser-pcm-stream.dop/
+  var client = new BinaryClient('wss://browser-pcm-stream.dop/ws');
 
   client.on('open', function() {
 
-    if (!navigator.getUserMedia)
+    if (!navigator.mediaDevices.getUserMedia())
       navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
