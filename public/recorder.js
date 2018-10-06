@@ -13,19 +13,18 @@
   }
 
 //https://browser-pcm-stream.dop/
-  var client = new BinaryClient('wss://browser-pcm-stream.dop/ws');
+  var client = new BinaryClient('wss://localhost/ws');
 
   client.on('open', function() {
 
-    if (!navigator.mediaDevices.getUserMedia())
-      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia || navigator.msGetUserMedia;
+    var constraints = { audio: true, video:false }
 
-    if (navigator.getUserMedia) {
-      navigator.getUserMedia({audio:true}, success, function(e) {
-        alert('Error capturing audio.');
-      });
-    } else alert('getUserMedia not supported in this browser.');
+    navigator.mediaDevices.getUserMedia(constraints).then(success).catch(function(err) {
+      //enable the record button if getUserMedia() fails
+      recordButton.disabled = false;
+      stopButton.disabled = true;
+      pauseButton.disabled = true
+    });
 
     var recording = false;
 
