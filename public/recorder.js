@@ -13,7 +13,7 @@
   }
 
 //https://browser-pcm-stream.dop/
-  var client = new BinaryClient('wss://localhost/ws');
+  var client = new BinaryClient('wss://pioupiou.pw/ws');
 
   client.on('open', function() {
 
