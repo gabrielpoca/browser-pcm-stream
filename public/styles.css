@@ -101,6 +101,16 @@
     top: 0; 
     background-color: #000000;  
 }
+.input  {
+    margin: 0 auto;
+    display: block;
+    width: 60%;
+    height: 4rem;
+    border-radius: 2rem;
+    color: gray;
+    background-color: rgba(255,255,255,0.20);
+    border: none;
+}
 .circleText {
     border-radius: 50%;
     border: 1px solid white;
@@ -113,8 +123,8 @@
     position: relative;
     top: 50%;
     left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
 }
 
 .about {
@@ -123,16 +133,19 @@
 }
 .icon {
     color:white;
-    width: 64px;
+    width: 6rem;
+    margin: auto;
+    padding-bottom: 25vh;
 }
 .step {
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     padding-top: 4rem;
     padding-bottom: 1rem;
 }
 .instructions {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     font-style: normal;
 } 
 .section-height {
