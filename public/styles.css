@@ -4,6 +4,16 @@
     width: 100%;
     padding: 0px !important;
 }   
+.topRightImage{
+    position:relative;
+    height: 50vh;
+    width: 100%;
+    padding: 0px !important;
+}
+.navButtons {
+    position:absolute;
+    display:block;
+}
 .container {
     position: relative;
     text-align: center;
@@ -187,3 +197,5 @@
 .centerText  {
     text-align:center;
 }
+
+
