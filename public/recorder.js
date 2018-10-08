@@ -13,7 +13,7 @@
   }
 
 //https://browser-pcm-stream.dop/
-  var client = new BinaryClient('wss://localhost/ws');
+  var client = new BinaryClient('ws://localhost:9001');
 
   client.on('open', function() {
 

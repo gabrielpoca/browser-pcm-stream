@@ -78,6 +78,11 @@
     color:white;
     width: 100%;
 }
+.inputDescription {
+    text-align: center;
+    padding-top: 3rem;
+    font-size: 1.25rem;
+}
 .centered {
     position: absolute;
     top: 50%;
@@ -110,6 +115,7 @@
     color: gray;
     background-color: rgba(255,255,255,0.20);
     border: none;
+    padding-left: 25%;
 }
 .circleText {
     border-radius: 50%;
@@ -136,6 +142,14 @@
     width: 6rem;
     margin: auto;
     padding-bottom: 25vh;
+}
+.audioIcons {
+    width: 6rem;
+    padding: 1rem;
+}
+.centerButtons {
+    display: block;
+    padding-top: .5rem;
 }
 .step {
     font-size: 3.5rem;
