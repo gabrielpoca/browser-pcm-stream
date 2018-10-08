@@ -37,7 +37,21 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-app.listen(port);
+require('http').createServer(app).listen(port)
+
+app.on('error', function(err){
+    console.error('on error handler');
+    console.error(err);
+});
+app.on('clientError', function(err){
+    console.error('on clientError handler');
+    console.error(err);
+});
+process.on('uncaughtException', function(err) {
+    console.error('process.on handler');
+    console.error(err);
+});
+
 
 console.log('recording server open on port ' + port);
 
@@ -61,4 +75,8 @@ binaryServer.on('connection', function(client) {
       stream.write(filename.replace(STORAGE_DIR,""));
     });
   });
+});
+
+binaryServer.on('error', function(error){
+  console.log("binaryServer error :",error);
 });
