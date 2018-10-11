@@ -10,6 +10,10 @@
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel = "stylesheet"
@@ -102,7 +106,9 @@
             <p class="numberText centerText">3</p>
         </div>
         <p class="instructions centerText">Say good morning</p>
-        <img class="icon img-responsive" src='assets/images/round-mic-24px.svg'>
+          <p id="recorder" class="instructions centerText"> 
+            <i class="fas fa-microphone-alt fa-2x" onclick="toggleRecording()"></i> 
+          </p>
         <input class="input" type="time" id="appt-time" name="appt-time"
         min="9:00" max="18:00" required />
       </div>

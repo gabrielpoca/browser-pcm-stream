@@ -13,17 +13,18 @@
   }
 
 //https://browser-pcm-stream.dop/
-  var client = new BinaryClient('wss://pioupiou.pw/ws');
+  var client = new BinaryClient('wss://browser-pcm-stream.dop/ws');
 
   client.on('open', function() {
 
     var constraints = { audio: true, video:false }
 
     navigator.mediaDevices.getUserMedia(constraints).then(success).catch(function(err) {
-      //enable the record button if getUserMedia() fails
-      recordButton.disabled = false;
-      stopButton.disabled = true;
-      pauseButton.disabled = true
+      //TODO disable the record button if getUserMedia() fails
+      console.error("getUserMedia fail",err);
+      // recordButton.disabled = false;
+      // stopButton.disabled = true;
+      // pauseButton.disabled = true
     });
 
     var recording = false;
@@ -37,6 +38,13 @@
     window.stopRecording = function() {
       recording = false;
       window.Stream.end();
+    }
+
+    window.toggleRecording = function() {
+      if(recording)
+        stopRecording();
+      else
+        startRecording();
     }
 
     function success(e) {

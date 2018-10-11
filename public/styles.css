@@ -173,3 +173,11 @@
 .centerText  {
     text-align:center;
 }
+
+
+.fa-microphone-alt:hover {
+    color: red;
+      color: #ff0000;
+  text-shadow: 0 0 3px #ff0000;
+}
+
