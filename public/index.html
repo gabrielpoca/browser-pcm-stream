@@ -109,6 +109,7 @@
           <p id="recorder" class="instructions centerText"> 
             <i class="fas fa-microphone-alt fa-2x" onclick="toggleRecording()"></i> 
           </p>
+          <div id="waveform"></div>
         <input class="input" type="time" id="appt-time" name="appt-time"
         min="9:00" max="18:00" required />
       </div>
@@ -133,4 +134,10 @@
       <p class="about">{{lowerText}}</p>
       </div>
   </div>
+
+  <footer>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
+      <script src="player.js"></script>
+  </footer>
+
 </html>
