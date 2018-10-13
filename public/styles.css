@@ -6,7 +6,8 @@
 }   
 .topRightImage{
     position:relative;
-    height: 50vh;
+    text-align:center;
+    /* height: 50vh; */
     width: 100%;
     padding: 0px !important;
 }
@@ -19,6 +20,7 @@
     text-align: center;
     color: white;
     padding-right: 0px !important;
+    padding-left: 0px !important;
 }
 .overlayText {
     position: absolute;
@@ -74,7 +76,7 @@
 }
 .lowerPadding { 
     padding-left:15%;
-    padding-top:15%;
+    padding-top:25%;
     font-size: 1.25em;
 }
 .sectionHeight {
@@ -180,6 +182,7 @@
 }
 .nextIcon {
     left:-25%;
+    top: 40%;
 }
 
 .normalText {
