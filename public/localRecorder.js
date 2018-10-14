@@ -83,8 +83,6 @@ function stopRecording() {
 	//disable the stop button, enable the record too allow for new recordings
 	stopButton.disabled = true;
 	recordButton.disabled = false;
-
-
 	
 	//tell the recorder to stop the recording
 	rec.stop();
@@ -107,7 +105,8 @@ function createDownloadLink(blob) {
 	var filename = new Date().toISOString();
 
 	//add controls to the <audio> element
-	au.controls = true;
+	au.controls = false;
+	au.id = "audioComponent";
 	au.src = url;
 
 	//save to disk link
@@ -124,23 +123,6 @@ function createDownloadLink(blob) {
 	//add the save to disk link to li
 	//li.appendChild(link);
 	
-	//upload link
-	var upload = document.createElement('a');
-	upload.href="#";
-	upload.innerHTML = "Upload";
-	upload.addEventListener("click", function(event){
-		  var xhr=new XMLHttpRequest();
-		  xhr.onload=function(e) {
-		      if(this.readyState === 4) {
-		          console.log("Server returned: ",e.target.responseText);
-		      }
-		  };
-		  var fd=new FormData();
-		  fd.append("audio_data",blob, filename);
-		  xhr.open("POST","upload",true);
-		  xhr.send(fd);
-	})
-
 	var xhr=new XMLHttpRequest();
 	xhr.onload=function(e) {
 	  if(this.readyState === 4) {

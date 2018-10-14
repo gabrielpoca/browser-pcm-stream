@@ -2,21 +2,30 @@ var express = require('express');
 var BinaryServer = require('binaryjs').BinaryServer;
 var fs = require('fs');
 var wav = require('wav');
+var zip = require('express-easy-zip');
+var multer = require('multer');
+var upload = multer();
 
 var port = 3000;
 var binaryPort = 9001;
 var app = express();
 
-const STORAGE_DIR = "public/";
+var multer  = require('multer')
 
-function guid() {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
+const STORAGE_DIR = "uploads";
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, STORAGE_DIR)
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now()+".wav")
   }
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-}
+})
+
+var upload = multer({ storage: storage })
+
+var bodyParser = require('body-parser');
+
 
 function getFileWriter(filename){
     var fileWriter = new wav.FileWriter(filename, {
@@ -33,9 +42,40 @@ console.log('#start express#');
 
 app.use(express.static(__dirname + '/public'))
 
+
+app.use(zip());
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true }));
+// for parsing multipart/form-data
+//app.use(upload.array()); 
+
 app.get('/', function(req, res){
   res.render('index');
 });
+
+app.get('/zip', function(req, res, next) {
+  var dirPath = __dirname + "/uploads";
+  res.zip({
+    files: [
+        {   
+            name: 'wav-file.zip',
+            mode: 0755,
+            date: new Date(),
+            type: 'file' },
+        { path: dirPath, name: 'wav' }    
+    ],
+      filename: 'all-wav.zip'
+  });
+});
+
+app.post('/upload', upload.single('audio_data'),function(req,res, next) {
+   console.log(req.body);
+   console.log(req.file);
+   res.status(201);
+   res.send('All good');
+
+});
+
 
 require('http').createServer(app).listen(port)
 
@@ -80,3 +120,13 @@ binaryServer.on('connection', function(client) {
 binaryServer.on('error', function(error){
   console.log("binaryServer error :",error);
 });
+
+
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
