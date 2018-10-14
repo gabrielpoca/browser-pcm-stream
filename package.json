@@ -7,8 +7,11 @@
   },
   "dependencies": {
     "binaryjs": "latest",
+    "body-parser": "^1.18.3",
     "eslint": "^5.6.1",
     "express": "latest",
+    "express-easy-zip": "^1.1.4",
+    "multer": "^1.4.1",
     "wav": "latest"
   },
   "author": "gabrielpoca"

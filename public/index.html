@@ -20,24 +20,7 @@
         type = "text/css"
         href = "styles.css" />
       <script src="library.js"></script>
-      <script src="recorder.js"></script>
   </head>
-
-  <!-- <body bgcolor=white>
-      
-      <button onclick="startRecording()">Start Recording</button>
-      <button onclick="stopRecording()">Stop Recording</button>
-      <button onclick="listenRecording()">Listen Recording</button>
-      <button onclick="saveRecording()">Save Recording</button>
-      <button onclick="discardRecording()">Discard Recording</button>
-
-      <div id="waveform"></div>
-  </body>
-
-  <footer>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
-      <script src="player.js"></script>
-    </footer> -->
 
 <div class="row">
   <div class="container section-height col-md-8 ">
@@ -107,15 +90,16 @@
         </div>
         <p class="instructions centerText">Say good morning</p>
           <p id="mic-icon" class="instructions centerText"> 
-            <i class="fas fa-microphone-alt fa-2x" onclick="toggleRecording()"></i> 
+            <i class="fas fa-microphone-alt fa-2x"></i> 
           </p>
-<!--           <div id="waveform"></div>
- -->        <input class="input" type="time" id="appt-time" name="appt-time"
-        min="9:00" max="18:00" required />
+<!--            <div id="waveform"></div>
+ -->           <ol id="recordingsList"></ol>
+        <!-- <input class="input" type="time" id="appt-time" name="appt-time"
+        min="9:00" max="18:00" required /> -->
 
         <p class="record-control centerText">
-            <i class="fas fa-square fa-2x"></i>
-            <i class="far fa-circle fa-2x"></i>
+            <i id="recordButton" class="fas fa-circle fa-2x"></i>
+            <i id="stopButton" class="fas fa-square fa-2x"></i>
             <i class="fas fa-trash-alt fa-2x"></i>
           </span>
         </p>
@@ -143,8 +127,14 @@
   </div>
 
   <footer>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
-      <script src="player.js"></script>
+
+    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+    <script src="recorder.js"></script>
+    <script src="localRecorder.js"></script>
+
+
+<!--       <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
+      <script src="player.js"></script> -->
   </footer>
 
 </html>
