@@ -1,6 +1,7 @@
 var express = require('express');
 var BinaryServer = require('binaryjs').BinaryServer;
 var fs = require('fs');
+const path = require('path');
 var wav = require('wav');
 var zip = require('express-easy-zip');
 var multer = require('multer');
@@ -25,6 +26,8 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 var bodyParser = require('body-parser');
+
+const dirPath = __dirname + "/uploads";
 
 
 function getFileWriter(filename){
@@ -54,7 +57,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/zip', function(req, res, next) {
-  var dirPath = __dirname + "/uploads";
+
   res.zip({
     files: [
         {   
@@ -66,6 +69,21 @@ app.get('/zip', function(req, res, next) {
     ],
       filename: 'all-wav.zip'
   });
+});
+
+app.get('/purge', function(req, res, next){
+  fs.readdir(dirPath, (err, files) => {
+  if (err) throw err;
+
+  for (const file of files) {
+    fs.unlink(path.join(dirPath, file), err => {
+      if (err) throw err;
+    });
+  }
+  });
+  res.status(204);
+  res.send('Deleted all');
+  next();
 });
 
 app.post('/upload', upload.single('audio_data'),function(req,res, next) {
