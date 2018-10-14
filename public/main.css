@@ -1,0 +1,240 @@
+.boundingBox {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  padding: 0px !important;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding-right: 0px !important;
+}
+
+.overlayText {
+  position: absolute;
+  color: white;
+  text-align: left;
+  width: 75%;
+  height: 75%;
+  border: solid;
+  border-width: 1.5em;
+  height: 75% !important;
+}
+
+.overlayNoBorder {
+  position: absolute;
+  color: white;
+  text-align: left;
+  width: 75%;
+  height: 75%;
+  text-transform: none;
+}
+
+.splashTitle {
+  font-size: 3em;
+  font-weight: bolder;
+  padding-left: 20%;
+  padding-top: 10%;
+  text-transform: uppercase;
+}
+
+.normalTitle {
+  font-size: 4em;
+  font-weight: bolder;
+  padding-left: 20%;
+  padding-top: 10%;
+}
+
+.splashText {
+  font-size: 0.25em;
+  font-weight: normal;
+  text-transform: none;
+}
+
+.innerText {
+  height: 50%;
+}
+
+.topRightBoxes {
+  text-align: left;
+  height: 50vh;
+  /* width:100%; */
+  padding: 0px !important;
+}
+
+.lowerBox {
+  /* height: 50vh; */
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 15%;
+}
+
+.lowerPadding {
+  padding-left: 15%;
+  padding-top: 15%;
+  font-size: 1.25em;
+}
+
+.sectionHeight {
+  height: 100vh;
+  min-height: 400px;
+  background-color: black;
+  color: white;
+}
+
+.inputColumns {
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.mainImage {
+  height: 100vh;
+}
+
+.inputColumns {
+  position: relative;
+}
+
+.inputColumns::after {
+  content: "";
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #000000;
+}
+
+.input {
+  margin: 0 auto;
+  display: block;
+  width: 60%;
+  height: 4rem;
+  border-radius: 2rem;
+  color: gray;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+}
+
+.circleText {
+  border-radius: 50%;
+  border: 1px solid white;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+}
+
+.numberText {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+}
+
+.about {
+  background-color: white;
+  color: black;
+}
+
+.icon {
+  color: white;
+  width: 6rem;
+  margin: auto;
+  padding-bottom: 25vh;
+}
+
+.step {
+  font-size: 3.5rem;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+}
+
+.instructions {
+  font-size: 2.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-style: normal;
+}
+
+.section-height {
+  height: 100vh;
+}
+
+.half-height {
+  height: 50vh !important;
+}
+
+.nextIcon {
+  left: -25%;
+}
+
+.normalText {
+  font-size: 1rem;
+  text-align: left;
+}
+
+.bigText {
+  font-size: 4rem;
+  text-align: left;
+  font-weight: bolder;
+  font-family: arial;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.fa-circle:hover {
+  color: red;
+  color: #ff0000;
+  text-shadow: 0 0 3px #ff0000;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 -10px #c4a300;
+  }
+  40% {
+    text-shadow: 0 0 20px #c4a300;
+  }
+  60% {
+    text-shadow: 0 0 20px #c4a300;
+  }
+  100% {
+    text-shadow: 0 0 -10px #c4a300;
+  }
+}
+.button-glow {
+  animation: glowing 2500ms infinite;
+}
+
+ol {
+  list-style-type: none;
+}
+
+#waveform {
+  display: block;
+  position: relative;
+  user-select: none;
+  height: 4em;
+  width: 60%;
+  border-radius: 2rem;
+  overflow: auto hidden;
+  background-color: gray;
+}
+
+/*# sourceMappingURL=main.css.map */

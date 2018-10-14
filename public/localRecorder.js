@@ -11,10 +11,22 @@ var audioContext //audio context to help us record
 
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
+var trashButton = document.getElementById("trashButton");
 
-//add events to those 2 buttons
+//add events to those buttons
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
+trashButton.addEventListener("click", discardRecording);
+
+
+function discardRecording(){
+	console.log("Discard recording");
+	stopButton.className = "far fa-stop-circle fa-3x";
+	document.getElementById("audioComponent")
+	while( recordingsList.firstChild ){
+	  recordingsList.removeChild( recordingsList.firstChild );
+	}
+}
 
 function startRecording() {
 	console.log("recordButton clicked");
@@ -25,6 +37,7 @@ function startRecording() {
 	*/
     
     var constraints = { audio: true, video:false }
+    stopButton.className = "far fa-stop-circle fa-3x";
 
  	/*
     	Disable the record button until we get a success or fail from getUserMedia() 
@@ -80,18 +93,26 @@ function startRecording() {
 function stopRecording() {
 	console.log("stopButton clicked");
 
-	//disable the stop button, enable the record too allow for new recordings
-	stopButton.disabled = true;
-	recordButton.disabled = false;
-	
-	//tell the recorder to stop the recording
-	rec.stop();
+	if ( ! stopButton.disabled ){
+		//disable the stop button, enable the record too allow for new recordings
+		stopButton.disabled = true;
+		recordButton.disabled = false;
+		//stopButton.src = 'assets/images/round-keyboard_arrow_right-24px.svg';
+		stopButton.className = "fas fa-play-circle fa-3x";
 
-	//stop microphone access
-	gumStream.getAudioTracks()[0].stop();
 
-	//create the wav blob and pass it on to createDownloadLink
-	rec.exportWAV(createDownloadLink);
+		//tell the recorder to stop the recording
+		rec.stop();
+
+		//stop microphone access
+		gumStream.getAudioTracks()[0].stop();
+
+		//create the wav blob and pass it on to createDownloadLink
+		rec.exportWAV(createDownloadLink);
+	}
+	else if (document.getElementById("audioComponent")) {
+		document.getElementById("audioComponent").play();
+	}
 }
 
 function createDownloadLink(blob) {

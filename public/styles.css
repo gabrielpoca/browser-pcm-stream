@@ -206,3 +206,8 @@ list-style-type: none;
     overflow: auto hidden;
     background-color: gray;
 }
+
+#trashButton{
+        width: 3.2em;
+    padding-bottom: 27px;
+}

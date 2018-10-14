@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "description": "Stream microphone pcm data to server and save on wav file.",
   "scripts": {
-    "start": "node app.js"
+    "sass" : "sass main.scss public/main.css",
+    "watch-sass" : "nodemon -e scss -x \"npm run sass\"",
+    "start": "node app.js",
+    "serve": "npm run watch-sass && npm run start"
   },
   "dependencies": {
     "binaryjs": "latest",
