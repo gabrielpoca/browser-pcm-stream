@@ -15,10 +15,11 @@ images = [1, 2, 3].map(() => `../assets/images/CraigD-Image-TopRight.jpg`);
       <p>Drop a line, if you want to talk about this, have ideas or just want to be kept up to date with the progress.</p>
       GlobalGoodMorning @ gmail.com`},
       {value:2, title: 'Credits', display:`
-      (this will evolve)
-      Site Design: Brian Carley
-      Programming: James Goedert, Antoine xxx
-      Photos: Unsplash.com`}
+      <p>(this will evolve)</p>
+      <p>Site Design: Brian Carley</p>
+      <p>Programming: James Goedert</p>
+      <p>Antoine xxx</p>
+      <p>Photos: Unsplash.com</p>`}
   ]
 
 if(upperSlidePosition === 0) {
