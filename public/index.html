@@ -45,18 +45,14 @@
       </div>
   </div>
   <div class="col-md-4 topRightBoxes">
-      <div class="container">
-          <!-- <div class="half-height row"> -->
-        
-      <img class="boundingBox half-height" src="assets/images/CraigD-Image-TopRight.jpg">
-      <div class="overlayNoBorder centered">
-        <p id="slideText"></p>
-        <img class="icon overlayNoBorder" onclick="changeText(-1)" src='assets/images/round-keyboard_arrow_right-24px.svg' >
-        <img class="icon overlayNoBorder" onclick="changeText(1)" src='assets/images/round-keyboard_arrow_right-24px.svg' >
-      </div>
-
-      </div>
-      <div class="lowerBox half-height row">
+    <img class="boundingBox half-height" src="assets/images/CraigD-Image-TopRight.jpg">
+    <div class="overlayNoBorder centered d-flex flex-row">
+          <img class="icon overlayNoBorder leftArrow p-2" onclick="changeText(-1)" src='assets/images/top_white_arrow_left-24px.svg' >
+          <span class="paddingRightHI" id="slideTextHI"></span>
+          <p class="p-2 topRightText" id="slideText"></p>
+          <img class="icon overlayNoBorder rightArrow p-2" onclick="changeText(1)" src='assets/images/top_white_arrow_right-24px.svg' >
+    </div>
+    <div class="lowerBox half-height row">
       <p class="lowerPadding col-md-9">I want<br> to add<br> my own<br> personal<br> good <br>morning.</p>
       <div class="col-md-3 circleText nextIcon">
           <a href="#inputs" class="col-md-3">
@@ -125,13 +121,11 @@
           </div>
   <div class="row" (click)="toggleAbout()">
       <div class="col-md-6 sectionHeight normalTitle about">
-      <p>About</p>
-      <p>The</p>
-      <p>Project</p>
+        <p id="aboutTitle"></p>
       </div>
-      <div class="col-md-6 sectionHeight about">
-      <p class="about">{{lowerText}}</p>
-      <img class="icon nextIcon" src='assets/images/round-keyboard_arrow_right-24px.svg' >
+      <div class="col-md-6 sectionHeight about d-flex flex-row">
+      <span class="about centered p-2" id="about"></span>
+      <img class="icon nextIconBottom p-2" src='assets/images/round-keyboard_arrow_right-24px.svg' onclick="changeAboutText()">
     </div>
   </div>
   <script src="index.js"></script>
