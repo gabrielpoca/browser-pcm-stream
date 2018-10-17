@@ -246,7 +246,38 @@ padding-top: 35%;
 }
 
 .centerText  {
-	text-align:center;
+    text-align:center;
 }
 
 
+.fa-circle:hover {
+    color: red;
+    color: #ff0000;
+    text-shadow: 0 0 3px #ff0000;
+}
+
+@keyframes glowing {
+    0% { text-shadow: 0 0 -10px #c4a300; }
+    40% { text-shadow: 0 0 20px #c4a300; }
+    60% { text-shadow: 0 0 20px #c4a300; }
+    100% { text-shadow: 0 0 -10px #c4a300; }
+  }
+  
+.button-glow {
+    animation: glowing 2500ms infinite;
+}
+
+ol{
+list-style-type: none;
+}
+
+#waveform{
+    display: block;
+    position: relative;
+    user-select: none;
+    height: 4em;
+    width: 60%;
+    border-radius: 2rem;
+    overflow: auto hidden;
+    background-color: gray;
+}

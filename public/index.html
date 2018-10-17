@@ -11,28 +11,15 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel = "stylesheet" type = "text/css" href = "styles.css" />
     <script src="library.js"></script>
     <script src="recorder.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel = "stylesheet"
+        type = "text/css"
+        href = "styles.css" />
   </head>
   <body>
       
-
-  <!-- <body bgcolor=white>
-      
-      <button onclick="startRecording()">Start Recording</button>
-      <button onclick="stopRecording()">Stop Recording</button>
-      <button onclick="listenRecording()">Listen Recording</button>
-      <button onclick="saveRecording()">Save Recording</button>
-      <button onclick="discardRecording()">Discard Recording</button>
-
-      <div id="waveform"></div>
-  </body> -->
-
-  <footer>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
-      <script src="player.js"></script>
-    </footer>
 
 <div class="row">
   <div class="container section-height col-md-8 ">
@@ -90,7 +77,7 @@
             <p class="numberText centerText">3</p>
         </div>
         <p class="instructions centerText">Say good morning</p>
-        <img class="icon img-responsive" src='assets/images/round-mic-24px.svg'>
+        <!-- <img class="icon img-responsive" src='assets/images/round-mic-24px.svg'>
         <input class="input" type="time" id="appt-time" name="appt-time"
         min="9:00" max="18:00" required />
         <div class="row centerButtons">
@@ -105,7 +92,25 @@
               <img class="audioIcons"  onclick="discardRecording()" src='assets/images/round-delete-24px.svg'>
           </div>
           <div class="indentLeft col-md-3"></div>
-        </div>
+        </div> -->
+
+
+          <p id="mic-icon" class="instructions centerText"> 
+            <i class="fas fa-microphone-alt fa-2x"></i> 
+          </p>
+<!--            <div id="waveform"></div>
+ -->    
+        <ol id="recordingsList"></ol>
+        <!-- <input class="input" type="time" id="appt-time" name="appt-time"
+        min="9:00" max="18:00" required /> -->
+
+        <p class="record-control centerText">
+            <i id="recordButton" class="fas fa-circle fa-2x"></i>
+            <i id="stopButton" class="fas fa-square fa-2x"></i>
+            <i class="fas fa-trash-alt fa-2x"></i>
+          </span>
+        </p>
+        
       </div>
     </a>
   </div>
@@ -128,6 +133,15 @@
       <img class="icon nextIconBottom p-2" src='assets/images/round-keyboard_arrow_right-24px.svg' onclick="changeAboutText()">
     </div>
   </div>
-  <script src="index.js"></script>
 </body>
+
+<footer>
+<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+  <script src="index.js"></script>
+  <script src="recorder.js"></script>
+  <script src="localRecorder.js"></script>
+<!--       <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
+      <script src="player.js"></script> -->
+</footer>
+
 </html>
