@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;fill:#F1F1F2;}
+	.st2{fill:none;}
+	.st3{display:inline;}
+	.st4{opacity:0.3;enable-background:new    ;}
+	.st5{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;}
+	.st6{fill:#FFFFFF;}
+</style>
+<g id="background">
+</g>
+<g id="Layer_1">
+	<g id="Header_x2F_BG" class="st0">
+		<rect x="-270" y="-270" class="st1" width="520" height="520"/>
+	</g>
+	<g id="Bounding_Boxes">
+		<g id="ui_x5F_spec_x5F_header_copy_3">
+		</g>
+		<path class="st2" d="M0,0h24v24H0V0z"/>
+	</g>
+	<g id="Sharp" class="st0">
+		<g id="ui_x5F_spec_x5F_header_copy_4" class="st3">
+		</g>
+		<path class="st3" d="M6,21h12V7H6V21z M19,4h-3.5l-1-1h-5l-1,1H5v2h14V4z"/>
+	</g>
+	<g id="Outline" class="st0">
+		<g id="ui_x5F_spec_x5F_header" class="st3">
+		</g>
+		<path id="XMLID_282_" class="st3" d="M16,9v10H8V9H16 M14.5,3h-5l-1,1H5v2h14V4h-3.5L14.5,3L14.5,3z M18,7H6v12c0,1.1,0.9,2,2,2h8
+			c1.1,0,2-0.9,2-2V7L18,7z"/>
+	</g>
+	<g id="Duotone" class="st0">
+		<g id="ui_x5F_spec_x5F_header_copy_2" class="st3">
+		</g>
+		<g class="st3">
+			<rect x="8" y="9" class="st4" width="8" height="10"/>
+			<g>
+				<polygon points="15.5,4 14.5,3 9.5,3 8.5,4 5,4 5,6 19,6 19,4 				"/>
+				<path d="M6,19c0,1.1,0.9,2,2,2h8c1.1,0,2-0.9,2-2V7H6V19z M8,9h8v10H8V9z"/>
+			</g>
+		</g>
+	</g>
+	<g id="Fill" class="st0">
+		<g id="ui_x5F_spec_x5F_header_copy" class="st3">
+		</g>
+		<path class="st3" d="M6,19c0,1.1,0.9,2,2,2h8c1.1,0,2-0.9,2-2V7H6V19z M19,4h-3.5l-1-1h-5l-1,1H5v2h14V4z"/>
+	</g>
+	<g id="nyt_x5F_exporter_x5F_info" class="st0">
+	</g>
+	<circle class="st5" cx="12" cy="12" r="11"/>
+	<g id="Rounded_1_">
+		<path class="st6" d="M8,6h8c1.1,0,2,0.9,2,2v8c0,1.1-0.9,2-2,2H8c-1.1,0-2-0.9-2-2V8C6,6.9,6.9,6,8,6z"/>
+	</g>
+</g>
+</svg>

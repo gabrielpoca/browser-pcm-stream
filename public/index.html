@@ -1,26 +1,25 @@
 <html>
-    
-    <head>
-        <title>Browser streaming POC</title>
-        <script src="binary.js"></script>
+  <head>
+    <title>Browser streaming POC</title>
+    <script src="binary.js"></script>
         
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel = "stylesheet"
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="library.js"></script>
+    <script src="recorder.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel = "stylesheet"
         type = "text/css"
         href = "styles.css" />
-      <script src="library.js"></script>
   </head>
+  <body>
+      
 
 <div class="row">
   <div class="container section-height col-md-8 ">
@@ -33,37 +32,24 @@
       </div>
   </div>
   <div class="col-md-4 topRightBoxes">
-      <div class="half-height">
-      <img class="img-responsive boundingBox" src="assets/images/CraigD-Image-TopRight.jpg">
-      <!-- <app-ngbd-carousel-basic></app-ngbd-carousel-basic> -->
-      </div>
-      <div class="lowerBox half-height row">
+    <img class="boundingBox half-height" src="assets/images/CraigD-Image-TopRight.jpg">
+    <div class="overlayNoBorder centered d-flex flex-row">
+          <img class="icon overlayNoBorder leftArrow p-2" onclick="changeText(-1)" src='assets/images/top_white_arrow_left-24px.svg' >
+          <span class="paddingRightHI" id="slideTextHI"></span>
+          <p class="p-2 topRightText" id="slideText"></p>
+          <img class="icon overlayNoBorder rightArrow p-2" onclick="changeText(1)" src='assets/images/top_white_arrow_right-24px.svg' >
+    </div>
+    <div class="lowerBox half-height row">
       <p class="lowerPadding col-md-9">I want<br> to add<br> my own<br> personal<br> good <br>morning.</p>
       <div class="col-md-3 circleText nextIcon">
-          <a href="#inputs" class="col-md-3">
-          <img class="icon" src='assets/images/round-keyboard_arrow_right-24px.svg' >
+          <a href="# s" class="col-md-3">
+          <img class="icon nextIcon" src='assets/images/round-keyboard_arrow_right-24px.svg' >
           </a>
       </div>
       </div>
   </div>
-  <div class="row inputColumns" id="inputs" >
-      <!-- <div class="col-md-4 sectionHeight" *ngFor="let field of inputFields">
-      <p class="step">STEP</p>
-      <div class="circleText">
-          <p class="numberText">{{field.step}}</p>
-      </div>
-      <p class="instructions">{{field.prompt}}</p>
-      <img class="icon img-responsive" src={{field.svg}}>
-      <div class="location" *ngIf="field.step === 1">
-          <ng4geo-autocomplete  (componentCallback)="autoCompleteCallback($event)"></ng4geo-autocomplete>'
-      </div>
-      <div class="time" *ngIf="field.step === 2">
-          <app-time-picker></app-time-picker>
-      </div>
-      <div class="audio" *ngIf="field.step === 3">
-          <app-audio></app-audio>
-      </div>
-      </div> -->
+  <div class="row inputColumns" >
+    <a  name="inputs">
       <div class="col-md-4 sectionHeight">
         <p class="step centerText">STEP</p>
         <div class="circleText">
@@ -73,6 +59,7 @@
         <img class="icon img-responsive" src='assets/images/round-language-24px.svg'>
         <input class="input" type="time" id="appt-time" name="appt-time"
         min="9:00" max="18:00" required />
+        <p class="inputDescription centerText">This is your computer's current location.</p>
       </div>
       <div class="col-md-4 sectionHeight">
           <p class="step centerText">STEP</p>
@@ -81,7 +68,8 @@
           </div>
           <p class="instructions centerText">Tell us when you wake up</p>
           <img class="icon img-responsive" src='assets/images/round-access_time-24px.svg'>
-          <input class="input" type="time" id="appt-time" name="appt-time" value="12:25PM" required />
+          <input class="input" type="time" id="appt-time" name="appt-time" value="12:25" required />
+          <p class="inputDescription centerText">This is the current time.<br>Feel free to change it.</p>
       </div>
       <div class="col-md-4 sectionHeight">
         <p class="step centerText">STEP</p>
@@ -89,21 +77,43 @@
             <p class="numberText centerText">3</p>
         </div>
         <p class="instructions centerText">Say good morning</p>
-          <p id="mic-icon" class="instructions centerText"> 
-            <i class="fas fa-microphone-alt fa-2x"></i> 
+        <!-- <img class="icon img-responsive" src='assets/images/round-mic-24px.svg'>
+        <input class="input" type="time" id="appt-time" name="appt-time"
+        min="9:00" max="18:00" required />
+        <div class="row centerButtons">
+          <div class="indentLeft col-md-3"></div>
+          <div class="col-md-2" >
+            <img class="audioIcons" onclick="startRecording()" src='assets/images/round-record-24px.svg'>
+          </div>
+          <div class="col-md-2">
+            <img class="audioIcons" onclick="stopRecording()" src='assets/images/round-stop-24px.svg'>
+          </div>
+          <div class="col-md-2">
+              <img class="audioIcons"  onclick="discardRecording()" src='assets/images/round-delete-24px.svg'>
+          </div>
+          <div class="indentLeft col-md-3"></div>
+        </div> -->
+
+
+          <p  class="instructions centerText"> 
+            <i id="mic-icon" class="fas fa-microphone-alt fa-2x"></i> 
           </p>
-<!--            <div id="waveform"></div>
- -->           <ol id="recordingsList"></ol>
-        <!-- <input class="input" type="time" id="appt-time" name="appt-time"
-        min="9:00" max="18:00" required /> -->
+ 
+          <ol id="recordingsList"></ol>
 
         <p class="record-control centerText">
-            <i id="recordButton" class="fas fa-circle fa-2x"></i>
-            <i id="stopButton" class="fas fa-square fa-2x"></i>
-            <i class="fas fa-trash-alt fa-2x"></i>
+          <i id="recordButton" class="far fa-dot-circle fa-3x"></i>
+<!--             <img id="recordButton"  class="icon" src='assets/images/round-record-24px.svg'>
+              <img id="stopButton" class="icon" src='assets/images/round-stop-24px.svg'> -->
+             <i id="stopButton" class="far fa-stop-circle fa-3x"></i>
+            <!-- <i class="fas fa-play-circle fa-3x"></i> -->
+            <img id="trashButton" class="icon" src='assets/images/round-delete-24px.svg'>
           </span>
         </p>
+        <div id="waveform" class="centerText"></div>
+        
       </div>
+    </a>
   </div>
   
       <div class="container col-md-12">
@@ -117,24 +127,22 @@
           </div>
   <div class="row" (click)="toggleAbout()">
       <div class="col-md-6 sectionHeight normalTitle about">
-      <p>About</p>
-      <p>The</p>
-      <p>Project</p>
+        <p id="aboutTitle"></p>
       </div>
-      <div class="col-md-6 sectionHeight about">
-      <p class="about">{{lowerText}}</p>
-      </div>
+      <div class="col-md-6 sectionHeight about d-flex flex-row">
+      <span class="about centered p-2" id="about"></span>
+      <img class="icon nextIconBottom p-2" src='assets/images/round-keyboard_arrow_right-24px.svg' onclick="changeAboutText()">
+    </div>
   </div>
+</body>
 
-  <footer>
-
-    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
-    <script src="recorder.js"></script>
-    <script src="localRecorder.js"></script>
-
-
+<footer>
+<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+  <script src="index.js"></script>
+  <script src="recorder.js"></script>
+  <script src="localRecorder.js"></script>
 <!--       <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
       <script src="player.js"></script> -->
-  </footer>
+</footer>
 
 </html>
