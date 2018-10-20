@@ -235,6 +235,7 @@ ol {
   border-radius: 2rem;
   overflow: auto hidden;
   background-color: gray;
+  padding: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

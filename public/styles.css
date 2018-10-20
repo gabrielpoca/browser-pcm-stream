@@ -291,16 +291,19 @@ list-style-type: none;
     border-radius: 2rem;
     overflow: auto hidden;
     background-color: gray;
-
-    margin: 0 auto;
-    margin-top: 10vh;
+	
+	margin: 0 auto;
+	margin-top: 10vh;
+    /* margin-top: 10vh; */
     display: block;
     width: 60%;
     border-radius: 2rem;
     color: gray;
     background-color: rgba(255,255,255,0.20);
-    border: none;
-    padding-left: 25%;
+	border: none;
+	padding: 0 0 0 0;
+	width: 354px;
+	height: 56px;
 }
 
 #trashButton{
