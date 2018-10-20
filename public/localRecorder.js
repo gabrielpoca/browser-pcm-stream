@@ -80,8 +80,22 @@ function startRecording() {
 		rec = new Recorder(input,{numChannels:1})
 
 		//start the recording process
-		rec.record()
+		rec.record();
 
+		//var Oscilloscope = require('oscilloscope')
+//		var audioContext = new window.AudioContext()
+
+		// create source from html5 audio element
+		//var source = audioContext.createMediaElementSource(audioElement)
+
+		// attach oscilloscope
+		var scope = new Oscilloscope(input);
+
+		// start default animation loop
+		scope.animate(document.getElementById("waveform").getContext("2d"));
+
+
+	
 		console.log("Recording started");
 
 	}).catch(function(err) {
