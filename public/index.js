@@ -20,7 +20,24 @@ images = [1, 2, 3].map(() => `../assets/images/CraigD-Image-TopRight.jpg`);
       <p>Programming: James Goedert</p>
       <p>Antoine xxx</p>
       <p>Photos: Unsplash.com</p>`}
-  ]
+];
+(function () {
+  console.log('all the things')
+  var clockElement = document.getElementById( "clock" );
+
+  function updateClock ( clock ) {
+    let currentTime = '0' + new Date().toLocaleTimeString().slice(0,6) + '0';
+    console.log("currenttime", currentTime);
+    document.getElementById( "appt-time" ).value = currentTime;
+  }
+
+  setInterval(function () {
+    console.log('hittinginterval');
+      updateClock( clockElement );
+  }, 60000);
+
+  updateClock(clockElement);
+}());
 
 if(upperSlidePosition === 0) {
 document.getElementById("slideTextHI").innerHTML = '<h1 class="HI">HI</h1>';

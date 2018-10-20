@@ -310,3 +310,8 @@ list-style-type: none;
     width: 2.9em;
     padding-bottom: 27px;
 }
+
+.clockStyle {
+	font-size: 64px;
+	color: white;
+}
