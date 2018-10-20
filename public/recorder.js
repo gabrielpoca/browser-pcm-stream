@@ -7,9 +7,6 @@ module.exports = require("./recorder").Recorder;
 'use strict';
 //   }
 
-// //https://browser-pcm-stream.dop/
-var client = new BinaryClient('ws://localhost:9001');
-
 var _createClass = (function () {
     function defineProperties(target, props) {
         for (var i = 0; i < props.length; i++) {
