@@ -40,6 +40,7 @@ ctx.lineWidth = 2
 ctx.shadowBlur = 4
 ctx.shadowColor = 'white'
 
+
 //add events to those buttons
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
@@ -62,8 +63,6 @@ function discardRecording(){
 	console.log("Discard recording end");
 
 }
-
-
 
 function startRecording() {
 	console.log("recordButton clicked");
@@ -213,6 +212,26 @@ function stopRecording() {
 
 		// drawLoop()
 
+	if ( ! stopButton.disabled ){
+		//disable the stop button, enable the record too allow for new recordings
+		stopButton.disabled = true;
+		recordButton.disabled = false;
+		//stopButton.src = 'assets/images/round-keyboard_arrow_right-24px.svg';
+		stopButton.className = "fas fa-play-circle fa-3x";
+		micIcon.className = "fas fa-microphone-alt fa-2x"
+
+
+		//tell the recorder to stop the recording
+		rec.stop();
+
+		//stop microphone access
+		gumStream.getAudioTracks()[0].stop();
+
+		//create the wav blob and pass it on to createDownloadLink
+		rec.exportWAV(createDownloadLink);
+	}
+	else if (document.getElementById("audioComponent")) {
+		document.getElementById("audioComponent").play();
 	}
 }
 
