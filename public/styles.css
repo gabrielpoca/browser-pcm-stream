@@ -281,3 +281,8 @@ list-style-type: none;
     overflow: auto hidden;
     background-color: gray;
 }
+
+.clockStyle {
+	font-size: 64px;
+	color: white;
+}
