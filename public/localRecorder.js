@@ -13,6 +13,33 @@ var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
 var trashButton = document.getElementById("trashButton");
 var micIcon = document.getElementById("mic-icon");
+var audioContext = new AudioContext();
+var scope = null ;
+
+
+function resizeCanvasToDisplaySize(canvas) {
+	// look up the size the canvas is being displayed
+	const width = canvas.clientWidth;
+	const height = canvas.clientHeight;
+ 
+	// If it's resolution does not match change it
+	if (canvas.width !== width || canvas.height !== height) {
+	  canvas.width = width;
+	  canvas.height = height;
+	  return true;
+	}
+ 
+	return false;
+ }
+
+// init Canvas
+var canvas = document.getElementById("waveform") ;
+resizeCanvasToDisplaySize(canvas);
+var ctx = canvas.getContext('2d')
+ctx.lineWidth = 2
+ctx.shadowBlur = 4
+ctx.shadowColor = 'white'
+
 
 //add events to those buttons
 recordButton.addEventListener("click", startRecording);
@@ -27,6 +54,14 @@ function discardRecording(){
 	while( recordingsList.firstChild ){
 	  recordingsList.removeChild( recordingsList.firstChild );
 	}
+
+	// Will always clear the right space
+	
+	scope.animate(ctx);
+	//scope.stop();
+	ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
+	console.log("Discard recording end");
+
 }
 
 function startRecording() {
@@ -48,6 +83,10 @@ function startRecording() {
 	recordButton.disabled = true;
 	stopButton.disabled = false;
 
+
+
+
+
 	/*
     	We're using the standard promise based getUserMedia() 
     	https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
@@ -62,7 +101,7 @@ function startRecording() {
 			the sampleRate defaults to the one set in your OS for your playback device
 
 		*/
-		audioContext = new AudioContext();
+		
 
 		//update the format 
 		console.log("Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz");
@@ -80,8 +119,35 @@ function startRecording() {
 		rec = new Recorder(input,{numChannels:1})
 
 		//start the recording process
-		rec.record()
+		rec.record();
 
+		// attach oscilloscope
+		scope = new Oscilloscope(input);
+
+		// custom animation loop
+		function drawLoop () {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+		
+			var centerX = canvas.width / 2 ; 
+			var centerY = 100 ;//canvas.height / 2 ;
+
+			ctx.beginPath();
+			ctx.strokeStyle = 'lightgrey'
+			scope.draw(ctx, 0, -40, canvas.width, centerY)
+
+			ctx.strokeStyle = 'yellow'
+			scope.draw(ctx, 0, -20, canvas.width, centerY)
+
+			ctx.strokeStyle = 'darkgrey'
+			scope.draw(ctx, 0, 0, canvas.width, centerY);
+			ctx.closePath();
+			ctx.stroke();
+
+			window.requestAnimationFrame(drawLoop)
+		}
+
+		drawLoop()
+	
 		console.log("Recording started");
 
 	}).catch(function(err) {
@@ -93,7 +159,58 @@ function startRecording() {
 
 
 function stopRecording() {
-	console.log("stopButton clicked");
+	
+
+	if ( ! stopButton.disabled ){
+		console.log("stopButton clicked");
+		//disable the stop button, enable the record too allow for new recordings
+		stopButton.disabled = true;
+		recordButton.disabled = false;
+		//stopButton.src = 'assets/images/round-keyboard_arrow_right-24px.svg';
+		stopButton.className = "fas fa-play-circle fa-3x";
+		micIcon.className = "fas fa-microphone-alt fa-2x"
+
+
+		//tell the recorder to stop the recording
+		rec.stop();
+		//scope.stop();
+	
+
+		//stop microphone access
+		gumStream.getAudioTracks()[0].stop();
+
+		//create the wav blob and pass it on to createDownloadLink
+		rec.exportWAV(createDownloadLink);
+	}
+	else if (document.getElementById("audioComponent")) {
+		console.log("playButton clicked");
+		let audioElement = document.getElementById("audioComponent");
+		audioElement.play();
+		// var input = audioContext.createMediaElementSource(audioElement)
+
+		// var scope = new Oscilloscope(input);
+		
+
+		// custom animation loop
+		// function drawLoop () {
+		// 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+		
+		// 	var centerX = canvas.width / 2 ; 
+		// 	var centerY = 100 ;//canvas.height / 2 ;
+
+		// 	ctx.strokeStyle = 'lightgrey'
+		// 	scope.draw(ctx, 0, -40, canvas.width, centerY)
+
+		// 	ctx.strokeStyle = 'yellow'
+		// 	scope.draw(ctx, 0, -20, canvas.width, centerY)
+
+		// 	ctx.strokeStyle = 'darkgrey'
+		// 	scope.draw(ctx, 0, 0, canvas.width, centerY)
+
+		// 	window.requestAnimationFrame(drawLoop)
+		// }
+
+		// drawLoop()
 
 	if ( ! stopButton.disabled ){
 		//disable the stop button, enable the record too allow for new recordings
