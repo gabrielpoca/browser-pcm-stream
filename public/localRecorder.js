@@ -28,7 +28,6 @@ function resizeCanvasToDisplaySize(canvas) {
 	  canvas.height = height;
 	  return true;
 	}
- 
 	return false;
  }
 
@@ -159,8 +158,6 @@ function startRecording() {
 
 
 function stopRecording() {
-	
-
 	if ( ! stopButton.disabled ){
 		console.log("stopButton clicked");
 		//disable the stop button, enable the record too allow for new recordings
@@ -169,13 +166,10 @@ function stopRecording() {
 		//stopButton.src = 'assets/images/round-keyboard_arrow_right-24px.svg';
 		stopButton.className = "fas fa-play-circle fa-3x";
 		micIcon.className = "fas fa-microphone-alt fa-2x"
-
-
 		//tell the recorder to stop the recording
 		rec.stop();
 		//scope.stop();
 	
-
 		//stop microphone access
 		gumStream.getAudioTracks()[0].stop();
 
@@ -186,52 +180,6 @@ function stopRecording() {
 		console.log("playButton clicked");
 		let audioElement = document.getElementById("audioComponent");
 		audioElement.play();
-		// var input = audioContext.createMediaElementSource(audioElement)
-
-		// var scope = new Oscilloscope(input);
-		
-
-		// custom animation loop
-		// function drawLoop () {
-		// 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-		
-		// 	var centerX = canvas.width / 2 ; 
-		// 	var centerY = 100 ;//canvas.height / 2 ;
-
-		// 	ctx.strokeStyle = 'lightgrey'
-		// 	scope.draw(ctx, 0, -40, canvas.width, centerY)
-
-		// 	ctx.strokeStyle = 'yellow'
-		// 	scope.draw(ctx, 0, -20, canvas.width, centerY)
-
-		// 	ctx.strokeStyle = 'darkgrey'
-		// 	scope.draw(ctx, 0, 0, canvas.width, centerY)
-
-		// 	window.requestAnimationFrame(drawLoop)
-		// }
-
-		// drawLoop()
-
-	if ( ! stopButton.disabled ){
-		//disable the stop button, enable the record too allow for new recordings
-		stopButton.disabled = true;
-		recordButton.disabled = false;
-		//stopButton.src = 'assets/images/round-keyboard_arrow_right-24px.svg';
-		stopButton.className = "fas fa-play-circle fa-3x";
-		micIcon.className = "fas fa-microphone-alt fa-2x"
-
-
-		//tell the recorder to stop the recording
-		rec.stop();
-
-		//stop microphone access
-		gumStream.getAudioTracks()[0].stop();
-
-		//create the wav blob and pass it on to createDownloadLink
-		rec.exportWAV(createDownloadLink);
-	}
-	else if (document.getElementById("audioComponent")) {
-		document.getElementById("audioComponent").play();
 	}
 }
 
