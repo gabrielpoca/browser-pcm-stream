@@ -1,25 +1,20 @@
 var express = require('express');
-var BinaryServer = require('binaryjs').BinaryServer;
 var fs = require('fs');
 const path = require('path');
-var wav = require('wav');
 var zip = require('express-easy-zip');
 var multer = require('multer');
 var upload = multer();
 
 var port = 3000;
-var binaryPort = 9001;
-var app = express();
 
 var multer  = require('multer')
-
 const STORAGE_DIR = "uploads";
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, STORAGE_DIR)
     },
     filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now()+".wav")
+        cb(null,  Date.now()+ "-" + guid() +  ".wav")
   }
 })
 
@@ -29,22 +24,10 @@ var bodyParser = require('body-parser');
 
 const dirPath = __dirname + "/uploads";
 
-
-function getFileWriter(filename){
-    var fileWriter = new wav.FileWriter(filename, {
-    channels: 1,
-    sampleRate: 48000,
-    bitDepth: 16
-  });
-  console.log('filewriter ready for :' + filename);
-  return fileWriter ;
-}
-
 console.log('#start express#');
-
-
+var app = express();
 app.use(express.static(__dirname + '/public'))
-
+require('http').createServer(app).listen(port)
 
 app.use(zip());
 app.use(bodyParser.json()); // for parsing application/json
@@ -57,7 +40,6 @@ app.get('/', function(req, res){
 });
 
 app.get('/zip', function(req, res, next) {
-
   res.zip({
     files: [
         {   
@@ -90,12 +72,9 @@ app.post('/upload', upload.single('audio_data'),function(req,res, next) {
    console.log(req.body);
    console.log(req.file);
    res.status(201);
-   res.send('All good');
+   res.send('Wav file has been received server-side');
 
 });
-
-
-require('http').createServer(app).listen(port)
 
 app.on('error', function(err){
     console.error('on error handler');
@@ -110,35 +89,7 @@ process.on('uncaughtException', function(err) {
     console.error(err);
 });
 
-
 console.log('recording server open on port ' + port);
-
-binaryServer = BinaryServer({port: binaryPort});
-
-console.log('WS open on port ' + binaryPort);
-
-binaryServer.on('connection', function(client) {
-  console.log('new connection');
-
-  client.on('stream', function(stream, meta) {
-    
-    let filename = STORAGE_DIR + "wav/"+ Date.now() + '_' +guid() +".wav";
-    var fileWriter = getFileWriter(filename);
-    console.log('new stream at '+ Date.now() + ' will be saved in '+filename);
-    stream.pipe(fileWriter);
-
-    stream.on('end', function() {
-      fileWriter.end();
-      console.log('wrote to file ' + filename);
-      stream.write(filename.replace(STORAGE_DIR,""));
-    });
-  });
-});
-
-binaryServer.on('error', function(error){
-  console.log("binaryServer error :",error);
-});
-
 
 function guid() {
   function s4() {
