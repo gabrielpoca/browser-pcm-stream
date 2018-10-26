@@ -1,3 +1,8 @@
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+}
 .boundingBox{
 	position: relative;
 	text-align: center;
@@ -315,4 +320,12 @@ list-style-type: none;
 .clockStyle {
 	font-size: 64px;
 	color: white;
+}
+
+#autocomplete {
+position: relative;
+top: 0px;
+left: 0px;
+width: 60%;
+padding: 0;
 }
