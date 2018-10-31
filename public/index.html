@@ -24,7 +24,7 @@
 
 <div class="row">
   <div class="container section-height col-md-8 ">
-      <img class="img-responsive boundingBox mainImage" src="assets/images/Craig_photo_spaceman.jpg">
+      <div class="img-responsive boundingBox mainImage" ></div>
       <div class="overlayText centered section-height">
           <div class="splashTitle section-height">
           <p class="innerText">A<br>Global<br>Good<br>Morning</p>
@@ -52,14 +52,14 @@
   </div>
   <div class="row inputColumns" >
     <a  name="inputs">
-      <div class="col-md-4 sectionHeight">
+      <div class="col-md-4 sectionHeight ">
         <p class="step centerText">STEP</p>
         <div class="circleText">
             <p class="numberText centerText">1</p>
         </div>
         <p class="instructions centerText">Tell us where you are</p>
         <img class="icon img-responsive" src='assets/images/round-language-24px.svg'>
-          <input id="autocomplete" class="input" placeholder="Enter your address" onFocus="geolocate()" type="text"/>
+          <input id="autocomplete" class="input" placeholder="Enter your address"  type="text"/>
         <p class="inputDescription centerText">This is your computer's current location.</p>
       </div>
       <div class="col-md-4 sectionHeight">
@@ -144,22 +144,13 @@
   <script src="recorder.js"></script>
   <script src="localRecorder.js"></script>
   <script src="https://unpkg.com/oscilloscope@1.1.0/dist/oscilloscope.min.js"></script>
+  <script src="location.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOURAPIKEYHERE&libraries=places&callback=initAutocomplete"
+  async defer></script>
 
 <!--       <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
       <script src="player.js"></script> -->
 </footer>
-
-  <body>
-    <div id="locationField">
-      <input id="autocomplete" placeholder="Enter your address"
-             onFocus="geolocate()" type="text"></input>
-    </div>
-
-
-    <script src="location.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCecMGSQoLocamtZ7X9qzaNULqa0yZ-p4E&libraries=places&callback=initAutocomplete"
-        async defer></script>
-  </body>
 </html>
 
 <!-- https://maps.googleapis.com/maps/api/place/autocomplete/xml?input=Amoeba&types=establishment&location=37.76999,-122.44696&radius=500&key=AIzaSyCecMGSQoLocamtZ7X9qzaNULqa0yZ-p4E -->

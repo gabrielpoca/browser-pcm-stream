@@ -2,6 +2,7 @@ html, body {
 height: 100%;
 margin: 0;
 padding: 0;
+background: black;
 }
 .boundingBox{
 	position: relative;
@@ -142,6 +143,10 @@ padding: 0;
 
 .mainImage {
 	height: 100vh;
+	background-image: url("assets/images/Craig_photo_spaceman.jpg");
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .inputColumns {
@@ -149,9 +154,9 @@ padding: 0;
 }
 
 .inputColumns::after {
-	content: '';
+	/* content: '';
 	height: 100%; 
-	width: 1px;
+	width: 1px; */
 	position: absolute;
 	right: 0;
 	top: 0; 
@@ -327,5 +332,24 @@ position: relative;
 top: 0px;
 left: 0px;
 width: 60%;
-padding: 0;
+padding-left: 18%;
+}
+/* 
+.pac-container:after {
+    Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown
+    background-image: none !important;
+    height: 0px;
+} */
+.vl {
+	border-left: 6px solid green;
+    height: 500px;
+}
+sectionHeight:before {
+  content : "";
+  position: absolute;
+  left    : 0;
+  bottom  : 0;
+  height  : 1px;
+  width   : 50%;  /* or 100px */
+  border-bottom:1px solid magenta;
 }

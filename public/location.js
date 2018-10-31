@@ -1,8 +1,14 @@
 var placeSearch, autocomplete;
+  function saveLocation() {
+      let place = autocomplete.getPlace();
+      console.log('Place', place)
+  }
 function initAutocomplete() {
   autocomplete = new google.maps.places.Autocomplete(
       /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
       {types: ['(cities)']});
+    autocomplete.addListener('place_changed', saveLocation);
+console.log('autocomplete', autocomplete.getPlace());
 }
 
 // Bias the autocomplete object to the user's geographical location,
