@@ -18,7 +18,7 @@ images = [1, 2, 3].map(() => `../assets/images/CraigD-Image-TopRight.jpg`);
       <p>(this will evolve)</p>
       <p>Site Design: Brian Carley</p>
       <p>Programming: James Goedert</p>
-      <p>Antoine xxx</p>
+      <p>Antoine Claval</p>
       <p>Photos: Unsplash.com</p>`}
 ];
 (function () {
@@ -47,10 +47,19 @@ document.getElementById("aboutTitle").innerHTML = aboutText[lowerSlidePosition].
 document.getElementById("about").innerHTML = aboutText[lowerSlidePosition].display;
 
 const changeText=  (pos) => {
-    upperSlidePosition = upperSlidePosition + pos;
-    console.log('pos', pos, slideshowText[upperSlidePosition].display);
-    document.getElementById("slideText").innerHTML = slideshowText[upperSlidePosition].display;
-    console.log('changing some texty stuff');
+  upperSlidePosition = upperSlidePosition + pos;
+  if (upperSlidePosition === 0) {
+    document.getElementById("slideTextHI").innerHTML = '<h1 class="HI">HI</h1>';
+    document.getElementById("leftArrow").style.display = "none";
+    document.getElementById("rightArrow").style.display = "block";
+  } else if (upperSlidePosition === 2) {
+    document.getElementById("rightArrow").style.display = "none";
+    document.getElementById("leftArrow").style.display = "block";
+  } else { document.getElementById("slideTextHI").innerHTML = '<h1 class="HI"></h1>';
+  }
+  console.log('pos', pos, slideshowText[upperSlidePosition].display);
+  document.getElementById("slideText").innerHTML = slideshowText[upperSlidePosition].display;
+  console.log('changing some texty stuff');
 };
 const changeAboutText = () => {
   lowerSlidePosition = (lowerSlidePosition - 1) * -1;

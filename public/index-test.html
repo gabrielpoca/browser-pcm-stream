@@ -1,41 +1,3 @@
-<html>
-  <head>
-    <title>Browser streaming POC</title>
-        
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="library.js"></script>
-    <script src="recorder.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel = "stylesheet"
-        type = "text/css"
-        href = "styles.css" />
-    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT7F5WP9c3J25YMsAMtZS6AeVuCXvk67U&libraries=places"></script> -->
-
-  </head>
-  <body>
-<div class="row sections">
-  <div class="col-md-8 main-image"></div>
-  <div class="col-md-4 top-right">
-    <div class="right-upper fixed-top"></div>
-    <div class="right-lower fixed-bottom"></div>
-  </div>
-  <div class="col-md-4 input1"></div>
-  <div class="col-md-4 input2"></div>
-  <div class="col-md-4 input3"></div> 
-  <div class="col-md-12 contact-section"></div> 
-  <div class="col-md-12 about-section"></div> 
-  <div class="col-md-12 credits-section"></div> 
-</div>      
-
-
-<!-- old shit -->
 <div class="row">
   <div class="container section-height col-md-8 ">
       <div class="img-responsive boundingBox mainImage" ></div>
@@ -49,10 +11,10 @@
   <div class="col-md-4 topRightBoxes">
     <img class="boundingBox half-height" src="assets/images/CraigD-Image-TopRight.jpg">
     <div class="overlayNoBorder centered d-flex flex-row">
-          <img id="leftArrow" class="icon overlayNoBorder leftArrow p-2" onclick="changeText(-1)" src='assets/images/top_white_arrow_left-24px.svg' >
+          <img class="icon overlayNoBorder leftArrow p-2" onclick="changeText(-1)" src='assets/images/top_white_arrow_left-24px.svg' >
           <span class="paddingRightHI" id="slideTextHI"></span>
           <p class="p-2 topRightText" id="slideText"></p>
-          <img id="rightArrow" class="icon overlayNoBorder rightArrow p-2" onclick="changeText(1)" src='assets/images/top_white_arrow_right-24px.svg' >
+          <img class="icon overlayNoBorder rightArrow p-2" onclick="changeText(1)" src='assets/images/top_white_arrow_right-24px.svg' >
     </div>
     <div class="lowerBox half-height row">
       <p class="lowerPadding col-md-9">I want<br> to add<br> my own<br> personal<br> good <br>morning.</p>
@@ -150,22 +112,3 @@
       <img class="icon nextIconBottom p-2" src='assets/images/round-keyboard_arrow_right-24px.svg' onclick="changeAboutText()">
     </div>
   </div>
-<!-- end of old shit -->
-</body>
-
-<footer>
-<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
-  <script src="index.js"></script>
-  <script src="recorder.js"></script>
-  <script src="localRecorder.js"></script>
-  <script src="https://unpkg.com/oscilloscope@1.1.0/dist/oscilloscope.min.js"></script>
-  <script src="location.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOURAPIKEYHERE&libraries=places&callback=initAutocomplete"
-  async defer></script>
-
-<!--       <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.6/wavesurfer.min.js"></script>
-      <script src="player.js"></script> -->
-</footer>
-</html>
-
-<!-- https://maps.googleapis.com/maps/api/place/autocomplete/xml?input=Amoeba&types=establishment&location=37.76999,-122.44696&radius=500&key=AIzaSyCecMGSQoLocamtZ7X9qzaNULqa0yZ-p4E -->

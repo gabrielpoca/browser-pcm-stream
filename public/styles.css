@@ -3,6 +3,7 @@ height: 100%;
 margin: 0;
 padding: 0;
 background: black;
+min-height:100vh;
 }
 .boundingBox{
 	position: relative;
@@ -353,3 +354,56 @@ sectionHeight:before {
   width   : 50%;  /* or 100px */
   border-bottom:1px solid magenta;
 }
+/* details */
+#leftArrow {
+  display:none;
+}
+/* sections */
+.main-image {
+  background:blue;
+  height: 100%;
+  margin: none;
+}
+.top-right {
+  background:lightblue;
+  height: 100%;
+  padding: 0px;
+}
+.right-upper {
+  background:red;
+  height: 50%;
+}
+.right-lower {
+  background:yellow;
+  height: 50%;
+}
+.input1 {
+  background:lightcoral;
+  height: 100%;
+}
+.input2 {
+  background:lightgreen;
+  height: 100%;
+}
+.input3 {
+  background:lightsalmon;
+  height: 100%;
+}
+.contact-section {
+  background:navy;
+  height:100%;
+}
+.about-section {
+  background:orangered;
+  height: 100%;
+}
+.credits-section {
+  background:rebeccapurple;
+  height: 100%;
+}
+.row {
+  margin: none;
+  padding: none;
+}
+
+
