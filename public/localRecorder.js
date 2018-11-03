@@ -3,7 +3,8 @@ URL = window.URL || window.webkitURL;
 
 var gumStream; 						//stream from getUserMedia()
 var rec; 							//Recorder.js object
-var input; 							//MediaStreamAudioSourceNode we'll be recording
+var input; //MediaStreamAudioSourceNode we'll be recording
+var fileSource 	// when we playback from the file						
 
 // shim for AudioContext when it's not avb. 
 var AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -57,10 +58,31 @@ function discardRecording(){
 	// Will always clear the right space
 	
 	scope.animate(ctx);
-	//scope.stop();
 	ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
 	console.log("Discard recording end");
 
+}
+
+// custom animation loop
+function drawLoop () {
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	var centerX = canvas.width / 2 ; 
+	var centerY = 100 ;//canvas.height / 2 ;
+
+	ctx.beginPath();
+	ctx.strokeStyle = 'lightgrey'
+	scope.draw(ctx, 0, -40, canvas.width, centerY)
+
+	ctx.strokeStyle = 'yellow'
+	scope.draw(ctx, 0, -20, canvas.width, centerY)
+
+	ctx.strokeStyle = 'darkgrey'
+	scope.draw(ctx, 0, 0, canvas.width, centerY);
+	ctx.closePath();
+	ctx.stroke();
+
+	window.requestAnimationFrame(drawLoop)
 }
 
 function startRecording() {
@@ -81,11 +103,6 @@ function startRecording() {
 
 	recordButton.disabled = true;
 	stopButton.disabled = false;
-
-
-
-
-
 	/*
     	We're using the standard promise based getUserMedia() 
     	https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
@@ -93,21 +110,16 @@ function startRecording() {
 
 	navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
 		console.log("getUserMedia() success, stream created, initializing Recorder.js ...");
-
 		/*
 			create an audio context after getUserMedia is called
 			sampleRate might change after getUserMedia is called, like it does on macOS when recording through AirPods
 			the sampleRate defaults to the one set in your OS for your playback device
 
 		*/
-		
-
 		//update the format 
 		console.log("Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz");
-
 		/*  assign to gumStream for later use  */
 		gumStream = stream;
-		
 		/* use the stream */
 		input = audioContext.createMediaStreamSource(stream);
 
@@ -122,29 +134,6 @@ function startRecording() {
 
 		// attach oscilloscope
 		scope = new Oscilloscope(input);
-
-		// custom animation loop
-		function drawLoop () {
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-		
-			var centerX = canvas.width / 2 ; 
-			var centerY = 100 ;//canvas.height / 2 ;
-
-			ctx.beginPath();
-			ctx.strokeStyle = 'lightgrey'
-			scope.draw(ctx, 0, -40, canvas.width, centerY)
-
-			ctx.strokeStyle = 'yellow'
-			scope.draw(ctx, 0, -20, canvas.width, centerY)
-
-			ctx.strokeStyle = 'darkgrey'
-			scope.draw(ctx, 0, 0, canvas.width, centerY);
-			ctx.closePath();
-			ctx.stroke();
-
-			window.requestAnimationFrame(drawLoop)
-		}
-
 		drawLoop()
 	
 		console.log("Recording started");
@@ -154,7 +143,7 @@ function startRecording() {
     	recordButton.disabled = false;
     	stopButton.disabled = true;
 	});
-}
+}``
 
 
 function stopRecording() {
@@ -179,6 +168,15 @@ function stopRecording() {
 	else if (document.getElementById("audioComponent")) {
 		console.log("playButton clicked");
 		let audioElement = document.getElementById("audioComponent");
+		
+		// var audioCtx = new AudioContext();
+		if ( ! fileSource ){
+			fileSource = audioContext.createMediaElementSource(audioElement);
+		}
+		scope = new Oscilloscope(fileSource);
+		fileSource.connect(audioContext.destination)
+		drawLoop()
+
 		audioElement.play();
 	}
 }
