@@ -48,7 +48,6 @@ html, body {
 
 .content-wrapper {
   height: 100vh;
-  display: flex;
   justify-content: center;
   text-align: center;
   flex-flow: column nowrap;

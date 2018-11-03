@@ -86,7 +86,9 @@ min-height:100vh;
 .lowerBox {
 	text-align: left;
 	vertical-align: middle;
-	padding-left:15%;
+  padding-left:15%;
+  background:white;
+  color: black;
 }
 
 .topRightText {
@@ -409,6 +411,7 @@ sectionHeight:before {
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .right-upper{
+      background:pink;
       height: 100%;
   }
 }
