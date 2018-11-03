@@ -406,4 +406,13 @@ sectionHeight:before {
   padding: none;
 }
 
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .right-upper{
+      height: 100%;
+  }
+}
+
+
+
 
