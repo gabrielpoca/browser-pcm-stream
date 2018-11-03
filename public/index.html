@@ -22,8 +22,6 @@
     <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=ENTER-KEY-HERE&libraries=places"></script> -->
   </head>
   <body>
-
-    
       <!-- <div class="container">
           <section class="background">
             <div class="content-wrapper">
@@ -43,8 +41,16 @@
               <p class="content-subtitle">Nullam tristique urna sed tellus ornare congue. Etiam vitae erat at nibh aliquam dapibus.</p>
             </div>
           </section>
-        </div> -->
+            <section class="background">
+            <div class="content-wrapper">
+              <p class="content-title">Etiam consequat lectus.</p>
+              <p class="content-subtitle">Nullam tristique urna sed tellus ornare congue. Etiam vitae erat at nibh aliquam dapibus.</p>
+            </div>
+          </section>
+        </div>
+     -->
 
+<!-- 
 <div class="row sections">
   <section class="background">
     <div class="content-wrapper">
@@ -78,12 +84,14 @@
     <div class="content-wrapper">
       <div class="col-md-12 credits-section"></div> 
     </div>    
-  </div>  
-</section>
+  </section>
+</div>   -->
 
 
 <!-- old shit -->
 <div class="row">
+    <section class="background">
+        <div class="content-wrapper">
   <div class="container section-height col-md-8 ">
       <div class="img-responsive boundingBox mainImage" ></div>
       <div class="overlayText centered section-height">
@@ -111,6 +119,10 @@
       </div>
       </div>
   </div>
+  </div>
+  </section>
+  <section class="background">
+      <div class="content-wrapper">
   <div class="row inputColumns" >
     <a  name="inputs">
       <div class="col-md-4 sectionHeight ">
@@ -140,24 +152,6 @@
             <p class="numberText centerText">3</p>
         </div>
         <p class="instructions centerText">Say good morning</p>
-        <!-- <img class="icon img-responsive" src='assets/images/round-mic-24px.svg'>
-        <input class="input" type="time" id="appt-time" name="appt-time"
-        min="9:00" max="18:00" required />
-        <div class="row centerButtons">
-          <div class="indentLeft col-md-3"></div>
-          <div class="col-md-2" >
-            <img class="audioIcons" onclick="startRecording()" src='assets/images/round-record-24px.svg'>
-          </div>
-          <div class="col-md-2">
-            <img class="audioIcons" onclick="stopRecording()" src='assets/images/round-stop-24px.svg'>
-          </div>
-          <div class="col-md-2">
-              <img class="audioIcons"  onclick="discardRecording()" src='assets/images/round-delete-24px.svg'>
-          </div>
-          <div class="indentLeft col-md-3"></div>
-        </div> -->
-
-
           <p  class="instructions centerText"> 
             <i id="mic-icon" class="fas fa-microphone-alt fa-2x"></i> 
           </p>
@@ -166,10 +160,7 @@
 
         <p class="record-control centerText">
           <i id="recordButton" class="far fa-dot-circle fa-3x"></i>
-<!--             <img id="recordButton"  class="icon" src='assets/images/round-record-24px.svg'>
-              <img id="stopButton" class="icon" src='assets/images/round-stop-24px.svg'> -->
              <i id="stopButton" class="far fa-stop-circle fa-3x"></i>
-            <!-- <i class="fas fa-play-circle fa-3x"></i> -->
             <img id="trashButton" class="icon" src='assets/images/round-delete-24px.svg'>
           </span>
         </p>
@@ -178,7 +169,10 @@
       </div>
     </a>
   </div>
-  
+</div>
+</section>
+<section class="background">
+    <div class="content-wrapper">
       <div class="container col-md-12">
       <img class="img-responsive boundingBox mainImage" src="assets/images/CraigD-image-email.jpg">
       <div class="overlayNoBorder centered">
@@ -188,6 +182,10 @@
               </div>
           </div>
           </div>
+          </div>
+          </section>
+          <section class="background">
+              <div class="content-wrapper">
   <div class="row" (click)="toggleAbout()">
       <div class="col-md-6 sectionHeight normalTitle about">
         <p id="aboutTitle"></p>
@@ -197,6 +195,8 @@
       <img class="icon nextIconBottom p-2" src='assets/images/round-keyboard_arrow_right-24px.svg' onclick="changeAboutText()">
     </div>
   </div>
+  </div>
+  </section>
 <!-- end of old shit -->
 </body>
 
