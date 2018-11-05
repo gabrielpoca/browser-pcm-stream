@@ -86,9 +86,9 @@ min-height:100vh;
 .lowerBox {
 	text-align: left;
 	vertical-align: middle;
-  padding-left:15%;
-  background:white;
-  color: black;
+  	padding-left:15%;
+  	background:white;
+  	color: black;
 }
 
 .topRightText {
@@ -183,7 +183,9 @@ min-height:100vh;
 	border: 1px solid white;
 	width: 48px;
 	height:48px;    
-	margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; 
 }
 
 .numberText {
@@ -223,12 +225,40 @@ min-height:100vh;
 	padding-bottom: 1rem;
 }
 
+.step::before{
+    content: '\a0\a0\a0\a0\a0\a0\a0\a0';
+    display: block;
+    position: relative;
+    text-decoration: underline;
+    width: 40px;
+    overflow: hidden;
+    top: 62px;
+    left: 50%;
+    margin-left: -19px;
+}
+
 .instructions {
 	font-size: 2.5rem;
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
 	font-style: normal;
 } 
+
+.cta-step::before{
+    content: '';
+    width: 100%;
+    border-left: solid 1px #fff;
+    position: relative;
+    left: 50%;
+    margin-left: -48px;
+    top: 174px;
+    z-index: 1;
+}
+
+.mic-wrapper {
+    padding-bottom: 16vh;
+    padding-top: 0px;
+}
 
 .section-height {
 	height: 100vh;
