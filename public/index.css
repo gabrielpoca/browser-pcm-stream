@@ -13,6 +13,8 @@ html, body {
   height: 130vh;
   position: fixed;
   width: 100%;
+  right: 0;
+  left: 0;
   transform: translateY(30vh);
   transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
 }
@@ -52,8 +54,7 @@ html, body {
   text-align: center;
   flex-flow: column nowrap;
   color: #fff;
-  font-family: Montserrat;
-  text-transform: uppercase;
+  background-color: black;
   transform: translateY(40vh);
   will-change: transform;
   backface-visibility: hidden;

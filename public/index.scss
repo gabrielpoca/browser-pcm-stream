@@ -25,6 +25,8 @@ html, body {
   height: 100vh + $parallax-offset;
   position: fixed;
   width: 100%;
+  right:0;
+  left:0;
   transform: translateY($parallax-offset);
   @include transition($transition-speed, all, cubic-bezier(0.22, 0.44, 0, 1));
   &:before {
@@ -68,6 +70,7 @@ html, body {
   text-align: center;
   flex-flow: column nowrap;
   color: #fff;
+  background-color: black;
 //   font-family: Montserrat;
 //   text-transform: uppercase;
   transform: translateY($content-offset);
