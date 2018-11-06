@@ -11,103 +11,107 @@ $content-offset: 40vh;
 $transition-speed: 1.2s;
 $slide-number: 3;
 
-html, body {
-  overflow: hidden;
-}
 
-.background {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  overflow: hidden;
-  will-change: transform;
-  backface-visibility: hidden;
-  height: 100vh + $parallax-offset;
-  position: fixed;
-  width: 100%;
-  right:0;
-  left:0;
-  transform: translateY($parallax-offset);
-  @include transition($transition-speed, all, cubic-bezier(0.22, 0.44, 0, 1));
-  &:before {
-    content: "";
-    position: absolute;
+@media only screen and (min-width: 992px) {
+
+  html, body {
+    overflow: hidden;
+  }
+
+  .background {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+    will-change: transform;
+    backface-visibility: hidden;
+    height: 100vh + $parallax-offset;
+    position: fixed;
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,.3);
-  }
-  &:first-child {
-    // background-image: url(https://i.postimg.cc/kXq9Qmnj/bgd1.jpg);
-    transform: translateY(-$parallax-offset / 2);
-    .content-wrapper {
-      transform: translateY($parallax-offset /2);
+    right:0;
+    left:0;
+    transform: translateY($parallax-offset);
+    @include transition($transition-speed, all, cubic-bezier(0.22, 0.44, 0, 1));
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,.3);
     }
-  }
-  &:nth-child(2) {
-    // background-image: url(https://i.postimg.cc/W14vywqg/photo-1424746219973-8fe3bd07d8e3.jpg);
-  }
-  &:nth-child(3) {
-    // background-image: url(https://i.postimg.cc/TY0xQ41T/photo-1433840496881-cbd845929862.jpg);
-  }
-}
-
-/* Set stacking context of slides */
-@for $i from 1 to ($slide-number + 1) {
-    .background:nth-child(#{$i}) {
-        z-index: ($slide-number + 1) - $i; 
-    }
-}
-
-.content {
-  &-wrapper {
-  height: 100vh;
-//   display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-flow: column nowrap;
-  color: #fff;
-  background-color: black;
-//   font-family: Montserrat;
-//   text-transform: uppercase;
-  transform: translateY($content-offset);
-  will-change: transform;
-  backface-visibility: hidden;
-  @include transition($transition-speed + .5, all, cubic-bezier(0.22, 0.44, 0, 1));
-  }
-  &-title {
-    font-size: 12vh;
-    line-height: 1.4;
-  }
-}
-
-// ------------- SET TRANSFORM VALUES ------------- //
-
-.background.up-scroll {
-  transform: translate3d(0,-$parallax-offset / 2,0);
-  .content-wrapper {
-    transform: translateY($parallax-offset / 2);
-  }
-  + .background {
-    transform: translate3d(0,$parallax-offset,0);
+    &:first-child {
+      // background-image: url(https://i.postimg.cc/kXq9Qmnj/bgd1.jpg);
+      transform: translateY(-$parallax-offset / 2);
       .content-wrapper {
-        transform: translateY($parallax-offset);
+        transform: translateY($parallax-offset /2);
       }
     }
-}
-
-.background.down-scroll {
-  transform: translate3d(0,-(100vh + $parallax-offset),0);
-  .content-wrapper {
-    transform: translateY($content-offset);
+    &:nth-child(2) {
+      // background-image: url(https://i.postimg.cc/W14vywqg/photo-1424746219973-8fe3bd07d8e3.jpg);
+    }
+    &:nth-child(3) {
+      // background-image: url(https://i.postimg.cc/TY0xQ41T/photo-1433840496881-cbd845929862.jpg);
+    }
   }
-  + .background:not(.down-scroll) {
+
+  /* Set stacking context of slides */
+  @for $i from 1 to ($slide-number + 1) {
+      .background:nth-child(#{$i}) {
+          z-index: ($slide-number + 1) - $i; 
+      }
+  }
+
+  .content {
+    &-wrapper {
+      height: 100vh;
+    //   display: flex;
+      justify-content: center;
+      text-align: center;
+      flex-flow: column nowrap;
+      color: #fff;
+      background-color: black;
+    //   font-family: Montserrat;
+    //   text-transform: uppercase;
+      transform: translateY($content-offset);
+      will-change: transform;
+      backface-visibility: hidden;
+      @include transition($transition-speed + .5, all, cubic-bezier(0.22, 0.44, 0, 1));
+    }
+    &-title {
+      font-size: 12vh;
+      line-height: 1.4;
+    }
+  }
+
+  // ------------- SET TRANSFORM VALUES ------------- //
+
+  .background.up-scroll {
     transform: translate3d(0,-$parallax-offset / 2,0);
-      .content-wrapper {
-        transform: translateY($parallax-offset / 2);
+    .content-wrapper {
+      transform: translateY($parallax-offset / 2);
+    }
+    + .background {
+      transform: translate3d(0,$parallax-offset,0);
+        .content-wrapper {
+          transform: translateY($parallax-offset);
+        }
       }
+  }
+
+  .background.down-scroll {
+    transform: translate3d(0,-(100vh + $parallax-offset),0);
+    .content-wrapper {
+      transform: translateY($content-offset);
+    }
+    + .background:not(.down-scroll) {
+      transform: translate3d(0,-$parallax-offset / 2,0);
+        .content-wrapper {
+          transform: translateY($parallax-offset / 2);
+        }
+    }
   }
 }
