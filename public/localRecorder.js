@@ -190,6 +190,11 @@ function createDownloadLink(blob) {
 
 	//name of .wav file to use during upload and download (without extendion)
 	var filename = new Date().toISOString();
+	let timeValue = document.getElementById("appt-time").value 
+	// read location here.
+	if( timeValue ){
+		filename = filename + "--" +  timeValue ;
+	}
 
 	//add controls to the <audio> element
 	au.controls = false;
@@ -198,6 +203,7 @@ function createDownloadLink(blob) {
 
 	//save to disk link
 	link.href = url;
+	
 	link.download = filename+".wav"; //download forces the browser to donwload the file using the  filename
 	link.innerHTML = "Save to disk";
 

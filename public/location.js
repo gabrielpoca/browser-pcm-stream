@@ -26,7 +26,8 @@ function geolocate() {
       lng = geolocation.lng;
 request = new XMLHttpRequest();
 
-request.open('GET', `https://maps.googleapis.com/maps/api/geocode/json?key=YOUR_API_KEY&latlng=${lat},${lng}`, true);
+
+request.open('GET', `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCecMGSQoLocamtZ7X9qzaNULqa0yZ-p4E&latlng=${lat},${lng}`, true);
 request.onload = function () {
 
   // Begin accessing JSON data here
