@@ -52,6 +52,10 @@ const changeText=  (pos) => {
     document.getElementById("slideTextHI").innerHTML = '<h1 class="HI">HI</h1>';
     document.getElementById("leftArrow").style.display = "none";
     document.getElementById("rightArrow").style.display = "block";
+  }  else if (upperSlidePosition === 1) {
+    document.getElementById("rightArrow").style.display = "block";
+    document.getElementById("leftArrow").style.display = "block";
+    document.getElementById("slideTextHI").innerHTML = '<h1 class="HI"></h1>';
   } else if (upperSlidePosition === 2) {
     document.getElementById("rightArrow").style.display = "none";
     document.getElementById("leftArrow").style.display = "block";

@@ -1,23 +1,101 @@
 html, body {
 height: 100%;
+width:100%;
 margin: 0;
 padding: 0;
 background: black;
 min-height:100vh;
 }
+/* sections */
+/* Top section */
+.main-image {
+	background:blue;
+	height: 100%;
+	margin: none;
+  }
+  .top-right {
+	padding: 0px;
+  }
+  .right-upper {
+	width: 100%;
+	height: 50vh;
+	padding: 0px;
+  }
+  .right-lower {
+	width: 100%;
+	height: 50vh;
+	padding: 0px;
+	background: white;
+	color: black;
+  }
+  .left-arrow {
+	left: -15%;
+  top: 10%;
+  width: 12% !important;
+  position: absolute;
+  }
+  #leftArrow {
+    display:none;
+  }
+  .right-arrow {
+    right: -15%;
+    top: 10%;
+    width: 12% !important;
+    position: absolute;
+  }
+
+  /* Input Sections */
+  .input1 {
+	background:lightcoral;
+	height: 100%;
+  }
+  .input2 {
+	background:lightgreen;
+	height: 100%;
+  }
+  .input3 {
+	background:lightsalmon;
+	height: 100%;
+  }
+  /* Contact Section */
+  .contact-section {
+	background:navy;
+	height:100%;
+  }
+  /* About section */
+  .about-section {
+	background:orange;
+	height: 100%;
+  }
+  /* Credit Section */
+  .credits-section {
+	background:rebeccapurple;
+	height: 100%;
+  }
+  .row {
+	margin: none;
+	padding: none;
+  }
+
+
+
+
+
+/* OLD STYLES TO BE REFACTORED   */
+/*   
 .boundingBox{
 	position: relative;
 	text-align: center;
 	width: 100%;
 	padding: 0px !important;
-}   
-
+}    */
+/* 
 .topRightImage{
 	position:relative;
 	text-align:center;
 	width: 100%;
 	padding: 0px !important;
-}
+} */
 
 .navButtons {
 	position:absolute;
@@ -100,15 +178,7 @@ min-height:100vh;
 	padding-top: 25%;
 }
 
-.leftArrow {
-	left: -3vw;
-	top: 50%;
-}
 
-.rightArrow {
-	right: -3vw;
-	top: 50%;
-}
 
 .lowerPadding { 
 	padding-left:15%;
@@ -372,56 +442,7 @@ sectionHeight:before {
   border-bottom:1px solid magenta;
 }
 /* details */
-#leftArrow {
-  display:none;
-}
-/* sections */
-.main-image {
-  background:blue;
-  height: 100%;
-  margin: none;
-}
-.top-right {
-  background:lightblue;
-  height: 100%;
-  padding: 0px;
-}
-.right-upper {
-  background:red;
-  height: 50%;
-}
-.right-lower {
-  background:yellow;
-  height: 50%;
-}
-.input1 {
-  background:lightcoral;
-  height: 100%;
-}
-.input2 {
-  background:lightgreen;
-  height: 100%;
-}
-.input3 {
-  background:lightsalmon;
-  height: 100%;
-}
-.contact-section {
-  background:navy;
-  height:100%;
-}
-.about-section {
-  background:orange;
-  height: 100%;
-}
-.credits-section {
-  background:rebeccapurple;
-  height: 100%;
-}
-.row {
-  margin: none;
-  padding: none;
-}
+
 
 a:focus, a:hover {
     /* color: #23527c; */
@@ -439,50 +460,72 @@ a:focus, a:hover {
 	right: 0;
   }
 
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  .right-upper{
-      background:pink;
-      height: 100%;
+  @media only screen and (max-width: 992px) {
+    /* For tablets:*/
+  /* Top section */.top-right {
+    padding: 0px;
   }
-}
-
-
-@media only screen and (max-width: 992px) {
-	/* For tablets:*/
-	.container {
-		width: 100%;
-	}
-	.innerText {
-		height: 40%;
-	}
-	
-	.step {
-		padding-bottom: 3%;
-		padding-top: 3%;
-	}
-	.step::before{
-		content: '\a0\a0\a0\a0\a0\a0\a0\a0';
-		display: block;
-		position: absolute;
-		text-decoration: underline;
-		width: 40px;
-		overflow: hidden;
-		top: 7%;
-		left: 50%;
-		margin-left: -19px;
-	}
-
-	.mic-wrapper {
-		padding-bottom: 3vh;
-	}
-
-	.lowerBox{
-		display: none;
-	}
-}
+  .right-upper {
+  height: 100vh;
+  }
+  .step {
+    padding-bottom: 3%;
+    padding-top: 5%;
+  }
+  .step::before{
+    content: '\a0\a0\a0\a0\a0\a0\a0\a0';
+    display: block;
+    position: absolute;
+    text-decoration: underline;
+    width: 40px;
+    overflow: hidden;
+    top: 7%;
+    left: 50%;
+    margin-left: -19px;
+  }
+  .right-lower {
+  display:none
+  }
+  .left-arrow {
+  left: -12%;
+  top: 35%;
+  }
+  #leftArrow {
+    display:none;
+  }
+  .right-arrow {
+    right: -12%;
+    top: 35%;
+  }
+  /* INPUT SECTIONS */
+    
+    .container {
+      width: 100%;
+    }
+    .innerText {
+      height: 40%;
+    }
   
-
+    .mic-wrapper {
+      padding-bottom: 3vh;
+    }
+  
+    .lowerBox{
+      display: none;
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .right-upper{
+        background:pink;
+        height: 100%;
+    }
+    /* INPUT SECTIONS */
+    .step {
+      font-size: 7.5rem;
+    }
+  }
 
 
 
