@@ -249,10 +249,6 @@ min-height:100vh;
     padding-top: 0px;
 }
 
-.section-height {
-	height: 100vh;
-}
-
 .half-height {
 	height: 50vh !important;
 }
@@ -453,14 +449,29 @@ a:focus, a:hover {
 
 
 @media only screen and (max-width: 992px) {
+	/* For tablets:*/
 	.container {
 		width: 100%;
 	}
 	.innerText {
 		height: 40%;
 	}
-
-
+	
+	.step {
+		padding-bottom: 3%;
+		padding-top: 3%;
+	}
+	.step::before{
+		content: '\a0\a0\a0\a0\a0\a0\a0\a0';
+		display: block;
+		position: absolute;
+		text-decoration: underline;
+		width: 40px;
+		overflow: hidden;
+		top: 7%;
+		left: 50%;
+		margin-left: -19px;
+	}
 
 	.mic-wrapper {
 		padding-bottom: 3vh;
