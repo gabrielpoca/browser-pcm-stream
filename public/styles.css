@@ -67,6 +67,19 @@ min-height:100vh;
 	background:orange;
 	height: 100%;
   }
+  
+.about-section {
+  background-color: white;
+  color: black;
+  font-size: 2rem;
+  height: 100vh;
+  width: 100%;
+  }
+  #aboutTitle {
+  font-size: 3em;
+  font-weight: bolder;
+  padding-bottom: 5%;
+  }
   /* Credit Section */
   .credits-section {
 	background:rebeccapurple;

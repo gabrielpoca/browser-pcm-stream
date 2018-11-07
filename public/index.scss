@@ -9,7 +9,7 @@
 $parallax-offset: 30vh;
 $content-offset: 40vh;
 $transition-speed: 1.2s;
-$slide-number: 3;
+$slide-number: 4;
 
 
 @media only screen and (min-width: 992px) {
@@ -55,6 +55,9 @@ $slide-number: 3;
     }
     &:nth-child(3) {
       // background-image: url(https://i.postimg.cc/TY0xQ41T/photo-1433840496881-cbd845929862.jpg);
+    }
+    &:nth-child(4) {
+        // background-image: url(https://i.postimg.cc/TY0xQ41T/photo-1433840496881-cbd845929862.jpg);
     }
   }
 
