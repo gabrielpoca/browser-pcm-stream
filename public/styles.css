@@ -18,14 +18,14 @@ min-height:100vh;
   height: 75%;
   border: solid;
   border-width: 30px;
-  height: 75% !important;    
+  height: 80% !important;    
 }
 .splash-title {
   text-align: left;
   font-size: 4em;
   font-weight: bolder;
   padding-left: 30px;
-  padding-top: 30px;
+  padding-top: 55px;
   text-transform: uppercase;
   font-family: Arial Black;
 }
@@ -472,11 +472,19 @@ a:focus, a:hover {
 
   @media only screen and (max-width: 992px) {
     /* For tablets:*/
-  /* Top section */.top-right {
+  /* Top section */
+  .top-right {
     padding: 0px;
   }
   .right-upper {
   height: 100vh;
+  }
+  .splash-title {
+    font-size: 6em;
+    padding-top:30%;
+  }
+  .splash-text {
+    font-size: 13px;
   }
   .step {
     padding-bottom: 3%;
@@ -525,7 +533,7 @@ a:focus, a:hover {
     }
   }
   
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 766px) {
     /* For mobile phones: */
     .right-upper{
         background:pink;
@@ -534,8 +542,17 @@ a:focus, a:hover {
     /* INPUT SECTIONS */
     .step {
       font-size: 7.5rem;
-	}
-	
+  }
+    .splash-title {
+      font-size: 2.75em;
+      padding-left: 15px;
+      font-family: Arial black;
+      padding-top: 50%;
+    }
+    .splash-text {
+      font-size: 14px;
+      padding-right: 25%;
+    }
 	.input-border::after{
 		display: none;
 	}
