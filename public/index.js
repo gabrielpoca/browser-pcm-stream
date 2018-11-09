@@ -1,5 +1,4 @@
-'use scrict';
-images = [1, 2, 3].map(() => `../assets/images/CraigD-Image-TopRight.jpg`);
+ images = [1, 2, 3].map(() => `../assets/images/CraigD-Image-TopRight.jpg`);
   // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
   let upperSlidePosition = 0;
   let lowerSlidePosition = 0;
@@ -71,6 +70,11 @@ const changeAboutText = () => {
   document.getElementById("about").innerHTML = aboutText[lowerSlidePosition].display;
 }
 
+const toSteps = () => {
+   currentSlideNumber++;
+   nextItem();
+};
+
 // ------------- VARIABLES ------------- //
 var ticking = false;
 var isFirefox = (/Firefox/i.test(navigator.userAgent));
@@ -93,7 +97,7 @@ function parallaxScroll(evt) {
     delta = evt.wheelDelta;
   }
 
-  if (ticking != true) {
+  if (ticking !== true) {
     if (delta <= -scrollSensitivitySetting) {
       //Down scroll
       ticking = true;
