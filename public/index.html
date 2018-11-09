@@ -29,12 +29,12 @@
 <div class="row">
   <section class="background">
     <div class="content-wrapper">
-      <div class="container col-md-8" id="topContainer" >
-        <div class="img-responsive boundingBox mainImage" ></div>
-          <div class="overlayText centered">
-            <div class="splashTitle">
-              <p class="innerText">A<br>Global<br>Good<br>Morning</p>
-              <p class="splashText innerText">A good morning is anything you say to greet your day. It's the first greeting.</p>
+      <div class="container col-md-8 ">
+        <div class="img-responsive image-stretch main-image" ></div>
+          <div class="overlay-border centered">
+            <div class="splash-title">
+              <p>A<br>Global<br>Good<br>Morning</p>
+              <p class="splash-text">A good morning is anything you say to greet your day. It's the first greeting.</p>
             </div>
           </div>
       </div>
@@ -42,13 +42,15 @@
         <img class="right-upper" src="assets/images/CraigD-Image-TopRight.jpg">
         <div class="overlayNoBorder centered  d-flex flex-row">
           <img id="leftArrow" class="left-arrow p-2" onclick="changeText(-1)" src='assets/images/top_white_arrow_left-24px.svg' >
-          <span class="paddingRightHI" id="slideTextHI"></span>
-          <p class="p-2 topRightText" id="slideText"></p>
+          <div class="slide-style">
+            <span class="paddingRightHI" id="slideTextHI">Hi</span>
+            <p class="p-2 topRightText" id="slideText"></p>
+          </div>
           <img id="rightArrow" class="right-arrow p-2" onclick="changeText(1)" src='assets/images/top_white_arrow_right-24px.svg' >
         </div>
         <!-- <div class="lowerBox half-height  d-flex flex-row"> -->
-            <div class="right-lower half-height  d-flex flex-row">
-          <p class="lowerPadding col-md-9">I want<br> to add<br> my own<br> personal<br> good <br>morning.</p>
+        <div class="right-lower d-flex flex-row">
+          <p class="lowerPadding col-md-9 ">I want<br> to add<br> my own<br> personal<br><b> good</b> <br><b>morning.</b></p>
           <div class="col-md-3 circleText nextIcon">
             <a href="#stepsBegin" class="col-md-3" onclick="toSteps()"> 
               <img class="icon nextIcon" src='assets/images/round-keyboard_arrow_right-24px.svg' >
@@ -111,10 +113,14 @@
 <section class="background">
     <div class="content-wrapper">
       <div class="container col-md-12">
+<<<<<<< HEAD
       <img class="img-responsive" src="assets/images/CraigD-image-email.jpg">
+=======
+      <img class="img-responsive image-stretch" src="assets/images/CraigD-image-email.jpg">
+>>>>>>> Fix/input-styling-2
       <div class="overlayNoBorder centered">
               <div class="normalTitle">
-              <p>Thank You and Good Morning</p>
+              <p>Thank You & <br> Good Morning</p>
               <p class="splashText">A good morning is anything you say<br>to greet your day. It's the first greeting.</p>
               </div>
           </div>

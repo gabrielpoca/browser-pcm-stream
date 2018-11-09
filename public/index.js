@@ -39,7 +39,7 @@
 }());
 
 if(upperSlidePosition === 0) {
-  document.getElementById('slideTextHI').innerHTML = '<h1 class="HI">HI</h1>';
+  document.getElementById('slideTextHI').innerHTML = '<h1 class="HI">Hi</h1>';
 }
  document.getElementById("slideText").innerHTML = slideshowText[upperSlidePosition].display;
 // document.getElementById("aboutTitle").innerHTML = aboutText[lowerSlidePosition].title;

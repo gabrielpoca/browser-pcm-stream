@@ -9,69 +9,106 @@ min-height:100vh;
 /* sections */
 /* Top section */
 .main-image {
-	background:blue;
+	background-image: url("assets/images/Craig_photo_spaceman.jpg");
 	height: 100%;
 	margin: none;
-  }
-  .top-right {
-	padding: 0px;
-  }
-  .right-upper {
-	width: 100%;
-	height: 50vh;
-	padding: 0px;
-  }
-  .right-lower {
-	width: 100%;
-	height: 50vh;
-	padding: 0px;
-	background: white;
-	color: black;
-  }
-  .left-arrow {
-	left: -15%;
+}
+.overlay-border {
+  width: 75%;
+  height: 75%;
+  border: solid;
+  border-width: 30px;
+  height: 75% !important;    
+}
+.splash-title {
+  text-align: left;
+  font-size: 4em;
+  font-weight: bolder;
+  padding-left: 30px;
+  padding-top: 30px;
+  text-transform: uppercase;
+  font-family: Arial Black;
+}
+.splash-text {
+  font-size: 9px;
+  font-weight: normal;
+  text-transform: none;
+  font-family: Arial;
+}
+.top-right {
+padding: 0px;
+}
+.right-upper {
+width: 100%;
+height: 50vh;
+padding: 0px;
+}
+.slide-style {
+  padding:1px;
+}
+.left-arrow {
+  left: -15%;
   top: 10%;
   width: 12% !important;
   position: absolute;
-  }
-  #leftArrow {
-    display:none;
-  }
-  .right-arrow {
-    right: -15%;
-    top: 10%;
-    width: 12% !important;
-    position: absolute;
-  }
-
-  /* Input Sections */
-  .input1 {
-	background:lightcoral;
-	height: 100%;
-  }
-  .input2 {
-	background:lightgreen;
-	height: 100%;
-  }
-  .input3 {
-	background:lightsalmon;
-	height: 100%;
-  }
-  /* Contact Section */
-  .contact-section {
-	background:navy;
-	height:100%;
-  }
-  /* About section */
-  .about-section {
-	background:orange;
-	height: 100%;
-  }
+}
+#leftArrow {
+  display:none;
+}
+.right-arrow {
+  right: -15%;
+  top: 10%;
+  width: 12% !important;
+  position: absolute;
+}
+.right-lower {
+  width: 100%;
+  height: 50vh;
+  padding: 0px;
+  background: white;
+  color: black;
+  text-align: left;
+}
+.lowerPadding { 
+  padding-left: 5vh;
+  padding-top: 4vh;
+  font-size: 5vh;
+  font-family: Arial, Helvetica, sans-serif;
+}  
+.nextIcon {
+  left: -15%;
+  top: 16vh;
+  width: 12vh;
+}
+/* Input Sections */
+.input1 {
+background:lightcoral;
+height: 100%;
+}
+.input2 {
+background:lightgreen;
+height: 100%;
+}
+.input3 {
+background:lightsalmon;
+height: 100%;
+}
+/* Contact Section */
+.contact-section {
+background:navy;
+height:100%;
+}
+/* About section */
+.about-section {
+background:orange;
+height: 100%;
+}
   
 .about-section {
   background-color: white;
   color: black;
   font-size: 2rem;
+  text-align: left;
   height: 100vh;
   width: 100%;
   }
@@ -89,26 +126,19 @@ min-height:100vh;
 	margin: none;
 	padding: none;
   }
-
+/* Global Styles */
+.image-stretch {
+	height: 100vh;
+	background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 
 
 
 /* OLD STYLES TO BE REFACTORED   */
-/*   
-.boundingBox{
-	position: relative;
-	text-align: center;
-	width: 100%;
-	padding: 0px !important;
-}    */
-/* 
-.topRightImage{
-	position:relative;
-	text-align:center;
-	width: 100%;
-	padding: 0px !important;
-} */
+
 
 .navButtons {
 	position:absolute;
@@ -130,7 +160,7 @@ min-height:100vh;
 	width: 75%;
 	height: 75%;
 	border: solid;
-	border-width: 1.5em;
+	border-width: 30px;
 	height: 75% !important;
 }
 
@@ -143,13 +173,6 @@ min-height:100vh;
 	text-transform: none;
 }
 
-.splashTitle {
-	font-size: 3em;
-	font-weight: bolder;
-	padding-left: 20%;
-	padding-top: 10%;
-	text-transform: uppercase;
-}
 
 .normalTitle {
 	font-size: 4em;
@@ -158,15 +181,7 @@ min-height:100vh;
 	padding-top: 10%;
 }
 
-.splashText {
-	font-size: .25em;
-	font-weight: normal;
-	text-transform: none;
-}
 
-.innerText {
-	height: 50%;
-}
 
 .topRightBoxes {
 	text-align: left;
@@ -193,11 +208,6 @@ min-height:100vh;
 
 
 
-.lowerPadding { 
-	padding-left:15%;
-	padding-top:25%;
-	font-size: 1.25em;
-}
 
 .sectionHeight {
 	height: 100vh;
@@ -228,13 +238,7 @@ min-height:100vh;
 	transform: translate(-50%, -50%);
 }
 
-.mainImage {
-	height: 100vh;
-	background-image: url("assets/images/Craig_photo_spaceman.jpg");
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 .inputColumns {
 	position:relative;
@@ -264,9 +268,9 @@ min-height:100vh;
 	border: 1px solid white;
 	width: 48px;
 	height:48px;    
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px; 
 }
 
 .numberText {
@@ -332,14 +336,7 @@ min-height:100vh;
     padding-top: 0px;
 }
 
-.half-height {
-	height: 50vh !important;
-}
 
-.nextIcon {
-	left:-25%;
-	top: 40%;
-}
 .nextIconBottom {
 padding-top: 35%;		
 }
