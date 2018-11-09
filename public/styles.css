@@ -38,11 +38,16 @@ min-height:100vh;
 .top-right {
 padding: 0px;
 }
+.hi-style {
+  font-size: 80px;
+  font-family: Arial black;
+}
 .right-upper {
 width: 100%;
 height: 50vh;
 padding: 0px;
 }
+
 .slide-style {
   padding:1px;
 }
@@ -51,6 +56,7 @@ padding: 0px;
   top: 10%;
   width: 12% !important;
   position: absolute;
+  cursor: pointer;
 }
 #leftArrow {
   display:none;
@@ -60,6 +66,7 @@ padding: 0px;
   top: 10%;
   width: 12% !important;
   position: absolute;
+  cursor: pointer;  
 }
 .right-lower {
   width: 100%;
