@@ -38,9 +38,17 @@ min-height:100vh;
 .top-right {
 padding: 0px;
 }
+.topRightText {
+	text-align: left;
+	padding-left: 3vw;
+	padding-top: 12vh;
+}
 .hi-style {
   font-size: 80px;
   font-family: Arial black;
+  position: absolute;
+  top: -10%;
+  padding-left: 10%;
 }
 .right-upper {
 width: 100%;
@@ -171,13 +179,29 @@ height: 100%;
 	height: 75% !important;
 }
 
-.overlayNoBorder {
+/* .overlayNoBorder {
 	position: absolute;
 	color:white;
 	text-align: left;
 	width: 75%;
 	height: 75%;
 	text-transform: none;
+} */
+
+.overlayNoBorder {
+  position: absolute;
+  color: white;
+  text-align: left;
+  width: 75%;
+  height: 75%;
+  text-transform: none;
+  /* position: absolute; */
+  /* top: 50%; */
+  left: 50%;
+  /* width: 75%; */
+  /* height: 75%; */
+  transform: translate(-50%, -50%);
+}
 }
 
 
@@ -196,25 +220,13 @@ height: 100%;
 	padding: 0px !important;
 }
 
-.lowerBox {
+/* .lowerBox {
 	text-align: left;
 	vertical-align: middle;
   	padding-left:15%;
   	background:white;
   	color: black;
-}
-
-.topRightText {
-	text-align: left;
-	padding-left: 5vw;
-	padding-top: 12vh;
-}
-.topRightHI {
-	padding-top: 25%;
-}
-
-
-
+} */
 
 .sectionHeight {
 	height: 100vh;
@@ -493,6 +505,20 @@ a:focus, a:hover {
   .splash-text {
     font-size: 13px;
   }
+  /* Slide show */
+  .hi-style {
+    font-size: 140px;
+    top: 10%;
+    padding-left: 10vw;
+  }
+  .topRightText {
+    padding-left: 10vw;
+    padding-top: 32vh;
+    font-size: 3vh;
+}
+  .overlayNoBorder {
+    transform: translate(-50%, -100%);
+  }
   .step {
     padding-bottom: 3%;
     padding-top: 5%;
@@ -512,14 +538,14 @@ a:focus, a:hover {
   display:none
   }
   .left-arrow {
-  left: -12%;
+  left: -10%;
   top: 35%;
   }
   #leftArrow {
     display:none;
   }
   .right-arrow {
-    right: -12%;
+    right: -15%;
     top: 35%;
   }
   /* INPUT SECTIONS */
@@ -535,16 +561,28 @@ a:focus, a:hover {
       padding-bottom: 3vh;
     }
   
-    .lowerBox{
+    /* .lowerBox{
       display: none;
-    }
+    } */
   }
   
   @media only screen and (max-width: 766px) {
     /* For mobile phones: */
+    /* Slide show */
     .right-upper{
         background:pink;
         height: 100%;
+    }
+    .hi-style {
+      font-size: 120px;
+      top: 10%;
+      padding-left: 10vw;
+    }
+    .right-arrow {
+      right: -10%;
+    }
+    .left-arrow {
+      left: -10%;
     }
     /* INPUT SECTIONS */
     .step {
