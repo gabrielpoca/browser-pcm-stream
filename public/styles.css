@@ -537,7 +537,11 @@ a:focus, a:hover {
     /* INPUT SECTIONS */
     .step {
       font-size: 7.5rem;
-    }
+	}
+	
+	.input-border::after{
+		display: none;
+	}
   }
 
 
