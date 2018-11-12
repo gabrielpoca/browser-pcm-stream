@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Browser streaming POC</title>
+    <title>Good Morning Project</title>
         
     <meta name="viewport" content="width=device-width,initial-scale=1.0">        
     <!-- Latest compiled and minified CSS -->
@@ -98,10 +98,10 @@
 
         <canvas id="waveform"></canvas>
           <p class="record-control centerText">
-              <i id="recordButton" class="far fa-dot-circle fa-3x"></i>
+                <i id="recordButton" class="far fa-dot-circle fa-3x"></i>
                 <i id="stopButton" class="far fa-stop-circle fa-3x"></i>
                 <img id="trashButton" class="icon" src='assets/images/round-delete-24px.svg'>
-              </span>
+                <button id="submitButton" type="button" class="btn">Submit</button>
           </p>
       </div>
     </a>
@@ -114,8 +114,38 @@
       <img class="img-responsive image-stretch" src="assets/images/CraigD-image-email.jpg">
       <div class="overlayNoBorder centered">
               <div class="normalTitle">
-              <p>Thank You & <br> Good Morning</p>
-              <p class="splash-text">A good morning is anything you say<br>to greet your day. It's the first greeting.</p>
+                <p>Thank You & <br> Good Morning</p>
+              </div>
+              <div class="social-box">
+                <div class="newsletter-subscrition input-border">
+                  <p>Enter your Email here, if you'd like us to keep you informed about the project</p>
+                  <span>
+                    <input class="input"  type="text" id="newsletter-subscription" name="newsletter-subscription" />
+                    <button type="button" class="btn btn-primary">Submit</button>
+                  </span>
+                </div>
+                <div class="social-media-button">
+                  <p>Tell your furthest friend</p>
+                  <span class="fa-stack" style="vertical-align: top;">
+                      <i class="far fa-circle fa-stack-1x"></i>
+                      <i class="fas fa-envelope"></i>
+                  </span>  
+                  <p>Follow the project</p>
+                  <span>
+                      <span class="fa-stack" style="vertical-align: top;">
+                          <i class="far fa-circle fa-stack-1x"></i>
+                          <i class="fab fa-facebook-f"></i>
+                      </span>  
+                      <span class="fa-stack" style="vertical-align: top;">
+                          <i class="far fa-circle fa-stack-1x"></i>
+                          <i class="fab fa-twitter"></i>
+                      </span>  
+                      <span class="fa-stack" style="vertical-align: top;">
+                          <i class="far fa-circle fa-stack-1x"></i>
+                          <i class="fab fa-instagram"></i>  
+                      </span>
+                  </span>
+                </div>
               </div>
           </div>
         </div>

@@ -179,15 +179,6 @@ height: 100%;
 	height: 75% !important;
 }
 
-/* .overlayNoBorder {
-	position: absolute;
-	color:white;
-	text-align: left;
-	width: 75%;
-	height: 75%;
-	text-transform: none;
-} */
-
 .overlayNoBorder {
   position: absolute;
   color: white;
@@ -202,8 +193,6 @@ height: 100%;
   /* height: 75%; */
   transform: translate(-50%, -50%);
 }
-}
-
 
 .normalTitle {
 	font-size: 4em;
@@ -343,7 +332,7 @@ height: 100%;
 }
 
 .instructions {
-	font-size: 2rem;
+	font-size: 2.5rem;
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
 	font-style: normal;
@@ -413,15 +402,11 @@ list-style-type: none;
     display: block;
     position: relative;
     user-select: none;
-    height: 4em;
-    width: 60%;
     border-radius: 2rem;
     overflow: auto hidden;
     background-color: gray;
-	
-	  margin: 0 auto;
-	  margin-top: 10vh;
-     /* margin-top: 10vh; */
+	margin: 0 auto;
+	margin-top: 11.3vh;
     display: block;
     width: 60%;
     border-radius: 2rem;
@@ -429,14 +414,26 @@ list-style-type: none;
     background-color: rgba(255,255,255,0.20);
     border: none;
     padding: 0 0 0 0;
-    width: 354px;
+	width: 60%;
     height: 56px;
+}
 
+#stopButton{
+	margin-left:5px;
 }
 
 #trashButton{
     width: 2.9em;
-    padding-bottom: 27px;
+	padding-bottom: 27px;
+	margin-left:5px;
+}
+
+#submitButton{
+	color:black;
+	font-weight: bold;
+	border-radius: 8px;
+	margin-bottom: 27px;
+	margin-left:5px;
 }
 
 .clockStyle {
@@ -451,12 +448,7 @@ left: 0px;
 width: 60%;
 padding-left: 4%;
 }
-/* 
-.pac-container:after {
-    Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown
-    background-image: none !important;
-    height: 0px;
-} */
+
 .vl {
 	border-left: 6px solid green;
     height: 500px;
@@ -561,10 +553,74 @@ a:focus, a:hover {
       padding-bottom: 3vh;
     }
   
-    /* .lowerBox{
-      display: none;
-    } */
   }
+
+  .social-box{
+	background-color: black;
+    width: 70%;
+    height: 25vh;
+    position: relative;
+    left: 20%;
+    padding: 30px;
+    font-size: 1.2em;
+  }
+
+  .social-box button{
+	border-radius: 8px;
+  }
+
+  .social-box input{
+    background-color: white;
+    height: 34px;
+    margin: 0;
+	margin-right: 3px;
+    float: left;
+    padding: 3px;
+  }
+
+  .social-box .newsletter-subscrition{
+    width: 50%;
+    float: left;
+    margin-right: 20%;
+    height: 100%;
+  }
+
+  .social-box .newsletter-subscrition p {
+	margin-bottom: 15%;
+  }
+
+  .social-box .input-border::after {
+	top: -50px;
+	left: 62%;
+  }
+
+  .social-box .social-media-button .far{
+	  font-size: 30px;
+  }
+
+  .social-box .social-media-button .fab{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+  }	
+
+  .social-box .social-media-button .fa-facebook-f{
+    right: 13px;
+  }	
+
+  .social-box .social-media-button .fa-envelope{
+    position: absolute;
+    top: 8px;
+    right: 9px;
+  }	
+
+
+  @media only screen and (max-width: 991px) {
+	.input-border::after{
+		display: none;
+	}
+  }
+
   
   @media only screen and (max-width: 766px) {
     /* For mobile phones: */
@@ -598,9 +654,6 @@ a:focus, a:hover {
       font-size: 14px;
       padding-right: 25%;
     }
-	.input-border::after{
-		display: none;
-	}
   }
 
 
