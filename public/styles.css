@@ -130,13 +130,23 @@ height: 100%;
   height: 100vh;
   width: 100%;
   }
-  #aboutTitle {
+.info-title {
   font-size: 4em;
   font-weight: bolder;
+}
+  #aboutTitle {
   padding-left: 15%;
   padding-top: 20%;
   }
   /* Credit Section */
+  #creditsTitle {
+    padding-left: 15%;
+    padding-top: 45%;
+  }
+  #credits {
+    padding-top: 60%;
+    font-size: 2rem;
+  }
   .credits-section {
 	background:rebeccapurple;
 	height: 100%;
@@ -192,7 +202,7 @@ height: 100%;
   height: 75%;
   text-transform: none;
   /* position: absolute; */
-  /* top: 50%; */
+  top: 50%;
   left: 50%;
   /* width: 75%; */
   /* height: 75%; */
@@ -296,7 +306,7 @@ height: 100%;
 }
 
 .about {
-	background-color: white;
+	/* background-color: white; */
   color: black;
   font-size: 1.75rem;
   font-weight: bold;
@@ -489,6 +499,74 @@ a:focus, a:hover {
 	right: 0;
   }
 
+  .social-box{
+    background-color: black;
+      width: 70%;
+      height: 35vh;
+      position: relative;
+      left: 20%;
+      padding: 30px;
+      font-size: 1.2em;
+    }
+  
+    .social-box button{
+    border-radius: 8px;
+    }
+  
+    .social-box input{
+      background-color: white;
+      height: 34px;
+      margin: 0;
+    margin-right: 3px;
+      float: left;
+      padding: 3px;
+    }
+  
+    .social-box .newsletter-subscrition{
+      /* width: 50%;
+      float: left;
+      margin-right: 20%; */
+      height: 100%;
+    }
+  
+    .social-box .newsletter-subscrition p {
+    margin-bottom: 15%;
+    }
+  
+    .social-box .input-border::after {
+    top: -15%;
+    left: 95%;
+    }
+  
+    .social-box .social-media-button .far{
+      font-size: 30px;
+      color: white;
+    }
+  
+    .social-box .social-media-button .fab{
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      color: white;
+    }	
+  
+    .social-box .social-media-button .fa-facebook-f{
+    right: 13px;
+    }	
+  
+    .social-box .social-media-button .fa-twitter{
+    right: 9px;
+    }	
+  
+    .social-box .social-media-button .fa-envelope{
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      color: white;
+  
+    }	
+  
+
   @media only screen and (max-width: 992px) {
     /* For tablets:*/
   /* Top section */
@@ -558,86 +636,33 @@ a:focus, a:hover {
     .mic-wrapper {
       padding-bottom: 3vh;
     }
-
+    .info-title {
+      font-size: 5.5em;
+    }
+    
     #aboutTitle {
-      font-size: 5.5rem;
       padding-left: 10%;
       padding-top: 5%;
+    }
+    #creditsTitle {
+      padding-left: 15%;
+      padding-top: 45%;
+    }
+    #credits {
+      padding-top:15%;
     }
 
     .about {
       font-size: 2.25rem;
       padding-top: 0px;
     }
+
+    .social-box .newsletter-subscrition {
+      height: 50%;
+
+  }
   
   }
-
-  .social-box{
-	background-color: black;
-    width: 70%;
-    height: 35vh;
-    position: relative;
-    left: 20%;
-    padding: 30px;
-    font-size: 1.2em;
-  }
-
-  .social-box button{
-	border-radius: 8px;
-  }
-
-  .social-box input{
-    background-color: white;
-    height: 34px;
-    margin: 0;
-	margin-right: 3px;
-    float: left;
-    padding: 3px;
-  }
-
-  .social-box .newsletter-subscrition{
-    width: 50%;
-    float: left;
-    margin-right: 20%;
-    height: 100%;
-  }
-
-  .social-box .newsletter-subscrition p {
-	margin-bottom: 15%;
-  }
-
-  .social-box .input-border::after {
-	top: -15%;
-	left: 62%;
-  }
-
-  .social-box .social-media-button .far{
-    font-size: 30px;
-    color: white;
-  }
-
-  .social-box .social-media-button .fab{
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    color: white;
-  }	
-
-  .social-box .social-media-button .fa-facebook-f{
-	right: 13px;
-  }	
-
-  .social-box .social-media-button .fa-twitter{
-	right: 9px;
-  }	
-
-  .social-box .social-media-button .fa-envelope{
-    position: absolute;
-    top: 8px;
-    right: 9px;
-    color: white;
-
-  }	
 
 
   @media only screen and (max-width: 991px) {
@@ -679,13 +704,24 @@ a:focus, a:hover {
       font-size: 14px;
       padding-right: 25%;
     }
-    #aboutTitle {
+    .info-title {
       font-size: 3.5rem;
     }
 
     .about {
       font-size: 1.5rem;
     }
+    .normalTitle {
+      font-size: 2.5em;
+    }
+    .social-box {
+      background-color: transparent;
+      padding: 0px;
+    }
+    .social-box .newsletter-subscrition {
+      height: 100%;
+  }
+
   }
 
 
