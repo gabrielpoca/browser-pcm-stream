@@ -612,13 +612,15 @@ a:focus, a:hover {
   }
 
   .social-box .social-media-button .far{
-	  font-size: 30px;
+    font-size: 30px;
+    color: white;
   }
 
   .social-box .social-media-button .fab{
     position: absolute;
     top: 8px;
     right: 10px;
+    color: white;
   }	
 
   .social-box .social-media-button .fa-facebook-f{
@@ -633,6 +635,8 @@ a:focus, a:hover {
     position: absolute;
     top: 8px;
     right: 9px;
+    color: white;
+
   }	
 
 
