@@ -1,6 +1,6 @@
 html, body {
 height: 100%;
-width:100%;
+width: 100%;
 margin: 0;
 padding: 0;
 background: black;
@@ -113,6 +113,9 @@ height: 100%;
 background:navy;
 height:100%;
 }
+.social-section {
+height: 100%
+}
 /* About section */
 .about-section {
 background:orange;
@@ -128,9 +131,10 @@ height: 100%;
   width: 100%;
   }
   #aboutTitle {
-  font-size: 3em;
+  font-size: 4em;
   font-weight: bolder;
-  padding-bottom: 5%;
+  padding-left: 15%;
+  padding-top: 20%;
   }
   /* Credit Section */
   .credits-section {
@@ -293,7 +297,10 @@ height: 100%;
 
 .about {
 	background-color: white;
-	color: black;
+  color: black;
+  font-size: 1.75rem;
+  font-weight: bold;
+  padding-top: 10%;
 }
 
 .icon {
@@ -509,9 +516,7 @@ a:focus, a:hover {
     padding-top: 32vh;
     font-size: 3vh;
 }
-  .overlayNoBorder {
-    transform: translate(-50%, -100%);
-  }
+
   .step {
     padding-bottom: 3%;
     padding-top: 5%;
@@ -552,6 +557,17 @@ a:focus, a:hover {
   
     .mic-wrapper {
       padding-bottom: 3vh;
+    }
+
+    #aboutTitle {
+      font-size: 5.5rem;
+      padding-left: 10%;
+      padding-top: 5%;
+    }
+
+    .about {
+      font-size: 2.25rem;
+      padding-top: 0px;
     }
   
   }
@@ -658,6 +674,13 @@ a:focus, a:hover {
     .splash-text {
       font-size: 14px;
       padding-right: 25%;
+    }
+    #aboutTitle {
+      font-size: 3.5rem;
+    }
+
+    .about {
+      font-size: 1.5rem;
     }
   }
 
