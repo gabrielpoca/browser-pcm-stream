@@ -471,7 +471,7 @@ padding-left: 4%;
 	border-left: 6px solid green;
     height: 500px;
 }
-sectionHeight:before {
+/* .sectionHeight:before {
   content : "";
   position: absolute;
   left    : 0;
@@ -479,7 +479,7 @@ sectionHeight:before {
   height  : 1px;
   width   : 50%;  /* or 100px */
   border-bottom:1px solid magenta;
-}
+} */
 /* details */
 
 
@@ -661,16 +661,11 @@ a:focus, a:hover {
       height: 50%;
 
   }
+  .input-border::after{
+    display: none;
+  }
   
   }
-
-
-  @media only screen and (max-width: 991px) {
-	.input-border::after{
-		display: none;
-	}
-  }
-
   
   @media only screen and (max-width: 766px) {
     /* For mobile phones: */
@@ -693,7 +688,7 @@ a:focus, a:hover {
     /* INPUT SECTIONS */
     .step {
       font-size: 7.5rem;
-  }
+    }
     .splash-title {
       font-size: 2.75em;
       padding-left: 15px;
@@ -720,9 +715,16 @@ a:focus, a:hover {
     }
     .social-box .newsletter-subscrition {
       height: 100%;
-  }
+    }
 
-  }
+    .social-box input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .overlayNoBorder {
+      width: 100%;
+    }
+}
 
 
 
