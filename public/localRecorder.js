@@ -175,6 +175,22 @@ function stopRecording() {
 	}
 }
 
+function getStringOfLocation(){
+	var result = "";
+	result += document.getElementById('autocomplete').value;
+	result = result.replace(' ', '');
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(pos){
+			result += pos.coords.latitude + pos.coords.longitude ;
+		});
+    } else {
+		log.error("geolocalisation is not supported");
+	}
+	return result ;
+
+}
+
 function createDownloadLink(blob) {
 	
 	var url = URL.createObjectURL(blob);
@@ -182,13 +198,21 @@ function createDownloadLink(blob) {
 	var li = document.createElement('li');
 	var link = document.createElement('a');
 
-	//name of .wav file to use during upload and download (without extendion)
+	//name of .wav file 
 	var filename = new Date().toISOString();
-	let timeValue = document.getElementById('appt-time').value 
-	// read location here.
+
+	let timeValue = document.getElementById('appt-time').value ;
 	if( timeValue ){
-		filename = filename + '--' +  timeValue ;
+		filename = filename + '--' +  timeValue 
 	}
+
+	// read location here. 
+	let locationAsString =  document.getElementById('autocomplete').value.replace(/,/g, '-').replace(/ /g, '');
+	locationAsString = locationAsString.concat('#',lat , '#',lng) ; 
+
+
+	filename = filename.concat('@',locationAsString)
+
 
 	//add controls to the <audio> element
 	au.controls = false;
@@ -209,6 +233,8 @@ function createDownloadLink(blob) {
 
 	//add the save to disk link to li
 	//li.appendChild(link);
+
+	console.log('fileNameBeforeSending' + filename);
 	
 	var xhr=new XMLHttpRequest();
 	xhr.onload=function(e) {
@@ -218,8 +244,8 @@ function createDownloadLink(blob) {
 	  };
 
 	  var fd=new FormData();
-	  fd.append('audio_data',blob, filename);
 	  fd.append('filename', filename);
+	  fd.append('audio_data',blob, filename);
 	  xhr.open('POST','upload',true);
 	  xhr.send(fd);
 
