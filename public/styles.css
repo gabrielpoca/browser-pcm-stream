@@ -625,7 +625,7 @@ a:focus, a:hover {
     display:none;
   }
   .right-arrow {
-    right: -15%;
+    right: -10%;
     top: 35%;
   }
   /* INPUT SECTIONS */
@@ -684,10 +684,15 @@ a:focus, a:hover {
       padding-left: 10vw;
     }
     .right-arrow {
-      right: -10%;
+      right: 20%;
+      top: 100%;
     }
     .left-arrow {
-      left: -10%;
+      left: 20%;
+      top: 100%;
+    }
+    .topRightText {
+      width: 85%;
     }
     /* INPUT SECTIONS */
     .step {
