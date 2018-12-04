@@ -11,6 +11,8 @@ padding: 0;
 background: black;
 min-height:100vh;
 overflow-x: hidden;
+overflow-y: scroll; /* has to be scroll, not auto */
+-webkit-overflow-scrolling: touch;
 }
 body {
   position: relative
@@ -105,18 +107,10 @@ padding: 0px;
   width: 12vh;
 }
 /* Input Sections */
-.input1 {
-background:lightcoral;
-height: 100%;
+.input-text {
+  font-size: 16px;
 }
-.input2 {
-background:lightgreen;
-height: 100%;
-}
-.input3 {
-background:lightsalmon;
-height: 100%;
-}
+
 /* Contact Section */
 .contact-section {
 background:navy;
@@ -286,10 +280,9 @@ height: 100%;
 .input  {
 	margin: 0 auto;
 	display: block;
-	width: 60%;
-	height: 4rem;
-	border-radius: 2rem;
-	color: gray;
+	width: 75%;
+	border-radius: 2.5rem;
+	color: white;
 	background-color: rgba(255,255,255,0.20);
 	border: none;
 	padding-left: 25%;
@@ -418,7 +411,7 @@ list-style-type: none;
 }
 
 .input{
-    height: 4em;
+    height: 5rem;
 }
 
 .record-control{
@@ -429,20 +422,18 @@ list-style-type: none;
     display: block;
     position: relative;
     user-select: none;
-    border-radius: 2rem;
     overflow: auto hidden;
     background-color: gray;
-	margin: 0 auto;
-	margin-top: 11.3vh;
+	  margin: 0 auto;
+	  margin-top: 20%;
     display: block;
-    width: 60%;
-    border-radius: 2rem;
+    border-radius: 2.5rem;
     color: gray;
     background-color: rgba(255,255,255,0.20);
     border: none;
     padding: 0 0 0 0;
-	width: 60%;
-    height: 56px;
+	  width: 75%;
+    height: 5rem;
 }
 
 #stopButton{
@@ -472,7 +463,7 @@ list-style-type: none;
 position: relative;
 top: 0px;
 left: 0px;
-width: 60%;
+width: 75%;
 padding-left: 4%;
 }
 
@@ -486,7 +477,7 @@ padding-left: 4%;
   left    : 0;
   bottom  : 0;
   height  : 1px;
-  width   : 50%;  /* or 100px */
+  width   : 50%;  /* or 100px 
   border-bottom:1px solid magenta;
 } */
 /* details */
@@ -590,7 +581,8 @@ a:focus, a:hover {
     padding-top:30%;
   }
   .splash-text {
-    font-size: 13px;
+    font-size: 20px;
+    padding-right: 10%;
   }
   /* Slide show */
   .hi-style {
