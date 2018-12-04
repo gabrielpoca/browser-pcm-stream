@@ -491,7 +491,9 @@ padding-left: 4%;
 } */
 /* details */
 
-
+a {
+  text-decoration: none;
+}
 a:focus, a:hover {
     /* color: #23527c; */
     text-decoration: none;
