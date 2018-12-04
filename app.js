@@ -14,7 +14,7 @@ var storage = multer.diskStorage({
         cb(null, STORAGE_DIR)
     },
     filename: function (req, file, cb) {
-        cb(null,  Date.now()+ "-" + guid() +  ".wav")
+        cb(null,  req.body.filename + ".wav")
   }
 })
 
@@ -70,7 +70,7 @@ app.get('/purge', function(req, res, next){
 
 app.post('/upload', upload.single('audio_data'),function(req,res, next) {
    console.log(req.body);
-   console.log(req.file);
+  //  console.log(req.file);
    res.status(201);
    res.send('Wav file has been received server-side');
 
