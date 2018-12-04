@@ -27,7 +27,7 @@ min-height:100vh;
   padding-left: 30px;
   padding-top: 55px;
   text-transform: uppercase;
-  font-family: Arial Black;
+  font-family: "Arial Black", "Arial-BoldMT", Roboto;
 }
 .splash-text {
   font-size: 9px;
@@ -45,7 +45,7 @@ padding: 0px;
 }
 .hi-style {
   font-size: 80px;
-  font-family: Arial black;
+  font-family: "Arial black", "Arial-BoldMT", Roboto;
   position: absolute;
   top: -10%;
   padding-left: 10%;
@@ -697,7 +697,7 @@ a:focus, a:hover {
     .splash-title {
       font-size: 2.75em;
       padding-left: 15px;
-      font-family: Arial black;
+      font-family: "Arial black", "Arial-BoldMT", Roboto;
       padding-top: 50%;
     }
     .splash-text {
