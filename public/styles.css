@@ -42,7 +42,7 @@ body {
   font-family: "Arial Black", "Arial-BoldMT", Roboto;
 }
 .splash-text {
-  font-size: 9px;
+  font-size: 15px;
   font-weight: normal;
   text-transform: none;
   font-family: Arial;
@@ -539,7 +539,7 @@ a:focus, a:hover {
   
     .social-box .input-border::after {
     top: -15%;
-    left: 95%;
+    /* left: 95%; */
     }
   
     .social-box .social-media-button .far{
