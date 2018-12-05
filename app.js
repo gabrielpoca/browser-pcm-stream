@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 function sendMail(emailToSubscribe){
     console.log('sendmail');
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    //console.log('api: '+process.env.SENDGRID_API_KEY);
+    console.log('api: '+process.env.SENDGRID_API_KEY + ' to ' + process.env.SUBSCRIPTION_DESTINATION);
     const msg = {
     //to: ['foo.bar@provider.com', 'bar.foo@provider.com'],
     to: process.env.SUBSCRIPTION_DESTINATION ,

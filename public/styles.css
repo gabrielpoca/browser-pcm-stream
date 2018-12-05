@@ -569,7 +569,13 @@ a:focus, a:hover {
       color: white;
   
     }	
+
   
+@media only screen and (max-width: 1170px) {
+    .social-box #sendMail {
+        margin-top: 10px;
+    }
+}
 
   @media only screen and (max-width: 992px) {
     /* For tablets:*/
