@@ -42,7 +42,7 @@ body {
   font-family: "Arial Black", "Arial-BoldMT", Roboto;
 }
 .splash-text {
-  font-size: 9px;
+  font-size: 15px;
   font-weight: normal;
   text-transform: none;
   font-family: Arial;
@@ -499,7 +499,9 @@ padding-left: 4%;
 } */
 /* details */
 
-
+a {
+  text-decoration: none;
+}
 a:focus, a:hover {
     /* color: #23527c; */
     text-decoration: none;
@@ -537,6 +539,7 @@ a:focus, a:hover {
       margin-right: 3px;
       float: left;
       padding: 3px;
+      color:black;
     }
   
     .social-box .newsletter-subscrition{
@@ -552,7 +555,7 @@ a:focus, a:hover {
   
     .social-box .input-border::after {
     top: -15%;
-    left: 95%;
+    /* left: 95%; */
     }
   
     .social-box .social-media-button .far{
@@ -582,7 +585,13 @@ a:focus, a:hover {
       color: white;
   
     }	
+
   
+@media only screen and (max-width: 1170px) {
+    .social-box #sendMail {
+        margin-top: 10px;
+    }
+}
 
   @media only screen and (max-width: 992px) {
     /* For tablets:*/
