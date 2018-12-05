@@ -65,14 +65,14 @@ function drawLoop () {
 	var centerY = 100 ;//canvas.height / 2 ;
 
 	ctx.beginPath();
-	ctx.strokeStyle = 'lightgrey'
-	scope.draw(ctx, 0, -40, canvas.width, centerY)
+	// ctx.strokeStyle = 'lightgrey'
+	// scope.draw(ctx, 0, -40, canvas.width, centerY)
 
-	ctx.strokeStyle = 'yellow'
+	ctx.strokeStyle = 'white'
 	scope.draw(ctx, 0, -20, canvas.width, centerY)
 
-	ctx.strokeStyle = 'darkgrey'
-	scope.draw(ctx, 0, 0, canvas.width, centerY);
+	// ctx.strokeStyle = 'darkgrey'
+	// scope.draw(ctx, 0, 0, canvas.width, centerY);
 	ctx.closePath();
 	ctx.stroke();
 

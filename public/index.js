@@ -25,8 +25,8 @@
   var clockElement = document.getElementById( 'clock' );
 
   function updateClock ( clock ) {
-    let currentTime = '0' + new Date().toLocaleTimeString().slice(0,6) + '0';
-    console.log("currenttime", currentTime);
+    // let currentTime = '0' + new Date().toLocaleTimeString().slice(0,6) + '0';
+    let currentTime = new Date().toTimeString('en-US').slice(0,5);
     document.getElementById( "appt-time" ).value = currentTime;
   }
 

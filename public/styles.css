@@ -11,8 +11,11 @@ padding: 0;
 background: black;
 min-height:100vh;
 overflow-x: hidden;
+
 }
 body {
+  overflow-y: scroll; /* has to be scroll, not auto */
+-webkit-overflow-scrolling: touch;
   position: relative
 }
 /* sections */
@@ -105,18 +108,10 @@ padding: 0px;
   width: 12vh;
 }
 /* Input Sections */
-.input1 {
-background:lightcoral;
-height: 100%;
+.input-text {
+  font-size: 16px;
 }
-.input2 {
-background:lightgreen;
-height: 100%;
-}
-.input3 {
-background:lightsalmon;
-height: 100%;
-}
+
 /* Contact Section */
 .contact-section {
 background:navy;
@@ -286,10 +281,9 @@ height: 100%;
 .input  {
 	margin: 0 auto;
 	display: block;
-	width: 60%;
-	height: 4rem;
-	border-radius: 2rem;
-	color: gray;
+	width: 75%;
+	border-radius: 2.5rem;
+	color: white;
 	background-color: rgba(255,255,255,0.20);
 	border: none;
 	padding-left: 25%;
@@ -418,7 +412,7 @@ list-style-type: none;
 }
 
 .input{
-    height: 4em;
+    height: 5rem;
 }
 
 .record-control{
@@ -429,20 +423,18 @@ list-style-type: none;
     display: block;
     position: relative;
     user-select: none;
-    border-radius: 2rem;
     overflow: auto hidden;
     background-color: gray;
-	margin: 0 auto;
-	margin-top: 11.3vh;
+	  margin: 0 auto;
+	  margin-top: 20%;
     display: block;
-    width: 60%;
-    border-radius: 2rem;
+    border-radius: 2.5rem;
     color: gray;
     background-color: rgba(255,255,255,0.20);
     border: none;
     padding: 0 0 0 0;
-	width: 60%;
-    height: 56px;
+	  width: 75%;
+    height: 5rem;
 }
 
 #stopButton{
@@ -472,7 +464,7 @@ list-style-type: none;
 position: relative;
 top: 0px;
 left: 0px;
-width: 60%;
+width: 75%;
 padding-left: 4%;
 }
 
@@ -486,7 +478,7 @@ padding-left: 4%;
   left    : 0;
   bottom  : 0;
   height  : 1px;
-  width   : 50%;  /* or 100px */
+  width   : 50%;  /* or 100px 
   border-bottom:1px solid magenta;
 } */
 /* details */
@@ -592,7 +584,8 @@ a:focus, a:hover {
     padding-top:30%;
   }
   .splash-text {
-    font-size: 13px;
+    font-size: 20px;
+    padding-right: 10%;
   }
   /* Slide show */
   .hi-style {
@@ -632,7 +625,7 @@ a:focus, a:hover {
     display:none;
   }
   .right-arrow {
-    right: -15%;
+    right: -10%;
     top: 35%;
   }
   /* INPUT SECTIONS */
@@ -691,10 +684,15 @@ a:focus, a:hover {
       padding-left: 10vw;
     }
     .right-arrow {
-      right: -10%;
+      right: 20%;
+      top: 100%;
     }
     .left-arrow {
-      left: -10%;
+      left: 20%;
+      top: 100%;
+    }
+    .topRightText {
+      width: 85%;
     }
     /* INPUT SECTIONS */
     .step {
@@ -734,6 +732,26 @@ a:focus, a:hover {
     }
     .overlayNoBorder {
       width: 100%;
+    }
+    input {
+      -webkit-appearance: none;  
+    }
+    .input  {
+      appearance: none;
+      margin: 0 auto;
+      display: block;
+      width: 75%;
+      border-radius: 2.5rem !important;
+      border-radius: 0;
+      color: white;
+      background-color: rgba(255,255,255,0.20);
+      border: none;
+      padding-left: 25%;
+    }
+    #appt-time {
+      font-size: 20px;
+      width: 75%;
+      padding-top: 2%;
     }
 }
 
