@@ -448,11 +448,12 @@ list-style-type: none;
 }
 
 #submitButton{
-	color:black;
+  color:black;
+  background:white;
 	font-weight: bold;
 	border-radius: 8px;
 	margin-bottom: 27px;
-	margin-left:5px;
+  margin-left:5px;
 }
 
 .clockStyle {
