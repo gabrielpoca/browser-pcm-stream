@@ -111,7 +111,21 @@ padding: 0px;
 .input-text {
   font-size: 16px;
 }
-
+.guide-arrow {
+  margin:auto;
+  color: white;
+  width: 7rem;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+.audio-arrow {
+  margin-right: 0;
+  color: white;
+  width: 3rem;
+  margin-left: 38%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
 /* Contact Section */
 .contact-section {
 background:navy;
@@ -320,7 +334,7 @@ height: 100%;
 	color:white;
 	width: 6rem;
 	margin: auto;
-	padding-bottom: 25vh;
+	/* padding-bottom: 25vh; */
 }
 
 
@@ -361,8 +375,10 @@ height: 100%;
 } 
 
 .mic-wrapper {
-    padding-bottom: 16vh;
     padding-top: 0px;
+    font-size: 2.5rem;
+    /* padding-top: 1.5rem;
+    padding-bottom: 1.5rem; */
 }
 
 
@@ -426,7 +442,6 @@ list-style-type: none;
     overflow: auto hidden;
     background-color: gray;
 	  margin: 0 auto;
-	  margin-top: 20%;
     display: block;
     border-radius: 2.5rem;
     color: gray;
@@ -519,7 +534,7 @@ a:focus, a:hover {
       background-color: white;
       height: 34px;
       margin: 0;
-    margin-right: 3px;
+      margin-right: 3px;
       float: left;
       padding: 3px;
     }
@@ -635,9 +650,17 @@ a:focus, a:hover {
     .innerText {
       height: 40%;
     }
-  
     .mic-wrapper {
       padding-bottom: 3vh;
+    }
+    .step {
+      font-size: 7.5rem;
+    }
+    .guide-arrow {
+      width: 14rem;
+    }
+    .input {
+      margin-top: 5%;
     }
     .info-title {
       font-size: 5.5em;
@@ -667,7 +690,9 @@ a:focus, a:hover {
   .input-border::after{
     display: none;
   }
-  
+  .sectionHeight {
+    border-bottom: 1px solid rgba(255,255,255,.5); 
+  }
   }
   
   @media only screen and (max-width: 766px) {
@@ -694,9 +719,9 @@ a:focus, a:hover {
       width: 85%;
     }
     /* INPUT SECTIONS */
-    .step {
+    /* .step {
       font-size: 7.5rem;
-    }
+    } */
     .splash-title {
       font-size: 2.75em;
       padding-left: 15px;
@@ -707,8 +732,20 @@ a:focus, a:hover {
       font-size: 14px;
       padding-right: 25%;
     }
+    .step {
+      font-size: 2.5rem;
+    }
+    .icon {
+      padding-bottom: 1vh;
+    }
     .info-title {
       font-size: 3.5rem;
+    }
+    .guide-arrow {
+      width: 8rem;
+    }
+    #waveform {
+      margin-top: 0%;
     }
 
     .about {
@@ -746,6 +783,7 @@ a:focus, a:hover {
       background-color: rgba(255,255,255,0.20);
       border: none;
       padding-left: 25%;
+      /* margin-top: -30%; */
     }
     #appt-time {
       font-size: 20px;
