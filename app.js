@@ -1,9 +1,11 @@
+'use strict';
 var express = require('express');
 var fs = require('fs');
 const path = require('path');
 var zip = require('express-easy-zip');
 var multer = require('multer');
 var upload = multer();
+const sgMail = require('@sendgrid/mail');
 
 var port = 3000;
 
@@ -32,8 +34,28 @@ require('http').createServer(app).listen(port)
 app.use(zip());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
-// for parsing multipart/form-data
-//app.use(upload.array()); 
+
+
+function sendMail(emailToSubscribe){
+    console.log('sendmail');
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    //console.log('api: '+process.env.SENDGRID_API_KEY);
+    const msg = {
+    //to: ['foo.bar@provider.com', 'bar.foo@provider.com'],
+    to: process.env.SUBSCRIPTION_DESTINATION ,
+    from: 'goodmorning-subscription-request@goodmorning.com',
+    subject: emailToSubscribe + ' wants to be kept updated',
+    text: emailToSubscribe + ' subscribed to be kept up to date with the project',
+    };
+    sgMail.send(msg, (error, result) => {
+      if (error) {
+        console.log('sendgrid error', error);
+      }
+      else {
+        console.log('sendgrid ok');
+      }
+    });
+}
 
 app.get('/', function(req, res){
   res.render('index');
@@ -44,7 +66,7 @@ app.get('/zip', function(req, res, next) {
     files: [
         {   
             name: 'wav-file.zip',
-            mode: 0755,
+            mode: 0o0755,
             date: new Date(),
             type: 'file' },
         { path: dirPath, name: 'wav' }    
@@ -73,7 +95,13 @@ app.post('/upload', upload.single('audio_data'),function(req,res, next) {
   //  console.log(req.file);
    res.status(201);
    res.send('Wav file has been received server-side');
+});
 
+app.post('/subscribe',function(req,res, next) {
+  console.log(req.body);
+  res.status(201);
+  sendMail(req.body.registerEmail);
+  res.send('mail sent');
 });
 
 app.on('error', function(err){

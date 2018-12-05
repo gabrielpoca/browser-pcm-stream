@@ -520,9 +520,10 @@ a:focus, a:hover {
       background-color: white;
       height: 34px;
       margin: 0;
-    margin-right: 3px;
+      margin-right: 3px;
       float: left;
       padding: 3px;
+      color:black;
     }
   
     .social-box .newsletter-subscrition{

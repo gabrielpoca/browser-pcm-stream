@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "description": "Stream microphone pcm data to server and save on wav file.",
   "scripts": {
-    "sass" : "sass main.scss public/main.css",
-    "watch-sass" : "nodemon -e scss -x \"npm run sass\"",
+    "sass": "sass main.scss public/main.css",
+    "watch-sass": "nodemon -e scss -x \"npm run sass\"",
     "start": "node app.js",
     "serve": "npm run watch-sass && npm run start"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "binaryjs": "latest",
     "body-parser": "^1.18.3",
     "eslint": "^5.6.1",
