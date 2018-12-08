@@ -82,6 +82,10 @@ function drawLoop () {
 function startRecording() {
 	console.log('recordButton clicked');
 
+	audioContext.resume().then(() => {
+		console.log('Playback resumed successfully');
+	});
+
 	/*
 		Simple constraints object, for more advanced audio features see
 		https://addpipe.com/blog/audio-constraints-getusermedia/
@@ -125,15 +129,17 @@ function startRecording() {
 
 		//start the recording process
 		rec.record();
+		console.log('recordedStarted');
 
 		// attach oscilloscope
 		scope = new Oscilloscope(input);
-		drawLoop()
+		drawLoop();
 	
 		console.log('Recording started');
 
 	}).catch(function(err) {
-	  	//enable the record button if getUserMedia() fails
+		  //enable the record button if getUserMedia() fails
+		console.error(err);
     	recordButton.disabled = false;
     	stopButton.disabled = true;
 	});
