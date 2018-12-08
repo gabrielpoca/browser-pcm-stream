@@ -812,6 +812,37 @@ a:focus, a:hover {
 }
 
 
+@media only screen and (max-width: 568px) {
+
+
+  .guide-arrow {
+    margin: auto;
+    color: white;
+    width: 7rem;
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+
+  .splash-title p{
+   font-size: 31px;
+  }
+
+  .splash-title .splash-text {
+    font-size: 14px;
+    padding-right: 25%;
+  }
+  
+  #slideText{
+    padding-left: 10vw;
+    padding-top: 37vh;
+    font-size: 3vh;
+  }
+  
+
+
+}
+
+
 
 
 

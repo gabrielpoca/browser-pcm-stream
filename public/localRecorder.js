@@ -14,7 +14,7 @@ var audioContext = new AudioContext();
 var recordButton = document.getElementById('recordButton');
 var stopButton = document.getElementById('stopButton');
 var trashButton = document.getElementById('trashButton');
-var micIcon = document.getElementById('mic-icon');
+//var micIcon = document.getElementById('mic-icon');
 var recordingsList = document.getElementById('recordingsList');
 var scope = null ;
 
@@ -82,6 +82,10 @@ function drawLoop () {
 function startRecording() {
 	console.log('recordButton clicked');
 
+	audioContext.resume().then(() => {
+		console.log('Playback resumed successfully');
+	});
+
 	/*
 		Simple constraints object, for more advanced audio features see
 		https://addpipe.com/blog/audio-constraints-getusermedia/
@@ -89,7 +93,7 @@ function startRecording() {
     
     var constraints = { audio: true, video:false }
     stopButton.className = 'far fa-stop-circle fa-3x';
-    micIcon.className = micIcon.className += ' button-glow'
+    //micIcon.className = micIcon.className += ' button-glow';
 
  	/*
     	Disable the record button until we get a success or fail from getUserMedia() 
@@ -125,15 +129,17 @@ function startRecording() {
 
 		//start the recording process
 		rec.record();
+		console.log('recordedStarted');
 
 		// attach oscilloscope
 		scope = new Oscilloscope(input);
-		drawLoop()
+		drawLoop();
 	
 		console.log('Recording started');
 
 	}).catch(function(err) {
-	  	//enable the record button if getUserMedia() fails
+		  //enable the record button if getUserMedia() fails
+		console.error(err);
     	recordButton.disabled = false;
     	stopButton.disabled = true;
 	});
@@ -148,7 +154,7 @@ function stopRecording() {
 		recordButton.disabled = false;
 		//stopButton.src = 'assets/images/round-keyboard_arrow_right-24px.svg';
 		stopButton.className = 'fas fa-play-circle fa-3x';
-		micIcon.className = 'fas fa-microphone-alt fa-2x'
+		//micIcon.className = 'fas fa-microphone-alt fa-2x';
 		//tell the recorder to stop the recording
 		rec.stop();
 		//scope.stop();
