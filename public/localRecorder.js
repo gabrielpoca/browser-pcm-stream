@@ -266,6 +266,7 @@ function createDownloadLink(blob) {
 function submitRecording(){
 	currentSlideNumber++;
 	nextItem();
+	document.getElementById("thanksPage").scrollIntoView();
 }
 
 //add events to those buttons
