@@ -2,7 +2,10 @@
   font-family: "Arial Black";
   src: url("fonts/ArialBlack.woff") format("woff");
 }
-
+input[type="time"]
+{
+    -webkit-appearance: none;
+}
 html, body {
 height: 100%;
 width: 100%;
@@ -280,8 +283,6 @@ height: 100%;
 	transform: translate(-50%, -50%);
 }
 
-
-
 .inputColumns {
 	position:relative;
 }
@@ -301,7 +302,7 @@ height: 100%;
 	color: white;
 	background-color: rgba(255,255,255,0.20);
 	border: none;
-	padding-left: 25%;
+	padding-left: 5%;
 }
 
 .circleText {
@@ -673,7 +674,7 @@ a:focus, a:hover {
       margin-top: 5%;
     }
     .info-title {
-      font-size: 5.5em;
+      font-size: 3.5em;
     }
     
     #aboutTitle {
@@ -682,7 +683,7 @@ a:focus, a:hover {
     }
     #creditsTitle {
       padding-left: 15%;
-      padding-top: 45%;
+      padding-top: 5%;
     }
     #credits {
       padding-top:15%;
@@ -757,6 +758,10 @@ a:focus, a:hover {
     #waveform {
       margin-top: 0%;
     }
+    .sectionHeight {
+      padding-right: 0px;
+      padding-left: 30px; 
+    }
 
     .about {
       font-size: 1.5rem;
@@ -799,6 +804,10 @@ a:focus, a:hover {
       font-size: 20px;
       width: 75%;
       padding-top: 2%;
+    }
+
+    .step::before {
+      margin-left: -5px;
     }
 }
 
