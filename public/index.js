@@ -1,5 +1,4 @@
-'use scrict';
-images = [1, 2, 3].map(() => `../assets/images/CraigD-Image-TopRight.jpg`);
+ images = [1, 2, 3].map(() => `../assets/images/CraigD-Image-TopRight.jpg`);
   // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
   let upperSlidePosition = 0;
   let lowerSlidePosition = 0;
@@ -26,8 +25,8 @@ images = [1, 2, 3].map(() => `../assets/images/CraigD-Image-TopRight.jpg`);
   var clockElement = document.getElementById( 'clock' );
 
   function updateClock ( clock ) {
-    let currentTime = '0' + new Date().toLocaleTimeString().slice(0,6) + '0';
-    console.log("currenttime", currentTime);
+    // let currentTime = '0' + new Date().toLocaleTimeString().slice(0,6) + '0';
+    let currentTime = new Date().toTimeString('en-US').slice(0,5);
     document.getElementById( "appt-time" ).value = currentTime;
   }
 
@@ -40,7 +39,7 @@ images = [1, 2, 3].map(() => `../assets/images/CraigD-Image-TopRight.jpg`);
 }());
 
 if(upperSlidePosition === 0) {
-  document.getElementById('slideTextHI').innerHTML = '<h1 class="HI">HI</h1>';
+  document.getElementById('slideTextHI').innerHTML = '<h1 class="hi-style">Hi</h1>';
 }
  document.getElementById("slideText").innerHTML = slideshowText[upperSlidePosition].display;
 // document.getElementById("aboutTitle").innerHTML = aboutText[lowerSlidePosition].title;
@@ -49,17 +48,17 @@ if(upperSlidePosition === 0) {
 const changeText=  (pos) => {
   upperSlidePosition = upperSlidePosition + pos;
   if (upperSlidePosition === 0) {
-    document.getElementById("slideTextHI").innerHTML = '<h1 class="HI">HI</h1>';
+    document.getElementById("slideTextHI").innerHTML = '<h1 class="hi-style">Hi</h1>';
     document.getElementById("leftArrow").style.display = "none";
     document.getElementById("rightArrow").style.display = "block";
   }  else if (upperSlidePosition === 1) {
     document.getElementById("rightArrow").style.display = "block";
     document.getElementById("leftArrow").style.display = "block";
-    document.getElementById("slideTextHI").innerHTML = '<h1 class="HI"></h1>';
+    document.getElementById("slideTextHI").innerHTML = '<h1 class="hi-style"></h1>';
   } else if (upperSlidePosition === 2) {
     document.getElementById("rightArrow").style.display = "none";
     document.getElementById("leftArrow").style.display = "block";
-  } else { document.getElementById("slideTextHI").innerHTML = '<h1 class="HI"></h1>';
+  } else { document.getElementById("slideTextHI").innerHTML = '<h1 class="hi-style"></h1>';
   }
   console.log('pos', pos, slideshowText[upperSlidePosition].display);
   document.getElementById("slideText").innerHTML = slideshowText[upperSlidePosition].display;
@@ -70,6 +69,11 @@ const changeAboutText = () => {
   document.getElementById("aboutTitle").innerHTML = aboutText[lowerSlidePosition].title;
   document.getElementById("about").innerHTML = aboutText[lowerSlidePosition].display;
 }
+
+const toSteps = () => {
+   currentSlideNumber++;
+   nextItem();
+};
 
 // ------------- VARIABLES ------------- //
 var ticking = false;
@@ -93,7 +97,7 @@ function parallaxScroll(evt) {
     delta = evt.wheelDelta;
   }
 
-  if (ticking != true) {
+  if (ticking !== true) {
     if (delta <= -scrollSensitivitySetting) {
       //Down scroll
       ticking = true;

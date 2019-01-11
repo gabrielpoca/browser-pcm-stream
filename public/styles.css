@@ -1,86 +1,173 @@
+@font-face {
+  font-family: "Arial Black";
+  src: url("fonts/ArialBlack.woff") format("woff");
+}
+input[type="time"]
+{
+    -webkit-appearance: none;
+}
 html, body {
 height: 100%;
-width:100%;
+width: 100%;
 margin: 0;
 padding: 0;
 background: black;
 min-height:100vh;
+overflow-x: hidden;
+
+}
+body {
+  overflow-y: scroll; /* has to be scroll, not auto */
+-webkit-overflow-scrolling: touch;
+  position: relative
 }
 /* sections */
 /* Top section */
 .main-image {
-	background:blue;
+	background-image: url("assets/images/Craig_photo_spaceman.jpg");
 	height: 100%;
 	margin: none;
-  }
-  .top-right {
-	padding: 0px;
-  }
-  .right-upper {
-	width: 100%;
-	height: 50vh;
-	padding: 0px;
-  }
-  .right-lower {
-	width: 100%;
-	height: 50vh;
-	padding: 0px;
-	background: white;
-	color: black;
-  }
-  .left-arrow {
-	left: -15%;
+}
+.overlay-border {
+  width: 75%;
+  height: 75%;
+  border: solid;
+  border-width: 30px;
+  height: 80% !important;    
+}
+.splash-title {
+  text-align: left;
+  font-size: 4em;
+  font-weight: bolder;
+  padding-left: 30px;
+  padding-top: 55px;
+  text-transform: uppercase;
+  font-family: "Arial Black", "Arial-BoldMT", Roboto;
+}
+.splash-text {
+  font-size: 15px;
+  font-weight: normal;
+  text-transform: none;
+  font-family: Arial;
+}
+.top-right {
+padding: 0px;
+}
+.topRightText {
+	text-align: left;
+	padding-left: 3vw;
+	padding-top: 12vh;
+}
+.hi-style {
+  font-size: 80px;
+  font-family: "Arial black", "Arial-BoldMT", Roboto;
+  position: absolute;
+  top: -10%;
+  padding-left: 10%;
+}
+.right-upper {
+width: 100%;
+height: 50vh;
+padding: 0px;
+}
+
+.slide-style {
+  padding:1px;
+}
+.left-arrow {
+  left: -15%;
   top: 10%;
   width: 12% !important;
   position: absolute;
-  }
-  #leftArrow {
-    display:none;
-  }
-  .right-arrow {
-    right: -15%;
-    top: 10%;
-    width: 12% !important;
-    position: absolute;
-  }
-
-  /* Input Sections */
-  .input1 {
-	background:lightcoral;
-	height: 100%;
-  }
-  .input2 {
-	background:lightgreen;
-	height: 100%;
-  }
-  .input3 {
-	background:lightsalmon;
-	height: 100%;
-  }
-  /* Contact Section */
-  .contact-section {
-	background:navy;
-	height:100%;
-  }
-  /* About section */
-  .about-section {
-	background:orange;
-	height: 100%;
-  }
+  cursor: pointer;
+}
+#leftArrow {
+  display:none;
+}
+.right-arrow {
+  right: -15%;
+  top: 10%;
+  width: 12% !important;
+  position: absolute;
+  cursor: pointer;  
+}
+.right-lower {
+  width: 100%;
+  height: 50vh;
+  padding: 0px;
+  background: white;
+  color: black;
+  text-align: left;
+}
+.lowerPadding { 
+  padding-left: 5vh;
+  padding-top: 4vh;
+  font-size: 5vh;
+  font-family: Arial, Helvetica, sans-serif;
+}  
+.nextIcon {
+  left: -15%;
+  top: 16vh;
+  width: 12vh;
+}
+/* Input Sections */
+.input-text {
+  font-size: 16px;
+}
+.guide-arrow {
+  margin:auto;
+  color: white;
+  width: 7rem;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+.audio-arrow {
+  margin-right: 0;
+  color: white;
+  width: 3rem;
+  margin-left: 38%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+/* Contact Section */
+.contact-section {
+background:navy;
+height:100%;
+}
+.social-section {
+height: 100%
+}
+/* About section */
+.about-section {
+background:orange;
+height: 100%;
+}
   
 .about-section {
   background-color: white;
   color: black;
   font-size: 2rem;
+  text-align: left;
   height: 100vh;
   width: 100%;
   }
-  #aboutTitle {
-  font-size: 3em;
+.info-title {
+  font-size: 4em;
   font-weight: bolder;
-  padding-bottom: 5%;
+}
+  #aboutTitle {
+  padding-left: 15%;
+  padding-top: 20%;
   }
   /* Credit Section */
+  #creditsTitle {
+    padding-left: 15%;
+    padding-top: 45%;
+  }
+  #credits {
+    padding-top: 60%;
+    font-size: 2rem;
+  }
   .credits-section {
 	background:rebeccapurple;
 	height: 100%;
@@ -89,26 +176,21 @@ min-height:100vh;
 	margin: none;
 	padding: none;
   }
-
+/* Global Styles */
+.image-stretch {
+	height: 100vh;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  width: 100%;
+  object-fit:cover;
+}
 
 
 
 
 /* OLD STYLES TO BE REFACTORED   */
-/*   
-.boundingBox{
-	position: relative;
-	text-align: center;
-	width: 100%;
-	padding: 0px !important;
-}    */
-/* 
-.topRightImage{
-	position:relative;
-	text-align:center;
-	width: 100%;
-	padding: 0px !important;
-} */
+
 
 .navButtons {
 	position:absolute;
@@ -130,25 +212,23 @@ min-height:100vh;
 	width: 75%;
 	height: 75%;
 	border: solid;
-	border-width: 1.5em;
+	border-width: 30px;
 	height: 75% !important;
 }
 
 .overlayNoBorder {
-	position: absolute;
-	color:white;
-	text-align: left;
-	width: 75%;
-	height: 75%;
-	text-transform: none;
-}
-
-.splashTitle {
-	font-size: 3em;
-	font-weight: bolder;
-	padding-left: 20%;
-	padding-top: 10%;
-	text-transform: uppercase;
+  position: absolute;
+  color: white;
+  text-align: left;
+  width: 75%;
+  height: 75%;
+  text-transform: none;
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  /* width: 75%; */
+  /* height: 75%; */
+  transform: translate(-50%, -50%);
 }
 
 .normalTitle {
@@ -158,15 +238,7 @@ min-height:100vh;
 	padding-top: 10%;
 }
 
-.splashText {
-	font-size: .25em;
-	font-weight: normal;
-	text-transform: none;
-}
 
-.innerText {
-	height: 50%;
-}
 
 .topRightBoxes {
 	text-align: left;
@@ -174,30 +246,13 @@ min-height:100vh;
 	padding: 0px !important;
 }
 
-.lowerBox {
+/* .lowerBox {
 	text-align: left;
 	vertical-align: middle;
   	padding-left:15%;
   	background:white;
   	color: black;
-}
-
-.topRightText {
-	text-align: left;
-	padding-left: 5vw;
-	padding-top: 12vh;
-}
-.topRightHI {
-	padding-top: 25%;
-}
-
-
-
-.lowerPadding { 
-	padding-left:15%;
-	padding-top:25%;
-	font-size: 1.25em;
-}
+} */
 
 .sectionHeight {
 	height: 100vh;
@@ -228,14 +283,6 @@ min-height:100vh;
 	transform: translate(-50%, -50%);
 }
 
-.mainImage {
-	height: 100vh;
-	background-image: url("assets/images/Craig_photo_spaceman.jpg");
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .inputColumns {
 	position:relative;
 }
@@ -250,13 +297,12 @@ min-height:100vh;
 .input  {
 	margin: 0 auto;
 	display: block;
-	width: 60%;
-	height: 4rem;
-	border-radius: 2rem;
-	color: gray;
+	width: 75%;
+	border-radius: 2.5rem;
+	color: white;
 	background-color: rgba(255,255,255,0.20);
 	border: none;
-	padding-left: 25%;
+	padding-left: 5%;
 }
 
 .circleText {
@@ -264,9 +310,9 @@ min-height:100vh;
 	border: 1px solid white;
 	width: 48px;
 	height:48px;    
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px; 
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px; 
 }
 
 .numberText {
@@ -279,15 +325,18 @@ min-height:100vh;
 }
 
 .about {
-	background-color: white;
-	color: black;
+	/* background-color: white; */
+  color: black;
+  font-size: 1.75rem;
+  font-weight: bold;
+  padding-top: 10%;
 }
 
 .icon {
 	color:white;
 	width: 6rem;
 	margin: auto;
-	padding-bottom: 25vh;
+	/* padding-bottom: 25vh; */
 }
 
 
@@ -320,7 +369,7 @@ min-height:100vh;
 }
 
 .instructions {
-	font-size: 2rem;
+	font-size: 2.5rem;
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
 	font-style: normal;
@@ -328,18 +377,13 @@ min-height:100vh;
 } 
 
 .mic-wrapper {
-    padding-bottom: 16vh;
     padding-top: 0px;
+    font-size: 2.5rem;
+    /* padding-top: 1.5rem;
+    padding-bottom: 1.5rem; */
 }
 
-.half-height {
-	height: 50vh !important;
-}
 
-.nextIcon {
-	left:-25%;
-	top: 40%;
-}
 .nextIconBottom {
 padding-top: 35%;		
 }
@@ -386,7 +430,7 @@ list-style-type: none;
 }
 
 .input{
-    height: 4em;
+    height: 5rem;
 }
 
 .record-control{
@@ -397,30 +441,36 @@ list-style-type: none;
     display: block;
     position: relative;
     user-select: none;
-    height: 4em;
-    width: 60%;
-    border-radius: 2rem;
     overflow: auto hidden;
     background-color: gray;
-	
 	  margin: 0 auto;
-	  margin-top: 10vh;
-     /* margin-top: 10vh; */
     display: block;
-    width: 60%;
-    border-radius: 2rem;
+    border-radius: 2.5rem;
     color: gray;
     background-color: rgba(255,255,255,0.20);
     border: none;
     padding: 0 0 0 0;
-    width: 354px;
-    height: 56px;
+	  width: 75%;
+    height: 5rem;
+}
 
+#stopButton{
+	margin-left:5px;
 }
 
 #trashButton{
     width: 2.9em;
-    padding-bottom: 27px;
+	padding-bottom: 27px;
+	margin-left:5px;
+}
+
+#submitButton{
+  color:black;
+  background:white;
+	font-weight: bold;
+	border-radius: 8px;
+	margin-bottom: 27px;
+  margin-left:5px;
 }
 
 .clockStyle {
@@ -432,31 +482,28 @@ list-style-type: none;
 position: relative;
 top: 0px;
 left: 0px;
-width: 60%;
+width: 75%;
 padding-left: 4%;
 }
-/* 
-.pac-container:after {
-    Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown
-    background-image: none !important;
-    height: 0px;
-} */
+
 .vl {
 	border-left: 6px solid green;
     height: 500px;
 }
-sectionHeight:before {
+/* .sectionHeight:before {
   content : "";
   position: absolute;
   left    : 0;
   bottom  : 0;
   height  : 1px;
-  width   : 50%;  /* or 100px */
+  width   : 50%;  /* or 100px 
   border-bottom:1px solid magenta;
-}
+} */
 /* details */
 
-
+a {
+  text-decoration: none;
+}
 a:focus, a:hover {
     /* color: #23527c; */
     text-decoration: none;
@@ -473,14 +520,110 @@ a:focus, a:hover {
 	right: 0;
   }
 
+  .social-box{
+    background-color: black;
+      width: 70%;
+      height: 35vh;
+      position: relative;
+      left: 20%;
+      padding: 30px;
+      font-size: 1.2em;
+    }
+  
+    .social-box button{
+    border-radius: 8px;
+    }
+  
+    .social-box input{
+      background-color: white;
+      height: 34px;
+      margin: 0;
+      margin-right: 3px;
+      float: left;
+      padding: 3px;
+      color:black;
+    }
+  
+    .social-box .newsletter-subscrition{
+      /* width: 50%;
+      float: left;
+      margin-right: 20%; */
+      height: 100%;
+    }
+  
+    .social-box .newsletter-subscrition p {
+    margin-bottom: 10%;
+    }
+  
+    .social-box .input-border::after {
+    top: -15%;
+    /* left: 95%; */
+    }
+  
+    .social-box .social-media-button .far{
+      font-size: 30px;
+      color: white;
+    }
+  
+    .social-box .social-media-button .fab{
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      color: white;
+    }	
+  
+    .social-box .social-media-button .fa-facebook-f{
+    right: 13px;
+    }	
+  
+    .social-box .social-media-button .fa-twitter{
+    right: 9px;
+    }	
+  
+    .social-box .social-media-button .fa-envelope{
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      color: white;
+  
+    }	
+
+  
+@media only screen and (max-width: 1170px) {
+    .social-box #sendMail {
+        margin-top: 10px;
+    }
+}
+
   @media only screen and (max-width: 992px) {
     /* For tablets:*/
-  /* Top section */.top-right {
+  /* Top section */
+  .top-right {
     padding: 0px;
   }
   .right-upper {
   height: 100vh;
   }
+  .splash-title {
+    font-size: 6em;
+    padding-top:30%;
+  }
+  .splash-text {
+    font-size: 20px;
+    padding-right: 10%;
+  }
+  /* Slide show */
+  .hi-style {
+    font-size: 140px;
+    top: 10%;
+    padding-left: 10vw;
+  }
+  .topRightText {
+    padding-left: 10vw;
+    padding-top: 32vh;
+    font-size: 3vh;
+}
+
   .step {
     padding-bottom: 3%;
     padding-top: 5%;
@@ -500,14 +643,14 @@ a:focus, a:hover {
   display:none
   }
   .left-arrow {
-  left: -12%;
+  left: -10%;
   top: 35%;
   }
   #leftArrow {
     display:none;
   }
   .right-arrow {
-    right: -12%;
+    right: -10%;
     top: 35%;
   }
   /* INPUT SECTIONS */
@@ -518,27 +661,186 @@ a:focus, a:hover {
     .innerText {
       height: 40%;
     }
-  
     .mic-wrapper {
       padding-bottom: 3vh;
     }
-  
-    .lowerBox{
-      display: none;
+    .step {
+      font-size: 7.5rem;
     }
+    .guide-arrow {
+      width: 14rem;
+    }
+    .input {
+      margin-top: 5%;
+    }
+    .info-title {
+      font-size: 3.5em;
+    }
+    
+    #aboutTitle {
+      padding-left: 10%;
+      padding-top: 5%;
+    }
+    #creditsTitle {
+      padding-left: 15%;
+      padding-top: 5%;
+    }
+    #credits {
+      padding-top:15%;
+    }
+
+    .about {
+      font-size: 2.25rem;
+      padding-top: 0px;
+    }
+
+    .social-box .newsletter-subscrition {
+      height: 50%;
+
+  }
+  .input-border::after{
+    display: none;
+  }
+  .sectionHeight {
+    border-bottom: 1px solid rgba(255,255,255,.5); 
+  }
   }
   
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 766px) {
     /* For mobile phones: */
+    /* Slide show */
     .right-upper{
         background:pink;
         height: 100%;
     }
-    /* INPUT SECTIONS */
-    .step {
-      font-size: 7.5rem;
+    .hi-style {
+      font-size: 120px;
+      top: 10%;
+      padding-left: 10vw;
     }
+    .right-arrow {
+      right: 20%;
+      top: 100%;
+    }
+    .left-arrow {
+      left: 20%;
+      top: 100%;
+    }
+    .topRightText {
+      width: 85%;
+    }
+    /* INPUT SECTIONS */
+    /* .step {
+      font-size: 7.5rem;
+    } */
+    .splash-title {
+      font-size: 2.75em;
+      padding-left: 15px;
+      font-family: "Arial black", "Arial-BoldMT", Roboto;
+      padding-top: 50%;
+    }
+    .splash-text {
+      font-size: 14px;
+      padding-right: 25%;
+    }
+    .step {
+      font-size: 2.5rem;
+    }
+    .icon {
+      padding-bottom: 1vh;
+    }
+    .info-title {
+      font-size: 3.5rem;
+    }
+    .guide-arrow {
+      width: 8rem;
+    }
+    #waveform {
+      margin-top: 0%;
+    }
+    .sectionHeight {
+      padding-right: 0px;
+      padding-left: 30px; 
+    }
+
+    .about {
+      font-size: 1.5rem;
+    }
+    .normalTitle {
+      font-size: 2.5em;
+    }
+    .social-box {
+      background-color: transparent;
+      padding: 0px;
+    }
+    .social-box .newsletter-subscrition {
+      height: 100%;
+    }
+
+    .social-box input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .overlayNoBorder {
+      width: 100%;
+    }
+    input {
+      -webkit-appearance: none;  
+    }
+    .input  {
+      appearance: none;
+      margin: 0 auto;
+      display: block;
+      width: 75%;
+      border-radius: 2.5rem !important;
+      border-radius: 0;
+      color: white;
+      background-color: rgba(255,255,255,0.20);
+      border: none;
+      padding-left: 25%;
+      /* margin-top: -30%; */
+    }
+    #appt-time {
+      font-size: 20px;
+      width: 75%;
+      padding-top: 2%;
+    }
+
+    .step::before {
+      margin-left: -5px;
+    }
+}
+
+
+@media only screen and (max-width: 568px) {
+
+
+  .guide-arrow {
+    margin: auto;
+    color: white;
+    width: 7rem;
+    padding-top: 2%;
+    padding-bottom: 2%;
   }
+
+  .splash-title p{
+   font-size: 31px;
+  }
+
+  .splash-title .splash-text {
+    font-size: 14px;
+    padding-right: 25%;
+  }
+  
+  #slideText{
+    padding-left: 10vw;
+    padding-top: 37vh;
+    font-size: 3vh;
+  }
+  
+
+
+}
 
 
 

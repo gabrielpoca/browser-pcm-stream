@@ -1,20 +1,21 @@
+'use strict';
 //webkitURL is deprecated but nevertheless
 URL = window.URL || window.webkitURL;
 
 var gumStream; 						//stream from getUserMedia()
 var rec; 							//Recorder.js object
 var input; //MediaStreamAudioSourceNode we'll be recording
-var fileSource 	// when we playback from the file						
+var fileSource ;	// when we playback from the file						
 
 // shim for AudioContext when it's not avb. 
 var AudioContext = window.AudioContext || window.webkitAudioContext;
-var audioContext //audio context to help us record
-
-var recordButton = document.getElementById("recordButton");
-var stopButton = document.getElementById("stopButton");
-var trashButton = document.getElementById("trashButton");
-var micIcon = document.getElementById("mic-icon");
 var audioContext = new AudioContext();
+
+var recordButton = document.getElementById('recordButton');
+var stopButton = document.getElementById('stopButton');
+var trashButton = document.getElementById('trashButton');
+//var micIcon = document.getElementById('mic-icon');
+var recordingsList = document.getElementById('recordingsList');
 var scope = null ;
 
 
@@ -33,24 +34,17 @@ function resizeCanvasToDisplaySize(canvas) {
  }
 
 // init Canvas
-var canvas = document.getElementById("waveform") ;
+var canvas = document.getElementById('waveform') ;
 resizeCanvasToDisplaySize(canvas);
-var ctx = canvas.getContext('2d')
-ctx.lineWidth = 2
-ctx.shadowBlur = 4
-ctx.shadowColor = 'white'
-
-
-//add events to those buttons
-recordButton.addEventListener("click", startRecording);
-stopButton.addEventListener("click", stopRecording);
-trashButton.addEventListener("click", discardRecording);
-
+var ctx = canvas.getContext('2d');
+ctx.lineWidth = 2 ;
+ctx.shadowBlur = 4 ;
+ctx.shadowColor = 'white';
 
 function discardRecording(){
-	console.log("Discard recording");
-	stopButton.className = "far fa-stop-circle fa-3x";
-	document.getElementById("audioComponent")
+	console.log('Discard recording');
+	stopButton.className = 'far fa-stop-circle fa-3x';
+	document.getElementById('audioComponent')
 	while( recordingsList.firstChild ){
 	  recordingsList.removeChild( recordingsList.firstChild );
 	}
@@ -59,7 +53,7 @@ function discardRecording(){
 	
 	scope.animate(ctx);
 	ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
-	console.log("Discard recording end");
+	console.log('Discard recording end');
 
 }
 
@@ -67,18 +61,18 @@ function discardRecording(){
 function drawLoop () {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	var centerX = canvas.width / 2 ; 
+	//var centerX = canvas.width / 2 ; 
 	var centerY = 100 ;//canvas.height / 2 ;
 
 	ctx.beginPath();
-	ctx.strokeStyle = 'lightgrey'
-	scope.draw(ctx, 0, -40, canvas.width, centerY)
+	// ctx.strokeStyle = 'lightgrey'
+	// scope.draw(ctx, 0, -40, canvas.width, centerY)
 
-	ctx.strokeStyle = 'yellow'
+	ctx.strokeStyle = 'white'
 	scope.draw(ctx, 0, -20, canvas.width, centerY)
 
-	ctx.strokeStyle = 'darkgrey'
-	scope.draw(ctx, 0, 0, canvas.width, centerY);
+	// ctx.strokeStyle = 'darkgrey'
+	// scope.draw(ctx, 0, 0, canvas.width, centerY);
 	ctx.closePath();
 	ctx.stroke();
 
@@ -86,7 +80,11 @@ function drawLoop () {
 }
 
 function startRecording() {
-	console.log("recordButton clicked");
+	console.log('recordButton clicked');
+
+	audioContext.resume().then(() => {
+		console.log('Playback resumed successfully');
+	});
 
 	/*
 		Simple constraints object, for more advanced audio features see
@@ -94,8 +92,8 @@ function startRecording() {
 	*/
     
     var constraints = { audio: true, video:false }
-    stopButton.className = "far fa-stop-circle fa-3x";
-    micIcon.className = micIcon.className += " button-glow"
+    stopButton.className = 'far fa-stop-circle fa-3x';
+    //micIcon.className = micIcon.className += ' button-glow';
 
  	/*
     	Disable the record button until we get a success or fail from getUserMedia() 
@@ -109,7 +107,7 @@ function startRecording() {
 	*/
 
 	navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-		console.log("getUserMedia() success, stream created, initializing Recorder.js ...");
+		console.log('getUserMedia() success, stream created, initializing Recorder.js ...');
 		/*
 			create an audio context after getUserMedia is called
 			sampleRate might change after getUserMedia is called, like it does on macOS when recording through AirPods
@@ -117,7 +115,7 @@ function startRecording() {
 
 		*/
 		//update the format 
-		console.log("Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz");
+		console.log('Format: 1 channel pcm @ '+audioContext.sampleRate/1000+'kHz');
 		/*  assign to gumStream for later use  */
 		gumStream = stream;
 		/* use the stream */
@@ -131,30 +129,32 @@ function startRecording() {
 
 		//start the recording process
 		rec.record();
+		console.log('recordedStarted');
 
 		// attach oscilloscope
 		scope = new Oscilloscope(input);
-		drawLoop()
+		drawLoop();
 	
-		console.log("Recording started");
+		console.log('Recording started');
 
 	}).catch(function(err) {
-	  	//enable the record button if getUserMedia() fails
+		  //enable the record button if getUserMedia() fails
+		console.error(err);
     	recordButton.disabled = false;
     	stopButton.disabled = true;
 	});
-}``
+}
 
 
 function stopRecording() {
 	if ( ! stopButton.disabled ){
-		console.log("stopButton clicked");
+		console.log('stopButton clicked');
 		//disable the stop button, enable the record too allow for new recordings
 		stopButton.disabled = true;
 		recordButton.disabled = false;
 		//stopButton.src = 'assets/images/round-keyboard_arrow_right-24px.svg';
-		stopButton.className = "fas fa-play-circle fa-3x";
-		micIcon.className = "fas fa-microphone-alt fa-2x"
+		stopButton.className = 'fas fa-play-circle fa-3x';
+		//micIcon.className = 'fas fa-microphone-alt fa-2x';
 		//tell the recorder to stop the recording
 		rec.stop();
 		//scope.stop();
@@ -165,9 +165,9 @@ function stopRecording() {
 		//create the wav blob and pass it on to createDownloadLink
 		rec.exportWAV(createDownloadLink);
 	}
-	else if (document.getElementById("audioComponent")) {
-		console.log("playButton clicked");
-		let audioElement = document.getElementById("audioComponent");
+	else if (document.getElementById('audioComponent')) {
+		console.log('playButton clicked');
+		let audioElement = document.getElementById('audioComponent');
 		
 		// var audioCtx = new AudioContext();
 		if ( ! fileSource ){
@@ -181,6 +181,22 @@ function stopRecording() {
 	}
 }
 
+function getStringOfLocation(){
+	var result = "";
+	result += document.getElementById('autocomplete').value;
+	result = result.replace(' ', '');
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(pos){
+			result += pos.coords.latitude + pos.coords.longitude ;
+		});
+    } else {
+		log.error("geolocalisation is not supported");
+	}
+	return result ;
+
+}
+
 function createDownloadLink(blob) {
 	
 	var url = URL.createObjectURL(blob);
@@ -188,45 +204,55 @@ function createDownloadLink(blob) {
 	var li = document.createElement('li');
 	var link = document.createElement('a');
 
-	//name of .wav file to use during upload and download (without extendion)
+	//name of .wav file 
 	var filename = new Date().toISOString();
-	let timeValue = document.getElementById("appt-time").value 
-	// read location here.
+
+	let timeValue = document.getElementById('appt-time').value ;
 	if( timeValue ){
-		filename = filename + "--" +  timeValue ;
+		filename = filename + '--' +  timeValue 
 	}
+
+	// read location here. 
+	let locationAsString =  document.getElementById('autocomplete').value.replace(/,/g, '-').replace(/ /g, '');
+	locationAsString = locationAsString.concat('#',lat , '#',lng) ; 
+
+
+	filename = filename.concat('@',locationAsString)
+
 
 	//add controls to the <audio> element
 	au.controls = false;
-	au.id = "audioComponent";
+	au.id = 'audioComponent';
 	au.src = url;
 
 	//save to disk link
 	link.href = url;
 	
-	link.download = filename+".wav"; //download forces the browser to donwload the file using the  filename
-	link.innerHTML = "Save to disk";
+	link.download = filename+'.wav'; //download forces the browser to donwload the file using the  filename
+	link.innerHTML = 'Save to disk';
 
 	//add the new audio element to li
 	li.appendChild(au);
 	
 	//add the filename to the li
-	//li.appendChild(document.createTextNode(filename+".wav "))
+	//li.appendChild(document.createTextNode(filename+'.wav '))
 
 	//add the save to disk link to li
 	//li.appendChild(link);
+
+	console.log('fileNameBeforeSending' + filename);
 	
 	var xhr=new XMLHttpRequest();
 	xhr.onload=function(e) {
 	  if(this.readyState === 4) {
-	      console.log("Server returned: ",e.target.responseText);
+	      console.log('Server returned: ',e.target.responseText);
 	  }
 	  };
 
 	  var fd=new FormData();
-	  fd.append("audio_data",blob, filename);
-	  fd.append("filename", filename);
-	  xhr.open("POST","upload",true);
+	  fd.append('filename', filename);
+	  fd.append('audio_data',blob, filename);
+	  xhr.open('POST','upload',true);
 	  xhr.send(fd);
 
 
@@ -236,3 +262,15 @@ function createDownloadLink(blob) {
 	}
 	recordingsList.appendChild(li);
 }
+
+function submitRecording(){
+	currentSlideNumber++;
+	nextItem();
+	document.getElementById("thanksPage").scrollIntoView();
+}
+
+//add events to those buttons
+recordButton.addEventListener('click', startRecording);
+stopButton.addEventListener('click', stopRecording);
+trashButton.addEventListener('click', discardRecording);
+submitButton.addEventListener('click', submitRecording);

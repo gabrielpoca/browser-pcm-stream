@@ -1,8 +1,14 @@
 <html>
   <head>
-    <title>Browser streaming POC</title>
+    <title>Good Morning Project</title>
         
     <meta name="viewport" content="width=device-width,initial-scale=1.0">        
+    <!-- facebook share props -->
+    <meta property="og:url"                content="http://www.pioupiou.pw" />
+    <!-- <meta property="og:type"               content="article" /> -->
+    <meta property="og:title"              content="A Global Good Morning" />
+    <meta property="og:description"        content="Please share your good morning with us!" />
+    <meta property="og:image"              content="https://pioupiou.pw/assets/images/Craig_photo_spaceman.jpg" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -30,27 +36,27 @@
   <section class="background">
     <div class="content-wrapper">
       <div class="container col-md-8 ">
-        <div class="img-responsive boundingBox mainImage" ></div>
-          <div class="overlayText centered">
-            <div class="splashTitle">
-              <p class="innerText">A<br>Global<br>Good<br>Morning</p>
-              <p class="splashText innerText">A good morning is anything you say to greet your day. It's the first greeting.</p>
+        <div class="img-responsive image-stretch main-image" ></div>
+          <div class="overlay-border centered">
+            <div class="splash-title">
+              <p>A<br>Global<br>Good<br>Morning</p>
+              <p class="splash-text">A good morning is anything you say to greet your day. It's the first greeting.</p>
             </div>
           </div>
       </div>
       <div class="col-md-4 top-right">
         <img class="right-upper" src="assets/images/CraigD-Image-TopRight.jpg">
-        <div class="overlayNoBorder centered  d-flex flex-row">
+        <div class="overlayNoBorder  d-flex flex-row">
           <img id="leftArrow" class="left-arrow p-2" onclick="changeText(-1)" src='assets/images/top_white_arrow_left-24px.svg' >
-          <span class="paddingRightHI" id="slideTextHI"></span>
-          <p class="p-2 topRightText" id="slideText"></p>
+              <span id="slideTextHI"></span>
+              <p class="p-2 topRightText" id="slideText"></p>
           <img id="rightArrow" class="right-arrow p-2" onclick="changeText(1)" src='assets/images/top_white_arrow_right-24px.svg' >
         </div>
         <!-- <div class="lowerBox half-height  d-flex flex-row"> -->
-            <div class="right-lower half-height  d-flex flex-row">
-          <p class="lowerPadding col-md-9">I want<br> to add<br> my own<br> personal<br> good <br>morning.</p>
+        <div class="right-lower d-flex flex-row">
+          <p class="lowerPadding col-md-9 ">I want<br> to add<br> my own<br> personal<br><b> good</b> <br><b>morning.</b></p>
           <div class="col-md-3 circleText nextIcon">
-            <a href="#inputs" class="col-md-3"> 
+            <a href="#stepsBegin" class="col-md-3" onclick="toSteps()"> 
               <img class="icon nextIcon" src='assets/images/round-keyboard_arrow_right-24px.svg' >
             </a>
           </div>
@@ -61,7 +67,7 @@
   <section class="background">
       <div class="content-wrapper">
   <div class="row inputColumns" >
-    <a  name="inputs">
+    <a  name="stepsBegin" id="stepsBegin">
       <div class="col-md-4 sectionHeight input-border">
           <p class="step centerText">STEP</p>
         <div class="circleText">
@@ -69,7 +75,8 @@
         </div>
         <p class="instructions centerText">Tell us where you are</p>
         <img class="icon img-responsive" src='assets/images/round-language-24px.svg'>
-          <input id="autocomplete" class="input" placeholder="Enter your address"  type="text"/>
+        <img class="guide-arrow img-responsive" src='assets/images/GuideArrow.svg'>
+          <input id="autocomplete" class="input input-text" placeholder="Enter your address"  type="text"/>
         <p class="inputDescription centerText">This is your computer's current location.</p>
       </div>
       <div class="col-md-4 sectionHeight input-border ">
@@ -79,8 +86,9 @@
           </div>
           <p class="instructions centerText">Tell us when you wake up</p>
           <img class="icon img-responsive" src='assets/images/round-access_time-24px.svg'>
-          <input class="input"  type="time"id="appt-time" name="appt-time" required />
-          <span class="clockStyle" id="clock"></span>
+          <img class="guide-arrow img-responsive" src='assets/images/GuideArrow.svg'>
+          <input class="input input-text"  type="time"id="appt-time" name="appt-time" required />
+          <!-- <span class="clockStyle" id="clock"></span> -->
           <p class="inputDescription centerText">This is the current time.<br>Feel free to change it.</p>
       </div>
       <div class="col-md-4 sectionHeight">
@@ -89,19 +97,21 @@
             <p class="numberText centerText">3</p>
         </div>
         <p class="instructions centerText">Say good morning</p>
-          <p  class="instructions centerText mic-wrapper"> 
+          <!-- <span  class="mic-wrapper icon img-responsive"> 
             <i id="mic-icon" class="fas fa-microphone-alt fa-2x"></i> 
-          </p>
- 
+          </span> -->
+          <img class="icon img-responsive" src='assets/images/round-mic-24px.svg'>
+
+          <img class="guide-arrow  img-responsive" src='assets/images/GuideArrow.svg'>
           <ol id="recordingsList"></ol>
 
 
         <canvas id="waveform"></canvas>
           <p class="record-control centerText">
-              <i id="recordButton" class="far fa-dot-circle fa-3x"></i>
+                <i id="recordButton" class="far fa-dot-circle fa-3x"></i>
                 <i id="stopButton" class="far fa-stop-circle fa-3x"></i>
                 <img id="trashButton" class="icon" src='assets/images/round-delete-24px.svg'>
-              </span>
+                <button id="submitButton" type="button" class="btn">Submit</button>
           </p>
       </div>
     </a>
@@ -111,31 +121,73 @@
 <section class="background">
     <div class="content-wrapper">
       <div class="container col-md-12">
-      <img class="img-responsive boundingBox mainImage" src="assets/images/CraigD-image-email.jpg">
-      <div class="overlayNoBorder centered">
-              <div class="normalTitle">
-              <p>Thank You and Good Morning</p>
-              <p class="splashText">A good morning is anything you say<br>to greet your day. It's the first greeting.</p>
+      <img class="img-responsive image-stretch" src="assets/images/CraigD-image-email.jpg">
+      <div class="overlayNoBorder">
+              <div class="normalTitle" id="thanksPage">
+                <p>Thank You & <br> Good Morning</p>
+              </div>
+              <div class="social-box">
+                <div class="newsletter-subscrition input-border col-md-7">
+                  <p>Enter your Email here, if you'd like us to keep you informed about the project</p>
+                  <span>
+                    <input class="input"  type="text" id="newsletter-subscription" name="newsletter-subscription" />
+                    <button type="button" id="sendMail" class="btn btn-primary">Submit</button>
+                  </span>
+                </div>
+                <div class="social-media-button col-md-5">
+                  <p>Tell your furthest friends.</p>
+                  <span class="fa-stack" style="vertical-align: top;">
+                    <a href="mailto:?&subject=Good Morning&body=Please%20check%20out%20Global%20Good%20Morning%20and%20contribute!">
+                      <i class="far fa-circle fa-stack-1x"></i>
+                      <i class="fas fa-envelope"></i>
+                    </a>
+                  </span>  
+                  <p>Follow the project</p>
+                  <span>
+                      <span class="fa-stack" style="vertical-align: top;">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=pioupiou.pw">
+                          <i class="far fa-circle fa-stack-1x"></i>
+                          <i class="fab fa-facebook-f"></i>
+                        </a>
+                        </span>  
+                      <span class="fa-stack" style="vertical-align: top;">
+                        <a target="_blank" href="https://twitter.com/home?status=Global%20Good%20Morning%20Test">
+                          <i class="far fa-circle fa-stack-1x"></i>
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                      </span>  
+                      <span class="fa-stack" style="vertical-align: top;">
+                        <a target="_blank" href="https://www.instagram.com/misterdamrauer">
+                          <i class="far fa-circle fa-stack-1x"></i>
+                          <i class="fab fa-instagram"></i>  
+                        </a>
+                      </span>
+                  </span>
+                </div>
               </div>
           </div>
         </div>
       </div>
 </section>
-<section class="background">
-  <div class="content-wrapper">
+<section class="background screen">
+    <div class="content-wrapper">
       <div class="row">
-          <div class="col-md-6 about-section">
-            <span class="about centered p-2" id="about">
-              <p id="aboutTitle">
+          <div class="about-section">
+            <div class="col-md-5">
+              <p class="info-title" id="aboutTitle">
                   About the Project
               </p>
-              <p>Global Good Mornings is a project by Craig Damrauer. You can look at more of my work at <a href="https://assortedbitsofwisdom.com/">Assorted Bits of Wisdom</a>.</p>
-              <p>This project is an outgrowth of something I’ve been pondering for a while. I’m interested in whether I can make something that helps a viewer viscerally intuit the turning of the earth.</p>
-              <p>I think a really interesting way to do this is to through people. At every moment on earth someone is waking up and headed into the day ahead. If there’s a way to capture these voices there might be a way to allow us to feel the day’s progress as the earth turns.</p>
-              <p>It’s going to need multiple sets of voices from every timezone in the world. I’d love it to represent the young, the old and everybody in between. I’d love it to represent different languages, different points of view, different modes of waking up.</p>
-              <p>Drop a line, if you want to talk about this, have ideas or just want to be kept up to date with the progress.</p>
-              GlobalGoodMorning @ gmail.com
-            </span>
+            </div>
+            <div class="col-md-7">
+              <span class="about centered p-2" id="about">
+                <p>Global Good Mornings is a project by Craig Damrauer. You can look at more of my work at <a href="https://assortedbitsofwisdom.com/">Assorted Bits of Wisdom</a>.</p>
+                <p>This project is an outgrowth of something I’ve been pondering for a while. I’m interested in whether I can make something that helps a viewer viscerally intuit the turning of the earth.</p>
+                <p>I think a really interesting way to do this is to through people. At every moment on earth someone is waking up and headed into the day ahead. If there’s a way to capture these voices there might be a way to allow us to feel the day’s progress as the earth turns.</p>
+                <p>It’s going to need multiple sets of voices from every timezone in the world. I’d love it to represent the young, the old and everybody in between. I’d love it to represent different languages, different points of view, different modes of waking up.</p>
+                <p>Drop a line, if you want to talk about this, have ideas or just want to be kept up to date with the progress.</p>
+                GlobalGoodMorning @ gmail.com
+              </span>
+            </div>
           </div>
       </div>
   </div>
@@ -143,17 +195,19 @@
 <section class="background">
     <div class="content-wrapper">
         <div class="row">
-            <div class="col-md-6 about-section">
-              <span class="about centered p-2" id="about">
-                <p id="aboutTitle">
+            <div class="about-section">
+              <div class="col-md-5">
+                <p class="info-title" id="creditsTitle">
                   Credits
                 </p>
-      <p>(this will evolve)</p>
-      <p>Site Design: Brian Carley</p>
-      <p>Programming: James Goedert</p>
-      <p>Antoine Claval</p>
-      <p>Photos: Unsplash.com</p>
+              </div>
+              <div class="col-md-7">
+              <span class="about centered p-2" id="credits">
+                <p>Site Design: Brian Carley</p>
+                <p>Programming: James Goedert, Antoine Claval</p>
+                <p>Photos: Unsplash.com</p>
               </span>
+              </div>
             </div>
         </div>
     </div>
@@ -166,6 +220,7 @@
   <script src="index.js"></script>
   <script src="recorder.js"></script>
   <script src="localRecorder.js"></script>
+  <script src="mail.js"></script>
   <script src="https://unpkg.com/oscilloscope@1.1.0/dist/oscilloscope.min.js"></script>
   <script src="location.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCecMGSQoLocamtZ7X9qzaNULqa0yZ-p4E&libraries=places&callback=initAutocomplete"
