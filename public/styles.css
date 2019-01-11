@@ -587,6 +587,9 @@ a:focus, a:hover {
       color: white;
   
     }	
+    .social-box .social-media-button p:nth-child(3){
+      margin:10px 0 10px
+    }	
 
   
 @media only screen and (max-width: 1170px) {
