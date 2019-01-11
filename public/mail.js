@@ -20,6 +20,8 @@ function sendMail(){
         xhr.onreadystatechange = function() { 
             if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
                 console.log("mail request processed");
+                alert('Thanks! You\'ll hear from us soon');
+                document.getElementById('newsletter-subscription').value = '';
             }
         };
         xhr.send('registerEmail='+subCandidate); 
