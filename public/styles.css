@@ -590,6 +590,11 @@ a:focus, a:hover {
     .social-box .social-media-button p:nth-child(3){
       margin:10px 0 10px
     }	
+    .social-box #submit-confirm {
+      padding-top: 2rem;
+      font-size: 1.55rem;
+      font-style: italic;
+    }
 
   
 @media only screen and (max-width: 1170px) {
