@@ -99,7 +99,7 @@ app.post('/upload', upload.single('audio_data'),function(req,res, next) {
 
 app.post('/subscribe',function(req,res, next) {
   console.log(req.body);
-  res.status(201);
+  res.status(200);
   sendMail(req.body.registerEmail);
   res.send('mail sent');
 });
