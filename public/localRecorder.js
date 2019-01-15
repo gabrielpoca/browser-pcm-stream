@@ -145,11 +145,35 @@ function startRecording() {
 	});
 }
 
+function createDownloadLink(blob) {
+	
+	var url = URL.createObjectURL(blob);
+	var au = document.createElement('audio');
+	var li = document.createElement('li');
+	var link = document.createElement('a');
+
+	//add controls to the <audio> element
+	au.controls = false;
+	au.id = 'audioComponent';
+	au.src = url;
+
+	//save to disk link
+	link.href = url;
+	
+	//add the new audio element to li
+	li.appendChild(au);
+
+	//add the li element to the ol
+	while( recordingsList.firstChild ){
+	  recordingsList.removeChild( recordingsList.firstChild );
+	}
+	recordingsList.appendChild(li);
+}
 
 function stopRecording() {
 	if ( ! stopButton.disabled ){
 		console.log('stopButton clicked');
-		//disable the stop button, enable the record too allow for new recordings
+		//disable the stop button, enable the record, allowing for new recordings
 		stopButton.disabled = true;
 		recordButton.disabled = false;
 		//stopButton.src = 'assets/images/round-keyboard_arrow_right-24px.svg';
@@ -157,7 +181,6 @@ function stopRecording() {
 		//micIcon.className = 'fas fa-microphone-alt fa-2x';
 		//tell the recorder to stop the recording
 		rec.stop();
-		//scope.stop();
 	
 		//stop microphone access
 		gumStream.getAudioTracks()[0].stop();
@@ -181,31 +204,8 @@ function stopRecording() {
 	}
 }
 
-function getStringOfLocation(){
-	var result = "";
-	result += document.getElementById('autocomplete').value;
-	result = result.replace(' ', '');
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(pos){
-			result += pos.coords.latitude + pos.coords.longitude ;
-		});
-    } else {
-		log.error("geolocalisation is not supported");
-	}
-	return result ;
-
-}
-
-function createDownloadLink(blob) {
-	
-	var url = URL.createObjectURL(blob);
-	var au = document.createElement('audio');
-	var li = document.createElement('li');
-	var link = document.createElement('a');
-
-	//name of .wav file 
-	var filename = new Date().toISOString();
+function computeFileName(){
+	let filename = new Date().toISOString();
 
 	let timeValue = document.getElementById('appt-time').value ;
 	if( timeValue ){
@@ -217,53 +217,42 @@ function createDownloadLink(blob) {
 	locationAsString = locationAsString.concat('#',lat , '#',lng) ; 
 
 
-	filename = filename.concat('@',locationAsString)
-
-
-	//add controls to the <audio> element
-	au.controls = false;
-	au.id = 'audioComponent';
-	au.src = url;
-
-	//save to disk link
-	link.href = url;
-	
-	link.download = filename+'.wav'; //download forces the browser to donwload the file using the  filename
-	link.innerHTML = 'Save to disk';
-
-	//add the new audio element to li
-	li.appendChild(au);
-	
-	//add the filename to the li
-	//li.appendChild(document.createTextNode(filename+'.wav '))
-
-	//add the save to disk link to li
-	//li.appendChild(link);
-
-	console.log('fileNameBeforeSending' + filename);
-	
-	var xhr=new XMLHttpRequest();
-	xhr.onload=function(e) {
-	  if(this.readyState === 4) {
-	      console.log('Server returned: ',e.target.responseText);
-	  }
-	  };
-
-	  var fd=new FormData();
-	  fd.append('filename', filename);
-	  fd.append('audio_data',blob, filename);
-	  xhr.open('POST','upload',true);
-	  xhr.send(fd);
-
-
-	//add the li element to the ol
-	while( recordingsList.firstChild ){
-	  recordingsList.removeChild( recordingsList.firstChild );
-	}
-	recordingsList.appendChild(li);
+	filename = filename.concat('@',locationAsString);
+	return filename;
 }
 
 function submitRecording(){
+
+	let audioElem = recordingsList.firstChild.firstChild;
+
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', audioElem.src, true);
+	xhr.responseType = 'blob';
+	xhr.onload = function(e) {
+	  if (this.status == 200) {
+		var myBlob = this.response;
+		
+		var xhr2=new XMLHttpRequest();
+		xhr2.onload=function(e) {
+			if(this.readyState === 4) {
+				console.log('Server returned: ',e.target.responseText);
+			}
+			};
+		
+			var fd=new FormData();
+			let fileName = computeFileName();
+			fd.append('filename', fileName);
+			fd.append('audio_data',myBlob, fileName);
+			xhr2.open('POST','upload',true);
+			xhr2.send(fd);
+	  }
+	};
+	xhr.send();
+
+
+
+
+
 	currentSlideNumber++;
 	nextItem();
 	document.getElementById("thanksPage").scrollIntoView();
