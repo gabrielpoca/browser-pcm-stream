@@ -21,6 +21,7 @@ function sendMail(){
             if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
                 console.log("mail request processed");
                 document.getElementById('submit-confirm').innerHTML = 'Thanks! You\'ll hear from us soon!';  
+                document.getElementById('submit-confirm').style.background = 'rgba(0,0,0,.5)';
                 document.getElementById('newsletter-subscription').value = '';
             }
         };

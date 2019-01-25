@@ -591,9 +591,17 @@ a:focus, a:hover {
       margin:10px 0 10px
     }	
     .social-box #submit-confirm {
-      padding-top: 2rem;
-      font-size: 1.55rem;
-      font-style: italic;
+    font-style: italic;
+    padding: 8px;
+    text-align: center;
+    margin-top: 12px;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: bold;
+    }
+
+    #tell-friends {
+      padding-top: 18px;
     }
 
   
@@ -704,6 +712,7 @@ a:focus, a:hover {
 
     .social-box .newsletter-subscrition {
       height: 50%;
+      padding-left: 12px;
 
   }
   .input-border::after{
@@ -844,6 +853,9 @@ a:focus, a:hover {
     padding-left: 10vw;
     padding-top: 37vh;
     font-size: 3vh;
+  }
+  .overlayNoBorder {
+    margin-top:-76px;
   }
   
 
