@@ -137,12 +137,7 @@ height:100%;
 .social-section {
 height: 100%
 }
-/* About section */
-.about-section {
-background:orange;
-height: 100%;
-}
-  
+ /*about section*/ 
 .about-section {
   background-color: white;
   color: black;
@@ -150,6 +145,7 @@ height: 100%;
   text-align: left;
   height: 100vh;
   width: 100%;
+  position: relative;
   }
 .info-title {
   font-size: 4em;
@@ -844,6 +840,10 @@ a:focus, a:hover {
     padding-left: 10vw;
     padding-top: 37vh;
     font-size: 3vh;
+  }
+
+  .normalTitle {
+    padding-top:0;
   }
   
 
