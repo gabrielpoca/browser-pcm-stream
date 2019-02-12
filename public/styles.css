@@ -137,12 +137,7 @@ height:100%;
 .social-section {
 height: 100%
 }
-/* About section */
-.about-section {
-background:orange;
-height: 100%;
-}
-  
+ /*about section*/ 
 .about-section {
   background-color: white;
   color: black;
@@ -150,6 +145,7 @@ height: 100%;
   text-align: left;
   height: 100vh;
   width: 100%;
+  position: relative;
   }
 .info-title {
   font-size: 4em;
@@ -587,10 +583,21 @@ a:focus, a:hover {
       color: white;
   
     }	
+    .social-box .social-media-button p:nth-child(3){
+      margin:10px 0 10px
+    }	
     .social-box #submit-confirm {
-      padding-top: 2rem;
-      font-size: 1.55rem;
-      font-style: italic;
+    font-style: italic;
+    padding: 8px;
+    text-align: center;
+    margin-top: 12px;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: bold;
+    }
+
+    #tell-friends {
+      padding-top: 18px;
     }
 
   
@@ -701,6 +708,7 @@ a:focus, a:hover {
 
     .social-box .newsletter-subscrition {
       height: 50%;
+      padding-left: 12px;
 
   }
   .input-border::after{
@@ -841,6 +849,12 @@ a:focus, a:hover {
     padding-left: 10vw;
     padding-top: 37vh;
     font-size: 3vh;
+  }
+  .overlayNoBorder {
+    margin-top:-76px;
+  }
+  .normalTitle {
+    padding-top:0;
   }
   
 
