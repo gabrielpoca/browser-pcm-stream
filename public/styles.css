@@ -400,6 +400,9 @@ padding-top: 35%;
     text-align:center;
 }
 
+.fa-dot-circle {
+  color:red;
+}
 
 .fa-dot-circle:hover {
     opacity: 0.75;  

@@ -27,7 +27,8 @@
   function updateClock ( clock ) {
     // let currentTime = '0' + new Date().toLocaleTimeString().slice(0,6) + '0';
     let currentTime = new Date().toTimeString('en-US').slice(0,5);
-    document.getElementById( "appt-time" ).value = "00:00";
+    //console.log(currentTime);
+    document.getElementById( "appt-time" ).value = currentTime;
   }
 
   setInterval(function () {
