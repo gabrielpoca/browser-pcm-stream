@@ -12,7 +12,7 @@ sudo docker run -p 3000:3000  -e SENDGRID_API_KEY="SEND-GrID-API-KEY" -e SUBSCRI
 
 
 
-## Install docker on raw ubuntu
+## Install docker on raw ubuntu ( 16.04 )
 
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
