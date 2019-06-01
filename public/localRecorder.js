@@ -213,6 +213,9 @@ function computeFileName(){
 	}
 
 	// read location here. 
+	if (!document.getElementById('autocomplete').value) {
+		return 'noLocation'
+	}
 	let locationAsString =  document.getElementById('autocomplete').value.replace(/,/g, '-').replace(/ /g, '');
 	locationAsString = locationAsString.concat('#',lat , '#',lng) ; 
 
@@ -222,6 +225,10 @@ function computeFileName(){
 }
 
 function submitRecording(){
+	if(computeFileName() === 'noLocation'){
+		alert('It looks like we didn\'t get your city, please enter it before submitting.');
+		return;
+	} 
 
 	let audioElem = recordingsList.firstChild.firstChild;
 
