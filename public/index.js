@@ -10,7 +10,7 @@
   const aboutText = [
     {value:1, title: '<p>About</p><p>the</p><p>Project</p>', display: `<p>Global Good Mornings is a project by Craig Damrauer. You can look at more of my work at <a href="https://assortedbitsofwisdom.com/">Assorted Bits of Wisdom</a>.</p>
       <p>This project is an outgrowth of something I’ve been pondering for a while. I’m interested in whether I can make something that helps a viewer viscerally intuit the turning of the earth.</p>
-      <p>I think a really interesting way to do this is to through people. At every moment on earth someone is waking up and headed into the day ahead. If there’s a way to capture these voices there might be a way to allow us to feel the day’s progress as the earth turns.</p>
+      <p>I think a really interesting way to do this is through people. At every moment on earth someone is waking up and headed into the day ahead. If there’s a way to capture these voices there might be a way to allow us to feel the day’s progress as the earth turns.</p>
       <p>It’s going to need multiple sets of voices from every timezone in the world. I’d love it to represent the young, the old and everybody in between. I’d love it to represent different languages, different points of view, different modes of waking up.</p>
       <p>Drop a line, if you want to talk about this, have ideas or just want to be kept up to date with the progress.</p>
       GlobalGoodMorning @ gmail.com`},
